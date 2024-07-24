@@ -1,0 +1,30 @@
+[Added Associations]
+text/plain=org.xfce.mousepad.desktop;
+image/png=imv-dir.desktop;
+image/openraster=imv-dir.desktop;imv.desktop;
+image/jpeg=imv-dir.desktop;
+application/zip=userapp-unzip -SASOQ2.desktop;userapp-unar-XUOHQ2.desktop;
+application/octet-stream=featherpad.desktop;userapp-hx-BHE7P2.desktop;
+application/x-xz-compressed-tar=userapp-unar-XUOHQ2.desktop;
+text/x-c++src=org.xfce.mousepad.desktop;featherpad.desktop;Alacritty.desktop;userapp-hx-BHE7P2.desktop;
+text/x-makefile=Helix.desktop;featherpad.desktop;
+text/x-csrc=org.xfce.mousepad.desktop;featherpad.desktop;
+text/x-chdr=org.xfce.mousepad.desktop;
+audio/x-mod=featherpad.desktop;
+application/vnd.sqlite3=org.xfce.mousepad.desktop;featherpad.desktop;
+application/x-compressed-tar=userapp-unar-XUOHQ2.desktop;
+image/vnd.microsoft.icon=balena-etcher.desktop;
+application/x-object=org.xfce.mousepad.desktop;
+
+[Default Applications]
+inode/directory=thunar.desktop
+image/openraster=imv.desktop
+application/zip=userapp-unar-XUOHQ2.desktop
+application/octet-stream=featherpad.desktop
+application/x-xz-compressed-tar=userapp-unar-XUOHQ2.desktop
+text/x-makefile=featherpad.desktop
+audio/x-mod=featherpad.desktop
+application/vnd.sqlite3=featherpad.desktop
+application/x-compressed-tar=userapp-unar-XUOHQ2.desktop
+image/vnd.microsoft.icon=balena-etcher.desktop
+application/x-object=org.xfce.mousepad.desktop
