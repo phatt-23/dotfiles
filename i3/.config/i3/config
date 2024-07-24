@@ -1,0 +1,274 @@
+exec_always setxkbmap -layout cz
+
+set $mod Mod4
+
+# i3 gaps
+gaps inner 0
+gaps outer 0
+
+# set $font_family CommitMono Nerd Font Propo
+# set $font_family CaskaydiaCove Nerd Font Propo 
+set $font_family UbuntuSansMono Nerd Font Propo
+set $font_size 10
+set $font_size_rofi 12
+font pango:$font_family $font_size
+
+exec --no-startup-id dex-autostart --autostart --environment i3
+exec --no-startup-id nm-applet
+exec --no-startup-id fc-cache -fv
+
+set $statuscmd i3status
+set $statussig SIGUSR1
+
+# Amount to increase/decrease volume as a percentage
+set $volumepath ~/.config/i3/volume
+set $volumestep 5
+bindsym XF86AudioRaiseVolume exec --no-startup-id $volumepath/volume -an -t $statuscmd -u $statussig up   $volumestep
+bindsym XF86AudioLowerVolume exec --no-startup-id $volumepath/volume -an -t $statuscmd -u $statussig down $volumestep
+bindsym XF86AudioMute        exec --no-startup-id $volumepath/volume -an -t $statuscmd -u $statussig mute
+
+floating_modifier $mod
+
+tiling_drag modifier titlebar
+
+# start a terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec wezterm
+# dropdown terminal
+bindsym $mod+Shift+p exec /usr/local/bin/tdrop -ma -x 192 -w 1536 -h 800 -s dropdown alacritty 
+
+# start browser
+bindsym $mod+Shift+b exec firefox
+
+# start filebrowser
+bindsym $mod+Shift+y exec thunar
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+c       exec --no-startup-id "dmenu_run -fn '$font_family' -p 'dmenu'"
+bindsym $mod+d       exec "rofi -i -show drun   -show-icons -font '$font_family $font_size_rofi'"
+bindsym $mod+shift+d exec "rofi -i -show window -show-icons -font '$font_family $font_size_rofi'"
+
+# change focus 
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
+bindsym $mod+Shift+Right move right
+
+# toggle between vertical and horizontal
+bindsym $mod+n split v
+bindsym $mod+m split h
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+set $ws1  "1" 
+set $ws2  "2" 
+set $ws3  "3" 
+set $ws4  "4" 
+set $ws5  "5" 
+set $ws6  "6" 
+set $ws7  "7" 
+set $ws8  "8" 
+set $ws9  "9" 
+set $ws10 "10" 
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        bindsym h resize shrink width  10 px or 10 ppt
+        bindsym j resize grow   height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow   width  10 px or 10 ppt
+
+        bindsym Left  resize shrink width  10 px or 10 ppt
+        bindsym Down  resize grow   height 10 px or 10 ppt
+        bindsym Up    resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow   width  10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize" ; exec i3-msg "client.focused #red #red #olor #color #color"
+bindsym $mod+u mode "resize" ; resize shrink width  10 px or 10 ppt ; mode "default"
+bindsym $mod+i mode "resize" ; resize grow   height 10 px or 10 ppt ; mode "default"
+bindsym $mod+o mode "resize" ; resize shrink height 10 px or 10 ppt ; mode "default"
+bindsym $mod+p mode "resize" ; resize grow   width  10 px or 10 ppt ; mode "default"
+
+hide_edge_borders smart_no_gaps
+# smart_borders no_gaps
+# default_border pixel 2
+# default_floating_border pixel 1
+
+# class                  border    bground   text      indicator child_border
+client.focused           #454b68   #353a50   #d2d4de   #285577   #454b68
+client.focused_inactive  #333333   #222222   #888888   #292D2E   #222222
+client.unfocused         #262939   #161821   #d2d4de   #292D2E   #262939
+client.urgent            #2F343A   #900000   #FFFFFF   #900000   #900000
+client.placeholder       #000000   #0C0C0C   #FFFFFF   #000000   #0C0C0C
+client.background        #FFFFFF
+
+# bar {
+#     position bottom
+#     # status_command i3status -c ~/.config/i3/bar/i3status.conf
+#     # status_command i3status 
+#     # status_command i3blocks -c ~/.config/i3/bar/i3blocks.conf
+#     # status_command ~/.config/i3/bar/bumblebee_bar_config.sh 
+#     # status_command polybar
+
+#     hidden_state hide
+#     modifier none
+#     mode hide
+#     colors {
+#         background         #161821
+#         statusline         #d2d4de
+#         separator          #161821
+#         focused_workspace  #262939 #454b68 #d2d4de
+#         active_workspace   #333333 #222222 #d2d4de
+#         inactive_workspace #161821 #161821 #d2d4de
+#         urgent_workspace   #262939 #900000 #d2d4de
+#         binding_mode       #262939 #900000 #d2d4de
+#     }
+# }
+# bindsym $mod+v bar mode toggle
+
+# path to the bash scripts
+set $scripts_path /home/phatt/.config/i3/scripts/
+
+# lock the screen
+bindsym $mod+shift+x exec ~/.config/i3/scripts/i3_lock_blur.sh
+
+# touchpad controls
+bindsym XF86TouchpadToggle exec $scripts_path/toggletouchpad.sh # toggle touchpad
+
+# media player controls
+bindsym XF86AudioPlay  exec $scripts_path/toggleplaypause.sh 
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext  exec playerctl next
+bindsym XF86AudioPrev  exec playerctl previous
+
+# rofi selecting menu 
+bindsym $mod+shift+m exec $scripts_path/rofi_monitor_profiles.sh
+bindsym $mod+shift+n exec $scripts_path/rofi_audio_outs.sh
+
+# sreen brightness controls
+set $volume_step 5
+bindsym XF86MonBrightnessUp   exec brightnessctl set +$volume_step% # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set $volume_step%- # decrease screen brightness
+# set the default so it doesnt blow my ears off
+exec brightnessctl set 30%
+
+# scratchpad
+# make the currently focused window a scratchpad
+# show the first scratchpad window
+bindsym $mod+Shift+S move scratchpad 
+bindsym $mod+S       scratchpad show 
+
+# TODO: does nothing
+bindsym Print exec       gnome-screenshot -i
+bindsym Shift+Print exec gnome-screenshot -a
+exec xset s off && xset -dpms
+
+# assignment of windows to workspaces
+assign [class="Spotify"] $ws10
+assign [class="ArmCord"] $ws9
+assign [class="vesktop"] $ws9 
+assign [class="Psst"] $ws10
+
+for_window [all] title_window_icon padding 6px
+for_window [class="Thunar"] floating enable
+for_window [class="calculator"] floating enable, resize set 400 600
+for_window [class="easyeffects"] floating enable, resize set 800 600
+for_window [class="(?i).*Mousepad.*"] floating enable, resize set 800 600
+for_window [class="Blueman-manager"] floating enable, resize set 800 600
+for_window [class="(?i).*xsensors.*"] floating enable, resize set 400 400
+for_window [class="(?i).*ksnip.*"] floating enable
+for_window [class="(?i).*Friends List.*"] floating enable
+
+# TODO: just for debugging a project
+for_window [class="GLFW OpenGL Window"] floating enable
+
+# exec always go here
+set $tp "ELAN0001:00 04F3:3140 Touchpad"
+exec_always xinput set-prop $tp "libinput Natural Scrolling Enabled" 1
+exec_always xinput set-prop $tp "libinput Tapping Enabled" 1
+exec_always xinput set-prop $tp "libinput Middle Emulation Enabled" 1
+
+exec_always gsettings set org.gnome.settings-daemon.plugins.power idle-dim                       false
+exec_always gsettings set org.gnome.desktop.screensaver           idle-activation-enabled        true
+exec_always gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout      100000000000
+exec_always gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 1000000000
+
+exec_always --no-startup-id picom -bc --vsync
+
+# set $wallpaper_path ~/Pictures/Wallpapers/space/nasa-unsplash.jpg
+# exec_always feh [--no-startup-id] --no-fehbg --bg-max $wallpaper_path
+
+exec playerctl --player=vlc, spotify next
+
+# polybar
+exec_always --no-startup-id /home/phatt/.config/polybar/launch.sh

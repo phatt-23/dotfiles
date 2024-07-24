@@ -1,0 +1,80 @@
+# theme = "base16_transparent"
+# theme = "term16_dark"
+theme = "gruber-darker"
+# theme = "gruber_transparent"
+# theme = "poimandres_storm"
+
+[editor]
+line-number = "relative"
+bufferline = "multiple"
+# cursorline = true
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control"]
+center = ["read-only-indicator", "file-name"]
+right = ["diagnostics", "selections", "position", "total-line-numbers", "position-percentage", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+character = "|"
+
+[editor.whitespace.render]
+render = true
+space = "all"
+tab = "all"
+tabpad = "all"
+newline = "all"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+display-messages = true
+# display-inlay-hints = true # want in other mode than insert
+
+# insert movements
+[keys.insert]
+C-j = "move_line_down"
+C-k = "move_line_up"
+C-h = "move_char_left"
+C-l = "move_char_right"
+
+# insert movements+
+C-A-j = "extend_line_below"
+C-A-k = "extend_line_above"
+C-A-h = ["select_mode","move_prev_word_start","insert_mode"]
+C-A-l = ["select_mode","move_next_word_start","append_mode"]
+
+# insert functions
+C-S-ret = "open_above"
+C-ret = "open_below"
+
+[keys.normal]
+A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
+A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+C-S-ret = ["open_above", "normal_mode"]
+C-ret = ["open_below", "normal_mode"]
+y = ["yank_to_clipboard","yank"]
+C-j = ["scroll_down"]
+C-k = ["scroll_up"]
+
+[keys.select]
+y = ["yank_to_clipboard","yank"]
+
+# buffer switch
+[keys.normal."ě"]
+j = ":bp"
+k = ":bn"

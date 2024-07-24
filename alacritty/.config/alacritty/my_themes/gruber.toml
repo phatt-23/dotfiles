@@ -1,0 +1,36 @@
+# Colors (Gruber)
+
+# Default colors
+[colors.primary]
+background = '#181818'
+foreground = '#f5f5f5'
+
+[colors.cursor]
+text = '#f5f5f5'
+cursor = '#ffffff'
+
+# Normal colors
+[colors.normal]
+black   = '#000000'
+red     = '#fb4934'
+green   = '#73c936'
+yellow  = '#ffdd33'
+blue    = '#5292c8'
+magenta = '#cc00ff'
+cyan    = '#9e95c7'
+white   = '#f5f5f5'
+
+# Bright colors
+[colors.bright]
+black   = '#52494e'
+red     = '#ff4f58'
+green   = '#33ff00'
+yellow  = '#feff00'
+blue    = '#96a6c8'
+magenta = '#cc00ff'
+cyan    = '#9e95c7'
+white   = '#FFFFFF'
+
+
+
+
