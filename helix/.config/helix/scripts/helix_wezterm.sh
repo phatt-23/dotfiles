@@ -2,25 +2,25 @@
 
 set -x
 
-pattern="(?:NORMAL|NOR|INSERT|INS|SELECT|SEL)\s+[\x{2800}-\x{28FF}]*\s+(\S*)\s[^│]*.*"
-status_line=$(wezterm cli get-text | rg -e "$pattern" -o --replace '$1 $2')
-
-filename=$(echo $status_line | awk '{ print $1}')
-line_number=$(echo $status_line | awk '{ print $2}')
-
 split_pane_down() {
     bottom_pane_id=$(wezterm cli get-pane-direction down)
     if [ -z "${bottom_pane_id}" ]; then
         bottom_pane_id=$(wezterm cli split-pane)
+        wezterm cli adjust-pane-size down --pane-id $bottom_pane_id --amount "$1"
     fi
     wezterm cli activate-pane-direction --pane-id $bottom_pane_id down
-    wezterm cli adjust-pane-size down --pane-id $bottom_pane_id --amount "$1"
     send_to_bottom_pane="wezterm cli send-text --pane-id $bottom_pane_id --no-paste"
     program=$(wezterm cli list | awk -v pane_id="$bottom_pane_id" '$3==pane_id { print $6 }')
     if [ "$program" = "lazygit" ]; then
         echo "q" | $send_to_bottom_pane
     fi
 }
+
+pattern="(?:NORMAL|NOR|INSERT|INS|SELECT|SEL)\s+[\x{2800}-\x{28FF}]*\s+(\S*)\s[^│]*.*"
+status_line=$(wezterm cli get-text | rg -e "$pattern" -o --replace '$1 $2')
+
+filename=$(echo $status_line | awk '{ print $1}')
+line_number=$(echo $status_line | awk '{ print $2}')
 
 pwd=$PWD
 basedir=$(dirname "$filename")
@@ -31,38 +31,38 @@ extension="${filename##*.}"
 case "$1" in
     "build")
         split_pane_down 5
-        command="printf '[BUILD] File extension \'$extension\' for building not suppoted!\n[BUILD] Note: Please address this issue in the configuration file.'"
+        command="printf '[BUILD] File extension \'$extension\' for building not suppoted!\n[BUILD] Note: Please address this issue in the configuration file.\n'; return 1;"
         case "$extension" in
             "rs")
-                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); cargo build; if [ \$status = 0 ]; wezterm cli activate-pane-direction up; end;"
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); cargo build; return \$status;"
             ;;
             "c")
-                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make build; if [ \$status = 0 ]; wezterm cli activate-pane-direction up; end;"
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make build; return \$status;"
             ;;
             "cpp")
-                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make build; if [ \$status = 0 ]; wezterm cli activate-pane-direction up; end;"
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make build; return \$status;"
             ;;
             "h")
-                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make build; if [ \$status = 0 ]; wezterm cli activate-pane-direction up; end;"
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make build; return \$status;"
             ;;
         esac
         echo "$command" | $send_to_bottom_pane
     ;;
     "run")
         split_pane_down 5
-        command="printf '[RUN] File extension \'$extension\' for running not suppoted!\n[RUN] Note: Please address this issue in the configuration file.'"
+        command="printf '[RUN] File extension \'$extension\' for running not suppoted!\n[RUN] Note: Please address this issue in the configuration file.\n'; return 1;"
         case "$extension" in
             "rs")
-                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); cargo run; if [ \$status = 0 ]; wezterm cli activate-pane-direction up; end;"
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); cargo run; return \$status;"
             ;;
             "c")
-                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make run; if [ \$status = 0 ]; wezterm cli activate-pane-direction up; end;"
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make run; return \$status;"
             ;;
             "cpp")
-                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make run; if [ \$status = 0 ]; wezterm cli activate-pane-direction up; end;"
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make run; return \$status;"
             ;;
             "h")
-                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make run; if [ \$status = 0 ]; wezterm cli activate-pane-direction up; end;"
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make run; return \$status;"
             ;;
         esac
         echo "$command" | $send_to_bottom_pane
