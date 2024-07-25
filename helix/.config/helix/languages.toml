@@ -181,3 +181,11 @@ ltex.dictionary = { "en-US" = ["builtin"], "en-GB" = ["builtin"] }
 [[language]]
 name = "pascal"
 file-types = ["p", "pas"]
+
+
+[language-server]
+bash-language-server = { command = "bash-language-server", args = ["start"] }
+
+# [[language]]
+# name = "bash"
+# language-servers = [ "bash-language-server" ]

@@ -11,13 +11,21 @@ bufferline = "multiple"
 color-modes = true
 
 [editor.statusline]
-left = ["mode", "spinner", "version-control"]
-center = ["read-only-indicator", "file-name"]
-right = ["diagnostics", "selections", "position", "total-line-numbers", "position-percentage", "file-type"]
+left = ["mode", "spinner", "file-name", "separator", "version-control"]
+center = ["read-only-indicator"]
+right = ["diagnostics", "separator", "position", "total-line-numbers", "position-percentage", "separator", "file-type"]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
+
+[keys.normal.space.","]
+e = ":sh ~/.config/helix/scripts/helix_wezterm.sh explorer"
+f = ":sh ~/.config/helix/scripts/helix_wezterm.sh fzf"
+g = ":sh ~/.config/helix/scripts/helix_wezterm.sh lazygit"
+b = ":sh ~/.config/helix/scripts/helix_wezterm.sh build"
+r = ":sh ~/.config/helix/scripts/helix_wezterm.sh run"
+o = ":sh ~/.config/helix/scripts/helix_wezterm.sh open"
 
 [editor.file-picker]
 hidden = false
@@ -65,8 +73,10 @@ C-ret = "open_below"
 [keys.normal]
 A-j = ["extend_to_line_bounds", "delete_selection", "paste_after"]
 A-k = ["extend_to_line_bounds", "delete_selection", "move_line_up", "paste_before"]
+# should use left and right square bracket + space
 C-S-ret = ["open_above", "normal_mode"]
 C-ret = ["open_below", "normal_mode"]
+# should use space and yank
 y = ["yank_to_clipboard","yank"]
 C-j = ["scroll_down"]
 C-k = ["scroll_up"]

@@ -1,6 +1,8 @@
 local wezterm = require 'wezterm'
+local hx = require 'open_helix'
 
 local config = wezterm.config_builder()
+local act = wezterm.action
 
 --  Font and theme
 config.font = wezterm.font 'UbuntuSansMono Nerd Font'
@@ -44,72 +46,115 @@ config.window_padding = {
     bottom = 0,
 }
 
-wezterm.on('update-right-status', function(window, _)
-    local name = window:active_key_table()
-        if name then
-            name = 'Table: ' .. name
-        end
-    window:set_right_status(name or '')
-end)
 
 -- Leader modifier is active when Shift and Space keys are pressed
 config.leader = { key = 'Space', mods = 'SHIFT' }
 
 -- In Leader mode you can choose these
 config.keys = {
-    -- Pressing 'R' will put you into Resize Pane mode
+    -- Activate pane selection mode with the default alphabet
+    {
+        key = 's',
+        mods = 'LEADER',
+        action = act.PaneSelect
+    },
+    -- Show the pane selection mode, but have it swap the active and selected panes
+    {
+        key = 'p',
+        mods = 'LEADER',
+        action = act.PaneSelect {
+            mode = 'SwapWithActive',
+        },
+    },
+    -- Resize Pane mode
     {
         key = 'r',
         mods = 'LEADER',
-        action = wezterm.action.ActivateKeyTable {
+        action = act.ActivateKeyTable {
             name = 'resize_pane',
             one_shot = false,
         },
     },
-    -- Pressing 'A' will put you into Activate Pane mode
+    -- Activate Pane
+    { key = 'h', mods = 'LEADER', action = act.ActivatePaneDirection 'Left' },
+    { key = 'l', mods = 'LEADER', action = act.ActivatePaneDirection 'Right' },
+    { key = 'k', mods = 'LEADER', action = act.ActivatePaneDirection 'Up' },
+    { key = 'j', mods = 'LEADER', action = act.ActivatePaneDirection 'Down' },
+    { key = 'q', mods = 'LEADER', action = act.CloseCurrentPane { confirm = true } },
+    -- Toggle Vertical Split
     {
-        key = 'a',
+        key = 'm',
         mods = 'LEADER',
-        action = wezterm.action.ActivateKeyTable {
-            name = 'activate_pane',
-            timeout_milliseconds = 1000, -- be quick
-        },
+        action = wezterm.action_callback(function(_, pane)
+            local tab = pane:tab()
+            local panes = tab:panes_with_info()
+            if #panes == 1 then
+                pane:split({
+                    direction = "Right",
+                    size = 0.4,
+                })
+            elseif not panes[1].is_zoomed then
+                panes[1].pane:activate()
+                tab:set_zoomed(true)
+            elseif panes[1].is_zoomed then
+                tab:set_zoomed(false)
+                panes[2].pane:activate()
+            end
+        end),
     },
+    {
+        key = 'n',
+        mods = 'LEADER',
+        action = wezterm.action_callback(function(_, pane)
+            local tab = pane:tab()
+            local panes = tab:panes_with_info()
+            if #panes == 1 then
+                pane:split({
+                    direction = "Bottom",
+                    size = 0.4,
+                })
+            elseif not panes[1].is_zoomed then
+                panes[1].pane:activate()
+                tab:set_zoomed(true)
+            elseif panes[1].is_zoomed then
+                tab:set_zoomed(false)
+                panes[2].pane:activate()
+            end
+        end),
+    },
+    {
+        key = 'g',
+        mods = 'LEADER',
+        action = act.QuickSelectArgs {
+            label = 'open url',
+            patterns = { '[^ ]+\\.rs:\\d+:\\d+' },
+            action = wezterm.action_callback(function(window, pane)
+                local url = window:get_selection_text_for_pane(pane)
+                hx.open(window, pane, url)
+            end),
+        },
+    }
 }
 
 -- Keybinds
 config.key_tables = {
     -- In Resize Pane mode these are available
     resize_pane = {
-        { key = 'LeftArrow',  action = wezterm.action.AdjustPaneSize { 'Left', 1 } },
-        { key = 'h',          action = wezterm.action.AdjustPaneSize { 'Left', 1 } },
-        { key = 'RightArrow', action = wezterm.action.AdjustPaneSize { 'Right', 1 } },
-        { key = 'l',          action = wezterm.action.AdjustPaneSize { 'Right', 1 } },
-        { key = 'UpArrow',    action = wezterm.action.AdjustPaneSize { 'Up', 1 } },
-        { key = 'k',          action = wezterm.action.AdjustPaneSize { 'Up', 1 } },
-        { key = 'DownArrow',  action = wezterm.action.AdjustPaneSize { 'Down', 1 } },
-        { key = 'j',          action = wezterm.action.AdjustPaneSize { 'Down', 1 } },
+        { key = 'h',          action = act.AdjustPaneSize { 'Left', 1 } },
+        { key = 'l',          action = act.AdjustPaneSize { 'Right', 1 } },
+        { key = 'k',          action = act.AdjustPaneSize { 'Up', 1 } },
+        { key = 'j',          action = act.AdjustPaneSize { 'Down', 1 } },
         { key = 'Escape',     action = 'PopKeyTable' },
     },
-    -- In Activate Pane mode these are available
-    activate_pane = {
-        { key = 'LeftArrow',  action = wezterm.action.ActivatePaneDirection 'Left' },
-        { key = 'h',          action = wezterm.action.ActivatePaneDirection 'Left' },
-        { key = 'RightArrow', action = wezterm.action.ActivatePaneDirection 'Right' },
-        { key = 'l',          action = wezterm.action.ActivatePaneDirection 'Right' },
-        { key = 'UpArrow',    action = wezterm.action.ActivatePaneDirection 'Up' },
-        { key = 'k',          action = wezterm.action.ActivatePaneDirection 'Up' },
-        { key = 'DownArrow',  action = wezterm.action.ActivatePaneDirection 'Down' },
-        { key = 'j',          action = wezterm.action.ActivatePaneDirection 'Down' },
-        { key = 'q',          action = wezterm.action.CloseCurrentPane { confirm = true } },
-    },
+
 }
 
 config.hyperlink_rules = wezterm.default_hyperlink_rules()
 
 -- Regex for file:line:column links
+-- Rust, C, C++, Header
 table.insert(config.hyperlink_rules, {
-    regex = [[[^ ]+\.*:\d+:\d+]],
+    regex = [[[^ ]+\.(rs|c|cpp|h):\d+:\d+]],
     format = '$0',
 })
 
@@ -118,31 +163,30 @@ wezterm.on('open-uri', function(window, pane, uri)
     -- Check if the link is an HTTPS link
     if uri:sub(1, 8) == 'https://' then
         window:perform_action(
-            wezterm.action.SpawnCommandInNewWindow { args = { 'firefox', uri } },
+            act.SpawnCommandInNewWindow { args = { 'firefox', uri } },
             pane
         )
     -- Custom action for file:line:col links
-    elseif uri:match("^[^ ]+%.*:%d+:%d+$") then
-        local direction = 'Up'
-        local hx_pane = pane:tab():get_pane_direction(direction)
-        if hx_pane == nil then
-            local action = wezterm.action {
-                SplitPane = {
-                    direction = 'Up',
-                    command = { args = { 'hx', uri } }
-                }
-            }
-            window:perform_action(action, pane)
-        else
-            local action = wezterm.action.SendString(':open ' .. uri .. '\r\n')
-            window:perform_action(action, hx_pane)
-        end
+    elseif uri:match("[^ ]+%.[^ ]+:%d+:%d+") then
+        hx.open(window, pane, uri)
     -- Otherwise can't resolve
     else
         return false
     end
 end)
 
+wezterm.on('update-right-status', function(window, pane)
+    local name = ''
+    if window:leader_is_active() then
+        name = [[ [LEADER]: hjkl mn r q ]]
+    else
+        local akt = window:active_key_table()
+        if akt then
+            name = '[active_key_table]: ' .. akt
+        end
+    end
+    window:set_right_status(name)
+end)
 
 -- Must return
 return config
