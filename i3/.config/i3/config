@@ -8,7 +8,7 @@ gaps outer 0
 
 # set $font_family CommitMono Nerd Font Propo
 # set $font_family CaskaydiaCove Nerd Font Propo 
-set $font_family UbuntuSansMono Nerd Font Propo
+set $font_family Iosevka
 set $font_size 10
 set $font_size_rofi 12
 font pango:$font_family $font_size
@@ -217,10 +217,12 @@ bindsym $mod+shift+n exec $scripts_path/rofi_audio_outs.sh
 
 # sreen brightness controls
 set $volume_step 5
-bindsym XF86MonBrightnessUp   exec brightnessctl set +$volume_step% # increase screen brightness
-bindsym XF86MonBrightnessDown exec brightnessctl set $volume_step%- # decrease screen brightness
+# bindsym XF86MonBrightnessUp   exec brightnessctl set +$volume_step% # increase screen brightness
+# bindsym XF86MonBrightnessDown exec brightnessctl set $volume_step%- # decrease screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl --min-val=2 -q set 3%-
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -q set 3%+
 # set the default so it doesnt blow my ears off
-exec brightnessctl set 30%
+# exec brightnessctl set 30%
 
 # scratchpad
 # make the currently focused window a scratchpad

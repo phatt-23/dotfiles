@@ -45,6 +45,9 @@ case "$1" in
             "h")
                 command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make build; return \$status;"
             ;;
+            "asm")
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make asm; return \$status;"
+            ;;
         esac
         echo "$command" | $send_to_bottom_pane
     ;;
@@ -63,6 +66,9 @@ case "$1" in
             ;;
             "h")
                 command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make run; return \$status;"
+            ;;
+            "asm")
+                command="cd $pwd/$(echo $filename | sed 's|src/.*$||'); make asmr; return \$status;"
             ;;
         esac
         echo "$command" | $send_to_bottom_pane

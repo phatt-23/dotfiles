@@ -9,11 +9,26 @@ line-number = "relative"
 bufferline = "multiple"
 # cursorline = true
 color-modes = true
+# cursorline = true
+# cursorcolumn = true
+true-color = true
+shell = ["fish", "-c"]
+popup-border = "all"
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name", "separator", "version-control"]
-center = ["read-only-indicator"]
-right = ["diagnostics", "separator", "position", "total-line-numbers", "position-percentage", "separator", "file-type"]
+left = ["mode", "spinner"]
+center = ["file-name", "separator", "spacer", "version-control", "read-only-indicator"]
+right = [
+  "diagnostics", 
+  "file-encoding",
+  "separator", 
+  "position", 
+  "total-line-numbers", 
+  "position-percentage", 
+  "spacer", 
+  "separator", 
+  "file-type"
+]
 separator = "│"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
@@ -28,7 +43,7 @@ r = ":sh ~/.config/helix/scripts/helix_wezterm.sh run"
 o = ":sh ~/.config/helix/scripts/helix_wezterm.sh open"
 
 [editor.file-picker]
-hidden = false
+hidden = true
 
 [editor.indent-guides]
 render = true
@@ -45,9 +60,9 @@ newline = "all"
 enable = true
 
 [editor.cursor-shape]
-insert = "bar"
-normal = "block"
-select = "underline"
+# insert = "bar"
+# normal = "block"
+# select = "underline"
 
 [editor.lsp]
 display-messages = true

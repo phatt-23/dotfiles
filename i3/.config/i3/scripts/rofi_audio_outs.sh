@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-font="UbuntuSansMono Nerd Font 12"
+font="Iosevka Nerd Font 12"
 if [ -n "$1" ]; then
     all_sources=$(pactl list short sources | cut -f 2)
     default_source=$(pactl get-default-source)

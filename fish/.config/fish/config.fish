@@ -16,7 +16,6 @@ if status is-interactive
     end
 
     alias ls lsd
-
     abbr -a down cd ~/Downloads
     abbr -a prog cd ~/Programming
     abbr -a docs cd ~/Documents
@@ -26,6 +25,8 @@ if status is-interactive
 
     set -gx EDITOR hx
     set -gx VISUAL hx
+
+    set -Ux LD_LIBRARY_PATH /bin/emacs
 
     fish_add_path ~/.local/bin
 end
