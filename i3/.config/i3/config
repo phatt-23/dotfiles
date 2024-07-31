@@ -8,9 +8,11 @@ gaps outer 0
 
 # set $font_family CommitMono Nerd Font Propo
 # set $font_family CaskaydiaCove Nerd Font Propo 
-set $font_family Iosevka
+# set $font_family Iosevka
+set $font_family FiraCode Retina
+# set $font_size 10
 set $font_size 10
-set $font_size_rofi 12
+set $font_size_rofi 16
 font pango:$font_family $font_size
 
 exec --no-startup-id dex-autostart --autostart --environment i3
@@ -262,7 +264,7 @@ exec_always xinput set-prop $tp "libinput Middle Emulation Enabled" 1
 
 exec_always gsettings set org.gnome.settings-daemon.plugins.power idle-dim                       false
 exec_always gsettings set org.gnome.desktop.screensaver           idle-activation-enabled        true
-exec_always gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout      100000000000
+exec_always gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-timeout      1000000000
 exec_always gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-timeout 1000000000
 
 exec_always --no-startup-id picom -bc --vsync
@@ -274,3 +276,7 @@ exec playerctl --player=vlc, spotify next
 
 # polybar
 exec_always --no-startup-id /home/phatt/.config/polybar/launch.sh
+
+# fast keypress repreating
+# default        660 25
+exec xset r rate 200 25

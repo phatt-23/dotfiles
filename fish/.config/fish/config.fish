@@ -22,7 +22,6 @@ if status is-interactive
     abbr -a temp cd ~/Templates
     abbr -a pics cd ~/Pictures
     abbr -a sch cd ~/School
-
     set -gx EDITOR hx
     set -gx VISUAL hx
 

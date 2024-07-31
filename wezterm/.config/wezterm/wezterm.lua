@@ -10,13 +10,15 @@ config.show_new_tab_button_in_tab_bar = false
 config.harfbuzz_features = { 'calt=0' }
 
 -- Font and theme
--- config.font = wezterm.font 'Iosevka Nerd Font'
-config.font = wezterm.font 'Iosevka Nerd Font'
+config.font = wezterm.font 'FiraCode Retina'
+-- config.font = wezterm.font 'Iosevka Nerd Font Propo'
+config.font_size = 12.0
 config.color_scheme = 'Gruber (base16)'
+-- config.color_scheme = 'Tangoesque (terminal.sexy)'
 
 config.window_frame = {
     font = wezterm.font { family = 'UbuntuSansMono Nerd Font' },
-    font_size = 10.0,
+    font_size = 14.0,
     active_titlebar_bg = '#282828',
     inactive_titlebar_bg = '#282828',
 }

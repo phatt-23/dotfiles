@@ -1,2 +1,4 @@
 helix/.config/helix/runtime
 alacritty/.config/alacritty/themes
+emacs/.emacs.d/*
+!/emacs/.emacs.d/init.el
