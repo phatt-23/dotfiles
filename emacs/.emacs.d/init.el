@@ -8,8 +8,8 @@
 (set-fringe-mode 10)
 (menu-bar-mode -1)
 
-;;visible bell
-(setq visible-bell t)
+;;visible bell (disable)
+(setq visible-bell nil)
 
 ;;font
 (set-face-attribute 'default nil :font "Fira Code Retina" :height 110)
@@ -20,6 +20,8 @@
 ;;keybinds
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
+
+
 ;;line and column numbers
 (column-number-mode)
 (global-display-line-numbers-mode 1)
@@ -27,6 +29,7 @@
 (dolist (mode '(org-mode-hook
 		term-mode-hook
 		shell-mode-hook
+		vterm-mode-hook
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
@@ -46,6 +49,8 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
+
+(use-package all-the-icons)
 
 (use-package ivy
   :diminish
@@ -84,7 +89,7 @@
 
 (use-package helpful
   :custom
-  (counsel-describe-function-function #'helpful-callable)
+ (counsel-describe-function-function #'helpful-callable)
   (counsel-describe-variable-function #'helpful-variable)
   :bind
   ([remap describe-function] . counsel-describe-function)
@@ -92,8 +97,35 @@
   ([remap describe-variable] . counsel-describe-variable)
   ([remap describe-key] . helpful-key))
 
+(use-package evil)
+
+(use-package general)
+(general-define-key
+ "C-x b" 'counsel-switch-buffer
+ "C-v" 'evil-scroll-down
+ "M-v" 'evil-scroll-up)
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/Programming")
+    (setq projectile-project-search-path '("~/Programming")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+
+(use-package magit
+  :custom (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
 ;;lsp
 (use-package rustic)
+(use-package lua-mode)
+
+
 
 ;;; init.el ends here
 
