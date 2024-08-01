@@ -10,18 +10,19 @@ config.show_new_tab_button_in_tab_bar = false
 config.harfbuzz_features = { 'calt=0' }
 
 -- Font and theme
-config.font = wezterm.font 'FiraCode Retina'
 -- config.font = wezterm.font 'Iosevka Nerd Font Propo'
+config.font = wezterm.font 'FiraCode Retina'
 config.font_size = 12.0
-config.color_scheme = 'Gruber (base16)'
+-- config.color_scheme = 'Gruber (base16)'
 -- config.color_scheme = 'Tangoesque (terminal.sexy)'
+config.color_scheme = 'Catppuccin Mocha (Gogh)'
 
-config.window_frame = {
-    font = wezterm.font { family = 'UbuntuSansMono Nerd Font' },
-    font_size = 14.0,
-    active_titlebar_bg = '#282828',
-    inactive_titlebar_bg = '#282828',
-}
+-- config.window_frame = {
+--     font = wezterm.font { family = 'UbuntuSansMono Nerd Font' },
+--     font_size = 14.0,
+--     active_titlebar_bg = '#282828',
+--     inactive_titlebar_bg = '#282828',
+-- }
 
 -- Custom colors
 config.colors = {
@@ -201,31 +202,31 @@ wezterm.on('update-right-status', function(window, pane)
      local host  = wezterm.hostname();
 
     window:set_right_status(wezterm.format({
-        { Foreground = { Color = "a89984" } },
+        -- { Foreground = { Color = "a89984" } },
         { Text = " | "},
-        "ResetAttributes",
-        { Foreground = { Color = "e4e4ef" } },
+        -- "ResetAttributes",
+        -- { Foreground = { Color = "e4e4ef" } },
         { Text = wezterm.nerdfonts.oct_table .. "  " .. stat },
-        "ResetAttributes",
-        { Foreground = { Color = "a89984" } },
+        -- "ResetAttributes",
+        -- { Foreground = { Color = "a89984" } },
         { Text = " | "},
-        "ResetAttributes",
-        { Foreground = { Color = "e4e4ef" } },
+        -- "ResetAttributes",
+        -- { Foreground = { Color = "e4e4ef" } },
         { Text = wezterm.nerdfonts.fa_code .. "  " .. cmd },
-        "ResetAttributes",
-        { Foreground = { Color = "a89984" } },
+        -- "ResetAttributes",
+        -- { Foreground = { Color = "a89984" } },
         { Text = " | "},
-        "ResetAttributes",
-        { Foreground = { Color = "e4e4ef" } },
+        -- "ResetAttributes",
+        -- { Foreground = { Color = "e4e4ef" } },
         { Text = wezterm.nerdfonts.md_clock .. "  " .. time },
-        "ResetAttributes",
-        { Foreground = { Color = "a89984" } },
+        -- "ResetAttributes",
+        -- { Foreground = { Color = "a89984" } },
         { Text = " | "},
-        "ResetAttributes",
-        { Foreground = { Color = "e4e4ef" } },
+        -- "ResetAttributes",
+        -- { Foreground = { Color = "e4e4ef" } },
         { Text = wezterm.nerdfonts.oct_person .. "  " .. host },
-        "ResetAttributes",
-        { Foreground = { Color = "a89984" } },
+        -- "ResetAttributes",
+        -- { Foreground = { Color = "a89984" } },
         { Text = " | "},
         "ResetAttributes",
     }))

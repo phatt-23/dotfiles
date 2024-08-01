@@ -15,12 +15,12 @@
 (set-face-attribute 'default nil :font "Fira Code Retina" :height 110)
 
 ;;theme
+(load-theme 'tango-dark)
+(load-theme 'wombat)
 (load-theme 'catppuccin)
 
 ;;keybinds
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
-
-
 
 ;;line and column numbers
 (column-number-mode)
@@ -89,7 +89,7 @@
 
 (use-package helpful
   :custom
- (counsel-describe-function-function #'helpful-callable)
+  (counsel-describe-function-function #'helpful-callable)
   (counsel-describe-variable-function #'helpful-variable)
   :bind
   ([remap describe-function] . counsel-describe-function)
@@ -120,6 +120,33 @@
 
 (use-package magit
   :custom (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+(use-package org)
+
+
+(defun efs/lsp-mode-setup ()
+  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbol))
+  (lsp-headerline-breadcrumb-mode))
+
+(use-package lsp-mode
+  :commands (lsp lsp-deffered)
+  :hook (lsp-mode . efs/lsp-mode-setup)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
+
+(use-package lsp-ui
+  :hook (lsp-mode . lsp-ui-mode)
+  :commands lsp-ui-mode
+  :bind (("C-c l h f" . lsp-ui-doc-focus-frame)
+	 ("C-c l h d" . lsp-ui-doc-hide)))
+
+(use-package drag-stuff
+  :config (drag-stuff-mode t))
+
+(global-set-key (kbd "M-n") 'drag-stuff-down)
+(global-set-key (kbd "M-p") 'drag-stuff-up)
 
 ;;lsp
 (use-package rustic)

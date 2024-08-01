@@ -15,6 +15,8 @@ if status is-interactive
         # echo (set_color yellow; date +%T; set_color normal)
     end
 
+    abbr -a em emacs -l ~/.emacs.d/init.el & disown
+
     alias ls lsd
     abbr -a down cd ~/Downloads
     abbr -a prog cd ~/Programming

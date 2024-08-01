@@ -12,7 +12,7 @@ gaps outer 0
 set $font_family FiraCode Retina
 # set $font_size 10
 set $font_size 10
-set $font_size_rofi 16
+set $font_size_rofi 12
 font pango:$font_family $font_size
 
 exec --no-startup-id dex-autostart --autostart --environment i3

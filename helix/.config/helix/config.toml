@@ -1,8 +1,9 @@
 # theme = "base16_transparent"
 # theme = "term16_dark"
-theme = "gruber-darker"
+# theme = "gruber-darker"
 # theme = "gruber_transparent"
 # theme = "poimandres_storm"
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "relative"
@@ -51,10 +52,10 @@ character = "|"
 
 [editor.whitespace.render]
 render = true
-space = "all"
-tab = "all"
-tabpad = "all"
-newline = "all"
+# space = "all"
+# tab = "all"
+# tabpad = "all"
+# newline = "all"
 
 [editor.soft-wrap]
 enable = true
