@@ -1,4 +1,4 @@
 #!/bin/env bash
 
-uptime=$(uptime --pretty| cut -c 3-)
+uptime=$(uptime | awk -F'( |,|:)+' '{print $6"d",$8"h",$9"m"}')
 echo $uptime

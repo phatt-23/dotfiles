@@ -3,49 +3,54 @@ local hx = require 'open_helix'
 local act = wezterm.action
 local config = wezterm.config_builder()
 
-config.hide_tab_bar_if_only_one_tab = false
+config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.show_new_tab_button_in_tab_bar = false
 -- config.show_tab_index_in_tab_bar = false
+-- config.tab_bar_at_bottom = true
 config.harfbuzz_features = { 'calt=0' }
 
 -- Font and theme
--- config.font = wezterm.font 'Iosevka Nerd Font Propo'
-config.font = wezterm.font 'FiraCode Retina'
+config.font = wezterm.font 'Terminus'
 config.font_size = 12.0
--- config.color_scheme = 'Gruber (base16)'
--- config.color_scheme = 'Tangoesque (terminal.sexy)'
-config.color_scheme = 'Catppuccin Mocha (Gogh)'
+config.color_scheme = 'GruvboxDarkHard'
 
--- config.window_frame = {
---     font = wezterm.font { family = 'UbuntuSansMono Nerd Font' },
---     font_size = 14.0,
---     active_titlebar_bg = '#282828',
---     inactive_titlebar_bg = '#282828',
--- }
+local colors = {
+    ["fg"] = "#ebdbb2",
+    ["bg"] = "#282828",
+    ["bg-darker"] = "#1b1b1b",
+    ["gray"] = "#3c3836",
+    ["yellow"] = "#d79921",
+    ["orange"] = "#fe8019",
+    ["green"] = "#98971a",
+    ["blue"] = "#458588",
+    ["aqua"] = "#8ec07c",
+}
 
 -- Custom colors
 config.colors = {
     selection_fg = 'none',
     selection_bg = 'rgba(30% 30% 30% 80%)',
+    split = colors["bg"],
     tab_bar = {
-        inactive_tab_edge = '#282828',
+        background = colors["bg"],
         active_tab = {
-            bg_color  = '#181818',
-            fg_color  = '#c0c0c0',
+            bg_color  = colors["yellow"],
+            fg_color  = colors["bg-darker"],
             intensity = 'Half',
         },
         inactive_tab = {
-            bg_color  = '#282828',
-            fg_color  = '#c0c0c0',
+            bg_color  = colors["bg"],
+            fg_color  = colors["fg"],
             intensity = 'Half',
         },
         inactive_tab_hover = {
-          bg_color    = '#303540',
-          fg_color    = '#c0c0c0',
+            bg_color = colors["bg-darker"],
+            fg_color = colors["fg"],
         },
     }
 }
+
 
 -- No edges
 config.window_padding = {
@@ -55,6 +60,11 @@ config.window_padding = {
     bottom = 0,
 }
 
+
+config.inactive_pane_hsb = {
+  saturation = 1,
+  brightness = 0.8,
+}
 
 -- Leader modifier is active when Shift and Space keys are pressed
 config.leader = { key = 'Space', mods = 'SHIFT' }
@@ -136,7 +146,7 @@ config.keys = {
         mods = 'LEADER',
         action = act.QuickSelectArgs {
             label = 'open url',
-            patterns = { 
+            patterns = {
                 '[^ ]+\\.rs:\\d+:\\d+',
                 '[^ ]+\\.asm:\\d+:\\d+',
                 '[^ ]+\\.cpp:\\d+:\\d+',
@@ -199,36 +209,23 @@ wezterm.on('update-right-status', function(window, pane)
     local cmd = pane:get_foreground_process_name()
     local time = wezterm.strftime("%H:%M %A %d.%m.%Y")
     -- window:set_right_status(stat)
-     local host  = wezterm.hostname();
+
+    local fg0 = "d5c4a1"
+    local fg1 = "665c54"
 
     window:set_right_status(wezterm.format({
-        -- { Foreground = { Color = "a89984" } },
-        { Text = " | "},
-        -- "ResetAttributes",
-        -- { Foreground = { Color = "e4e4ef" } },
-        { Text = wezterm.nerdfonts.oct_table .. "  " .. stat },
-        -- "ResetAttributes",
-        -- { Foreground = { Color = "a89984" } },
-        { Text = " | "},
-        -- "ResetAttributes",
-        -- { Foreground = { Color = "e4e4ef" } },
-        { Text = wezterm.nerdfonts.fa_code .. "  " .. cmd },
-        -- "ResetAttributes",
-        -- { Foreground = { Color = "a89984" } },
-        { Text = " | "},
-        -- "ResetAttributes",
-        -- { Foreground = { Color = "e4e4ef" } },
-        { Text = wezterm.nerdfonts.md_clock .. "  " .. time },
-        -- "ResetAttributes",
-        -- { Foreground = { Color = "a89984" } },
-        { Text = " | "},
-        -- "ResetAttributes",
-        -- { Foreground = { Color = "e4e4ef" } },
-        { Text = wezterm.nerdfonts.oct_person .. "  " .. host },
-        -- "ResetAttributes",
-        -- { Foreground = { Color = "a89984" } },
+        { Foreground = {Color = fg0} },
+        { Text = stat },
+        "ResetAttributes",
+        { Foreground = {Color = fg1} },
         { Text = " | "},
         "ResetAttributes",
+        { Foreground = {Color = fg0} },
+        { Text = cmd },
+        "ResetAttributes",
+        { Foreground = {Color = fg1} },
+        "ResetAttributes",
+        { Text = " " },
     }))
 end)
 

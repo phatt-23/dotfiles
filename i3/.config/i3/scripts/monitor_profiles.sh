@@ -11,6 +11,5 @@ mode=(
 )
 
 mode_nrows=${#mode[@]}
-font="Fira Code Retina 12"
 selected="$(printf '%s\n' "${!mode[@]}" | sort | rofi -dmenu -font "$font" -p "monitor" -i -lines 2)"
 i3-msg -q "exec --no-startup-id ${mode[${selected}]}"

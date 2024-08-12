@@ -3,7 +3,9 @@
 # theme = "gruber-darker"
 # theme = "gruber_transparent"
 # theme = "poimandres_storm"
-theme = "catppuccin_mocha"
+# theme = "monokai"
+# theme = "kanagawa-dragon"
+theme = "gruvbox_dark_hard_mod"
 
 [editor]
 line-number = "relative"
@@ -30,7 +32,7 @@ right = [
   "separator", 
   "file-type"
 ]
-separator = "│"
+separator = "\\"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
@@ -48,7 +50,7 @@ hidden = true
 
 [editor.indent-guides]
 render = true
-character = "|"
+character = "│"
 
 [editor.whitespace.render]
 render = true
