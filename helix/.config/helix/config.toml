@@ -5,7 +5,8 @@
 # theme = "poimandres_storm"
 # theme = "monokai"
 # theme = "kanagawa-dragon"
-theme = "gruvbox_dark_hard_mod"
+# theme = "gruvbox_dark_hard_mod"
+theme = "gruvbox_dark_hard_transparent"
 
 [editor]
 line-number = "relative"

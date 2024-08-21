@@ -9,11 +9,28 @@ config.show_new_tab_button_in_tab_bar = false
 -- config.show_tab_index_in_tab_bar = false
 -- config.tab_bar_at_bottom = true
 config.harfbuzz_features = { 'calt=0' }
+-- config.window_background_opacity = 0.9
 
 -- Font and theme
-config.font = wezterm.font 'Terminus'
+-- TODO: remove the unused fonts
+local fonts = {
+    [0] = "Terminus",
+    [1] = "mononoki",
+    [2] = "Agave",
+    [3] = "Iosevka Nerd Font",
+    [4] = "JuliaMono",
+    [5] = "ZedMono Nerd Font",
+    [6] = "MesloLGM Nerd Font Propo",
+    [7] = "D2CodingLigature Nerd Font Propo",
+    [8] = "Monoid Nerd Font Propo",
+    [9] = "Inconsolata Nerd Font",
+    [10] = "Hack",
+    [11] = "Hack-ZeroSlash",
+}
+
+config.font = wezterm.font(fonts[11])
 config.font_size = 12.0
-config.color_scheme = 'GruvboxDarkHard'
+config.color_scheme = 'GruvboxDark'
 
 local colors = {
     ["fg"] = "#ebdbb2",
@@ -26,6 +43,7 @@ local colors = {
     ["blue"] = "#458588",
     ["aqua"] = "#8ec07c",
 }
+
 
 -- Custom colors
 config.colors = {

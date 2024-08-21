@@ -1,6 +1,11 @@
-exec_always setxkbmap -layout cz
-
 set $mod Mod4
+set $mod3 Mod3 
+
+bindsym $mod3+h exec wezterm
+
+# keyboard
+exec_always "setxkbmap -layout us,cz"
+exec_always "setxkbmap -option 'grp:caps_toggle'"
 
 # i3 gaps
 gaps inner 0
@@ -163,7 +168,7 @@ bindsym $mod+p mode "resize" ; resize grow   width  10 px or 10 ppt ; mode "defa
 
 hide_edge_borders smart_no_gaps
 # smart_borders no_gaps
-# default_border pixel 2
+# default_border pixel 1
 # default_floating_border pixel 1
 new_window normal 1
 
@@ -262,6 +267,8 @@ for_window [class="(?i).*xsensors.*"] floating enable, resize set 400 400
 for_window [class="(?i).*ksnip.*"] floating enable
 for_window [class="(?i).*Friends List.*"] floating enable
 
+for_window [floating] border pixel 1
+
 # TODO: just for debugging a project
 for_window [class="GLFW OpenGL Window"] floating enable
 
@@ -278,7 +285,7 @@ exec_always gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive
 
 exec_always --no-startup-id picom -bc --vsync
 
-set $wallpaper_path ~/Pictures/Wallpapers/misc/rain.png
+set $wallpaper_path ~/Pictures/Wallpapers/landscape/forest-moss.jpg
 exec_always feh [--no-startup-id] --no-fehbg --bg-max $wallpaper_path
 
 exec playerctl --player=vlc, spotify next
@@ -288,5 +295,5 @@ exec_always --no-startup-id /home/phatt/.config/polybar/launch.sh
 
 # fast keypress repreating
 # default        660 25
-exec_always xset r rate 200 25
-exec_always --no-startup-id xmodmap /home/phatt/.Xmodmap
+exec_always xset r rate 200 30 
+# exec_always --no-startup-id xmodmap /home/phatt/.Xmodmap
