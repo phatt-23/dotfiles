@@ -28,9 +28,15 @@ local fonts = {
     [11] = "Hack-ZeroSlash",
 }
 
-config.font = wezterm.font(fonts[11])
-config.font_size = 12.0
-config.color_scheme = 'GruvboxDark'
+config.font = wezterm.font(fonts[6])
+config.font_size = 11.0
+
+local color_schemes = {
+    "nord",
+    "nordfox",
+    "GruvboxDark",
+}
+config.color_scheme = color_schemes[1]
 
 local colors = {
     ["fg"] = "#ebdbb2",
@@ -44,9 +50,11 @@ local colors = {
     ["aqua"] = "#8ec07c",
 }
 
+local nordic_colors = require "color_palette.nordic"
 
 -- Custom colors
 config.colors = {
+    background = nordic_colors["gray0"],
     selection_fg = 'none',
     selection_bg = 'rgba(30% 30% 30% 80%)',
     split = colors["bg"],

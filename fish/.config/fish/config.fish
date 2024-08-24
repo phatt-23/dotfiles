@@ -31,3 +31,5 @@ if status is-interactive
 
     fish_add_path ~/.local/bin
 end
+
+fish_add_path /home/phatt/.spicetify

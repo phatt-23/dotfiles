@@ -18,9 +18,16 @@ vim.cmd("set clipboard=unnamedplus")
 vim.cmd("set path+=**")
 vim.cmd("set wildmenu")
 
+-- vim.cmd("set notimeout")
+-- vim.cmd("set timeoutlen=500")
+
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
 vim.opt.termguicolors = true
 vim.opt.scrolloff = 10
 
 require("config.lazy")
+require("keybinds")
 
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("nordic")
