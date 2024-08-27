@@ -30,4 +30,4 @@ vim.opt.scrolloff = 10
 require("config.lazy")
 require("keybinds")
 
-vim.cmd.colorscheme("nordic")
+vim.cmd.colorscheme("everforest")

@@ -7,7 +7,8 @@
 # theme = "kanagawa-dragon"
 # theme = "gruvbox_dark_hard_mod"
 # theme = "gruvbox_dark_hard_transparent"
-theme = "nord-night"
+# theme = "nord-night"
+theme = "everforest_dark"
 
 [editor]
 line-number = "relative"
