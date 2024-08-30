@@ -12,9 +12,9 @@ import = [
     # "themes/themes/dracula.toml"
     # "themes/themes/github_dark_default.toml"
     # "themes/themes/github_dark_high_contrast.toml"
-    "themes/themes/hardhacker.toml"
+    # "themes/themes/hardhacker.toml"
     # "themes/themes/tokyo-night.toml"
-    # "my_themes/gruber.toml"
+    "my_themes/gruber.toml"
 ]
 
 [shell]
@@ -28,14 +28,15 @@ program = "fish"
 # dynamic_padding = true
 
 [font]
-normal = { family = "Terminus" }
+# normal = { family = "Terminus" }
 # normal = { family = "Iosevka" }
 # normal = { family = "monospace"}
 # normal = { family = "iMWritingMono Nerd Font" }
 # normal = { family = "CaskaydiaCove Nerd Font Propo" }
 # normal = { family = "CommitMono Nerd Font", style = "Regular" }
 # normal = { family = "UbuntuSansMono Nerd Font" }
-size = 12
+normal = { family = "MesloLGS Nerd Font" }
+size = 11
 
 [bell]
 animation = "EaseOutCubic"

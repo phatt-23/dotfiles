@@ -6,6 +6,7 @@ local lsp_names = {
     "tsserver",
     "html",
     "cssls",
+    "clangd",
 }
 
 return {

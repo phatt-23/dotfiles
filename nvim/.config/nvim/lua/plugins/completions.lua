@@ -29,10 +29,10 @@ return {
 					["<C-Space>"] = cmp.mapping.complete(),
 					["<C-e>"] = cmp.mapping.abort(),
 					["<CR>"] = cmp.mapping.confirm({ select = true }),
-                    -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+					-- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 				}),
 				sources = cmp.config.sources({
-                    { name = "nvim_lsp" },
+					{ name = "nvim_lsp" },
 					{ name = "luasnip" }, -- For luasnip users.
 				}, {
 					{ name = "buffer" },
@@ -60,10 +60,14 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 			local servers = {
-                "rust_analyzer",
-                "lua_ls",
-                "csharp_ls",
-            }
+				"lua_ls",
+				"rust_analyzer",
+				"csharp_ls",
+				"eslint",
+				"tsserver",
+				"html",
+				"cssls",
+			}
 
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,

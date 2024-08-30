@@ -1,18 +1,15 @@
-function fish_title
-    # If we're connected via ssh, we print the hostname.
-    set -l ssh
-    set -q SSH_TTY
-    and set ssh "["(prompt_hostname | string sub -l 10 | string collect)"]"
-    # An override for the current command is passed as the first parameter.
-    # This is used by `fg` to show the true process name, among others.
-    if set -q argv[1]
-        echo -- $ssh (string sub -l 20 -- $argv[1]) (prompt_pwd -d 1 -D 1)
-    else
-        # Don't print "fish" because it's redundant
-        set -l command (status current-command)
-        if test "$command" = fish
-            set command
-        end
-        echo -- $ssh (string sub -l 20 -- $command) (prompt_pwd -d 1 -D 1)
+function fish_title \
+    --description "Set title to current folder and shell name" \
+    --argument-names last_command
+
+    set --local current_folder (fish_prompt_pwd_dir_length=$pure_shorten_window_title_current_directory_length prompt_pwd)
+    set --local current_command (status current-command 2>/dev/null; or echo $_)
+
+    set --local prompt "$current_folder: $last_command $pure_symbol_title_bar_separator $current_command"
+
+    if test -z "$last_command"
+        set prompt "$current_folder $pure_symbol_title_bar_separator $current_command"
     end
+
+    echo $prompt
 end

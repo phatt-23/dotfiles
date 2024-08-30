@@ -1,14 +1,14 @@
 # theme = "base16_transparent"
 # theme = "term16_dark"
 # theme = "gruber-darker"
-# theme = "gruber_transparent"
+theme = "gruber_transparent"
 # theme = "poimandres_storm"
 # theme = "monokai"
 # theme = "kanagawa-dragon"
 # theme = "gruvbox_dark_hard_mod"
 # theme = "gruvbox_dark_hard_transparent"
 # theme = "nord-night"
-theme = "everforest_dark"
+# theme = "everforest_dark"
 
 [editor]
 line-number = "relative"
@@ -35,7 +35,7 @@ right = [
   "separator", 
   "file-type"
 ]
-separator = "\\"
+separator = "|"
 mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
