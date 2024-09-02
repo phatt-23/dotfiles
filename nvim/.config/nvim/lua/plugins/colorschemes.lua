@@ -1,7 +1,8 @@
 return {
 	{ "luisiacc/gruvbox-baby" },
+    { "gruvbox-community/gruvbox" },
 	{ "sainnhe/gruvbox-material" },
-	{ "ellisonleao/gruvbox.nvim" },
+	-- { "ellisonleao/gruvbox.nvim" },
 	{ "sainnhe/everforest" },
 	{ "EdenEast/nightfox.nvim" },
 	{ "shaunsingh/nord.nvim" },

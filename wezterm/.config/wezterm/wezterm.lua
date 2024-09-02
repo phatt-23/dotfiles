@@ -4,11 +4,11 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 config.hide_tab_bar_if_only_one_tab = true
-config.use_fancy_tab_bar = false
-config.show_new_tab_button_in_tab_bar = false
+-- config.use_fancy_tab_bar = false
+-- config.show_new_tab_button_in_tab_bar = false
 -- config.show_tab_index_in_tab_bar = false
 -- config.tab_bar_at_bottom = true
-config.harfbuzz_features = { "calt=0" }
+-- config.harfbuzz_features = { "calt=0" }
 -- config.window_background_opacity = 0.96
 
 -- Font and theme
@@ -23,8 +23,8 @@ local fonts = {
     "JetBrainsMonoNL Nerd Font",
 }
 
-config.font = wezterm.font(fonts[3])
-config.font_size = 11.0
+config.font = wezterm.font(fonts[7])
+config.font_size = 12.0
 
 local color_schemes = {
     "nord",

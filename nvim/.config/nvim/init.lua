@@ -14,7 +14,7 @@ vim.cmd([[
     set ttyfast
     set ignorecase
     set incsearch
-    set clipboard=unnamedplus
+    "set clipboard=unnamedplus
     set path+=**
     set wildmenu
 ]])
@@ -31,13 +31,21 @@ vim.opt.scrolloff = 10
 require("config.lazy")
 require("keybinds")
 
-vim.cmd.colorscheme("gruber-darker")
+-- colorscheme
+vim.cmd([[
+    "let g:gruvbox_italic=1
+    "let g:gruvbox_colors='dark0_hard'
+    "colorscheme gruvbox
+
+    colorscheme gruber-darker
+]])
+
+
 vim.cmd([[
     hi IlluminatedWordText gui=underline
     hi IlluminatedWordRead gui=underline
     hi IlluminatedWordWrite gui=underline
 ]])
 
+vim.opt_local.commentstring = "-- %s"
 -- vim.cmd([[hi NvimTreeNormal guibg=NONE ctermbg=NONE]])
-
-
