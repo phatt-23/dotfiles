@@ -14,17 +14,18 @@ config.hide_tab_bar_if_only_one_tab = true
 -- Font and theme
 -- TODO: remove the unused fonts
 local fonts = {
-    "Terminus",
+    "Terminess Nerd Font",
     "ZedMono Nerd Font",
     "MesloLGS Nerd Font",
     "Hack-ZeroSlash",
     "Monaco",
     "Iosevka Nerd Font",
     "JetBrainsMonoNL Nerd Font",
+    "FiraMono Nerd Font",
 }
 
-config.font = wezterm.font(fonts[7])
-config.font_size = 12.0
+config.font = wezterm.font(fonts[8])
+config.font_size = 11.0
 
 local color_schemes = {
     "nord",

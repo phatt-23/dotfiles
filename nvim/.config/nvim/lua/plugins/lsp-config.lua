@@ -3,7 +3,7 @@ local lsp_names = {
     "rust_analyzer",
     "csharp_ls",
     "eslint",
-    "tsserver",
+    -- "tsserver",
     "html",
     "cssls",
     "clangd",
@@ -12,11 +12,12 @@ local lsp_names = {
     "ruby_lsp",
     -- "solargraph",
     -- "steep",
-    "stimulus_ls",
     -- "sorbet",
-    "rubocop",
     -- "deno",
+    "stimulus_ls",
+    "rubocop",
     "taplo",
+    "svelte",
 }
 
 return {

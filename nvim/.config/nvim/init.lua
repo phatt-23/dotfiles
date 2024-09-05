@@ -14,9 +14,9 @@ vim.cmd([[
     set ttyfast
     set ignorecase
     set incsearch
-    "set clipboard=unnamedplus
     set path+=**
     set wildmenu
+    "set clipboard=unnamedplus
 ]])
 
 -- vim.cmd("set notimeout")
@@ -47,5 +47,5 @@ vim.cmd([[
     hi IlluminatedWordWrite gui=underline
 ]])
 
-vim.opt_local.commentstring = "-- %s"
+-- vim.opt_local.commentstring = "-- %s"
 -- vim.cmd([[hi NvimTreeNormal guibg=NONE ctermbg=NONE]])
