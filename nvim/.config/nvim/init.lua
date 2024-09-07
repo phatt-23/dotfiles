@@ -16,6 +16,7 @@ vim.cmd([[
     set incsearch
     set path+=**
     set wildmenu
+    set foldmethod=manual
     "set clipboard=unnamedplus
 ]])
 

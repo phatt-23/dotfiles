@@ -18,12 +18,14 @@ if status is-interactive
     set --universal pure_show_prefix_root_prompt true
 
     function fish_greeting
-        # echo (set_color yellow; date +%T; set_color normal)
+         #echo (set_color yellow; date +%T; set_color normal)
+        set_color blue; fortune -a; set_color normal
     end
 
     abbr -a em emacs -l ~/.emacs.d/init.el
 
     alias ls lsd
+    alias rm trash
 
     abbr -a down cd ~/Downloads
     abbr -a prog cd ~/Programming
