@@ -37,8 +37,8 @@ vim.cmd([[
     "let g:gruvbox_italic=1
     "let g:gruvbox_colors='dark0_hard'
     "colorscheme gruvbox
-
-    colorscheme gruber-darker
+    "colorscheme solarized8_flat
+    colorscheme gruber-darker 
 ]])
 
 

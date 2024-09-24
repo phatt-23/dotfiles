@@ -1,23 +1,18 @@
 return {
-    "tpope/vim-dadbod",
-    "kristijanhusak/vim-dadbod-completion",
     "kristijanhusak/vim-dadbod-ui",
-    {
+    dependencies = {
         "kndndrj/nvim-dbee",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-        },
-        build = function()
-            -- Install tries to automatically detect the install method.
-            -- if it fails, try calling it with one of these parameters:
-            --    "curl", "wget", "bitsadmin", "go"
-            require("dbee").install()
-        end,
-        config = function()
-            require("dbee").setup( --[[optional config]])
-        end,
+        "MunifTanjim/nui.nvim",
+        "kristijanhusak/vim-dadbod-completion",
+        "tpope/vim-dadbod",
     },
+    build = function()
+        require("dbee").install()
+    end,
     config = function()
+        vim.g.db_ui_use_nerd_fonts = 1
+        require("dbee").setup( --[[optional config]])
+
         -- database connections
         require("lspconfig").sqls.setup({
             on_attach = function(client, bufnr)

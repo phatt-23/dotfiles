@@ -19,7 +19,7 @@ if status is-interactive
 
     function fish_greeting
          #echo (set_color yellow; date +%T; set_color normal)
-        set_color blue; fortune -a; set_color normal
+        #set_color blue; fortune -a; set_color normal
     end
 
     abbr -a em emacs -l ~/.emacs.d/init.el
@@ -33,12 +33,14 @@ if status is-interactive
     abbr -a temp cd ~/Templates
     abbr -a pics cd ~/Pictures
     abbr -a sch cd ~/School
+    abbr -a sem cd ~/School/3_semester
 
     set -gx EDITOR nvim 
     set -gx VISUAL nvim 
     set -Ux LD_LIBRARY_PATH /bin/emacs
 
     fish_add_path ~/.local/bin
+    fish_add_path /opt/mssql-tools18/bin
+    fish_add_path /home/phatt/.spicetify
 end
 
-fish_add_path /home/phatt/.spicetify

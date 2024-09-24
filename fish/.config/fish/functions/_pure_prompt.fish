@@ -16,6 +16,9 @@ function _pure_prompt \
         set space ' '
     end
 
+    set --local RED '\033[0;31m'
+    set --local NC '\033[0m'
+
     echo (\
         _pure_print_prompt \
         $space \
@@ -26,6 +29,7 @@ function _pure_prompt \
         $virtualenv \
         $aws_profile \
         $vimode_indicator \
-        $pure_symbol \
+        '\033[0;33m'λ$NC \
+        #$pure_symbol \
     )
 end

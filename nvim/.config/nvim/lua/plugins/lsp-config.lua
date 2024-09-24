@@ -18,6 +18,8 @@ local lsp_names = {
     "rubocop",
     "taplo",
     "svelte",
+    -- "pyright",
+    "jedi_language_server",
 }
 
 return {

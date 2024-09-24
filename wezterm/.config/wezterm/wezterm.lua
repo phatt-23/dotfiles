@@ -8,7 +8,7 @@ config.hide_tab_bar_if_only_one_tab = true
 -- config.show_new_tab_button_in_tab_bar = false
 -- config.show_tab_index_in_tab_bar = false
 -- config.tab_bar_at_bottom = true
--- config.harfbuzz_features = { "calt=0" }
+config.harfbuzz_features = { "calt=0" }
 -- config.window_background_opacity = 0.96
 
 -- Font and theme
@@ -22,10 +22,14 @@ local fonts = {
     "Iosevka Nerd Font",
     "JetBrainsMonoNL Nerd Font",
     "FiraMono Nerd Font",
+    "UbuntuSansMono Nerd Font",
+    "RobotoMono Nerd Font",
+    "FantasqueSansM Nerd Font",
+    "RecMonoLinear Nerd Font",
 }
 
-config.font = wezterm.font(fonts[8])
-config.font_size = 11.0
+config.font = wezterm.font(fonts[6])
+config.font_size = 16.0
 
 local color_schemes = {
     "nord",
@@ -34,6 +38,8 @@ local color_schemes = {
     "Gruber (base16)",
     "Everforest Dark (Gogh)",
     "Everblush",
+    "Solarized Dark (Gogh)",
+    "Selenized Dark (Gogh)",
     "Ef-Winter",
     "Canvased Pastel (terminal.sexy)",
     "Catch Me If You Can (terminal.sexy)",
