@@ -20,6 +20,8 @@ local lsp_names = {
     "svelte",
     -- "pyright",
     "jedi_language_server",
+    "ltex",
+    "texlab",
 }
 
 return {
