@@ -8,7 +8,7 @@ return {
 			vim.g.vimtex_view_method = "zathura"
 			vim.api.nvim_create_autocmd(
 				{ "FIleType" },
-				{ pattern = "tex", group = optional_group, command = "TSBufDisable highlight" }
+				{ pattern = "tex", command = "TSBufDisable highlight" }
 			)
 			vim.cmd([[
                 " This is necessary for VimTeX to load properly. The "indent" is optional.

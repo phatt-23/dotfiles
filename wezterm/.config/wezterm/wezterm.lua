@@ -35,30 +35,12 @@ local color_schemes = {
     "nord",
     "nordfox",
     "GruvboxDark",
+    "GruvboxDarkHard",
+    "Gruvbox dark, hard (base16)",
     "Gruber (base16)",
-    "Everforest Dark (Gogh)",
-    "Everblush",
-    "Solarized Dark (Gogh)",
-    "Selenized Dark (Gogh)",
-    "Ef-Winter",
-    "Canvased Pastel (terminal.sexy)",
-    "Catch Me If You Can (terminal.sexy)",
-    "Catppuccin Frappe",
-    "Catppuccin Macchiato",
-    "Catppuccin Mocha",
-    "Chalkboard",
-    "Ciapre",
-    "Tokyo Night",
-    "Tomorrow Night",
-    "Tomorrow Night Blue",
-    "Tomorrow Night Eighties",
-    "Treehouse",
-    "Twilight (Gogh)",
-    "Aardvark Blue",
-    "Ayu Mirage",
 }
 
-config.color_scheme = color_schemes[4]
+config.color_scheme = color_schemes[6]
 
 -- No edges
 config.window_padding = {

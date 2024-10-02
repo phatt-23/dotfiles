@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Function to get filesystem information in MB
+# Function to get filesystem information in MiB
 get_filesystem_info() {
     mountpoint="/"
     used=$(df -BM --output=used / | tail -n 1)
@@ -8,11 +8,11 @@ get_filesystem_info() {
     used=${used//[^0-9]/}  # Extract only numeric values (removes 'M' suffix)
     total=${total//[^0-9]/}  # Extract only numeric values (removes 'M' suffix)
     
-    # Convert MB to GB
+    # Convert MiB to GiB
     used_gb=$(echo "scale=2; $used / 1024" | bc)
     total_gb=$(echo "scale=2; $total / 1024" | bc)
     
-    echo "$used_gb GB/$total_gb GB"
+    echo "$used_gb GiB/$total_gb GiB"
 }
 
 # Handle the action when module is clicked
