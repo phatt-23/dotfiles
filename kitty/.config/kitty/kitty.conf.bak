@@ -1,0 +1,14 @@
+font_family MesloLGM Nerd Font
+font_size 12
+
+clear_all_shortcuts yes
+
+map ctrl+shift+c copy_to_clipboard
+map ctrl+shift+v paste_from_clipboard
+
+
+
+# BEGIN_KITTY_THEME
+# zenwritten_dark
+include current-theme.conf
+# END_KITTY_THEME

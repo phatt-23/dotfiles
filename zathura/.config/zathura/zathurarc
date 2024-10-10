@@ -1,0 +1,18 @@
+# include ./themes/zathura-gruvbox-light
+include ./themes/zathura-gruvbox-dark
+# include ./themes/catppuccin-mocha
+# include ./themes/catppuccin-macchiato
+# include ./themes/dracula
+# include ./themes/base16-nord.config
+# include ./themes/dark-theme.config
+# include ./themes/base16-gruvbox-light-medium.config
+# include ./themes/base16-gruvbox-light-hard.config
+# include ./themes/base16-gruvbox-dark-hard.config
+# include ./themes/base16-atelier-cave.config
+set font 'MesloLGM Nerd Font 12'
+
+set window-title-basename "true"
+set selection-clipboard "clipboard"
+
+set adjust-open width
+set recolor true
