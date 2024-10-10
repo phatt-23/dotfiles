@@ -1,4 +1,4 @@
-import = [
+# import = [
     # "themes/themes/snazzy.toml"
     # "themes/themes/wombat.toml"
     # "themes/themes/xterm.toml"
@@ -14,8 +14,26 @@ import = [
     # "themes/themes/github_dark_high_contrast.toml"
     # "themes/themes/hardhacker.toml"
     # "themes/themes/tokyo-night.toml"
-    "my_themes/gruber.toml"
-]
+    # "my_themes/gruber.toml"
+    # "my_themes/lackluster.toml"
+# ]
+
+# LACKLUSTER COLORS
+[colors.primary]
+background = '#101010'
+
+[colors.normal]
+# black is gray0
+black = '#080808'
+red = '#D70000'
+green = '#789978'
+yellow = '#ffAA88'
+blue = '#7788AA'
+magenta = '#D7007D'
+# cyan is set to lack
+cyan = '#708090' 
+# white is set to luster
+white = '#DEEEED'
 
 [shell]
 program = "fish"

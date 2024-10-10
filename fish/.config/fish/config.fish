@@ -11,20 +11,23 @@ if status is-interactive
     #     string join '' -- (tput bold)(set_color green) (prompt_pwd --full-length-dirs 3) (set_color green) $stat '$ '
     # end
 
-    # pure prompt configuration
-    set --universal pure_show_system_time false
-    set --universal pure_color_system_time pure_color_mute
-    set --universal pure_show_jobs true
-    set --universal pure_show_prefix_root_prompt true
-
     function fish_greeting
-         #echo (set_color yellow; date +%T; set_color normal)
+        #echo (set_color yellow; date +%T; set_color normal)
         #set_color blue; fortune -a; set_color normal
     end
 
+    # pure prompt configuration
+    # set --universal pure_show_system_time false
+    # set --universal pure_color_system_time pure_color_mute
+    # set --universal pure_show_jobs true
+    # set --universal pure_show_prefix_root_prompt true
+
+
     abbr -a em emacs -l ~/.emacs.d/init.el
 
-    alias ls lsd
+    alias ls eza
+    abbr -a la eza -la
+    abbr -a ll eza -l
     alias rm trash
 
     abbr -a down cd ~/Downloads

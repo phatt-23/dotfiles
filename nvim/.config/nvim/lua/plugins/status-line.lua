@@ -81,24 +81,24 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
-            require("lualine").setup({
-                options = {
-                    theme = color_scheme,
-                    globalstatus = true,
-                    component_separators = { left = "", right = "" },
-                    section_separators = { left = "", right = "" },
-                },
-                sections = {
-                    lualine_a = {
-                        {
-                            "mode",
-                            fmt = function(s)
-                                return mode_map[s] or s
-                            end,
-                        },
-                    },
-                },
-            })
+            -- require("lualine").setup({
+            --     options = {
+            --         -- theme = color_scheme,
+            --         globalstatus = true,
+            --         component_separators = { left = "", right = "" },
+            --         section_separators = { left = "", right = "" },
+            --     },
+            --     sections = {
+            --         lualine_a = {
+            --             {
+            --                 "mode",
+            --                 fmt = function(s)
+            --                     return mode_map[s] or s
+            --                 end,
+            --             },
+            --         },
+            --     },
+            -- })
         end,
     },
 }

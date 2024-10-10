@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local hx = require("open_helix")
 local act = wezterm.action
 local config = wezterm.config_builder()
 
@@ -16,7 +15,7 @@ config.harfbuzz_features = { "calt=0" }
 local fonts = {
     "Terminess Nerd Font",
     "ZedMono Nerd Font",
-    "MesloLGS Nerd Font",
+    "MesloLGM Nerd Font",
     "Hack-ZeroSlash",
     "Monaco",
     "Iosevka Nerd Font",
@@ -28,8 +27,8 @@ local fonts = {
     "RecMonoLinear Nerd Font",
 }
 
-config.font = wezterm.font(fonts[6])
-config.font_size = 14.0
+config.font = wezterm.font(fonts[3])
+config.font_size = 12.0
 
 local color_schemes = {
     "nord",
@@ -38,9 +37,28 @@ local color_schemes = {
     "GruvboxDarkHard",
     "Gruvbox dark, hard (base16)",
     "Gruber (base16)",
+    "Bamboo",
+    "Twilight (Gogh)",
+    "s3r0 modified (terminal.sexy)",
+    "Sweet Love (terminal.sexy)",
+    "Subliminal",
+    "Grayscale Dark (base16)",
+    "Green Screen (base16)",
+    "Black Metal (Burzum) (base16)", -- gray light
+    "Black Metal (Marduk) (base16)", -- gray
+    "Black Metal (Gorgoroth) (base16)", -- gray warm
+    "Black Metal (Nile) (base16)",
+    "Black Metal (Immortal) (base16)", -- bluish
+    "Black Metal (Bathory) (base16)", -- orange
+    "Black Metal (Mayhem) (base16)", -- yellow
 }
 
-config.color_scheme = color_schemes[6]
+config.color_scheme = color_schemes[17]
+
+config.colors = {
+    -- background = "#0C0C0C"
+    background = "#101010"
+}
 
 -- No edges
 config.window_padding = {
@@ -130,25 +148,6 @@ config.keys = {
             end
         end),
     },
-    {
-        key = "g",
-        mods = "LEADER",
-        action = act.QuickSelectArgs({
-            label = "open url",
-            patterns = {
-                "[^ ]+\\.rs:\\d+:\\d+",
-                "[^ ]+\\.asm:\\d+:\\d+",
-                "[^ ]+\\.cpp:\\d+:\\d+",
-                "[^ ]+\\.c:\\d+:\\d+",
-                "[^ ]+\\.h:\\d+:\\d+",
-                "[^ ]+\\.lox:\\d+:\\d+",
-            },
-            action = wezterm.action_callback(function(window, pane)
-                local url = window:get_selection_text_for_pane(pane)
-                hx.open(window, pane, url)
-            end),
-        }),
-    },
 }
 
 -- Keybinds
@@ -162,61 +161,6 @@ config.key_tables = {
         { key = "Escape", action = "PopKeyTable" },
     },
 }
-
-config.hyperlink_rules = wezterm.default_hyperlink_rules()
-
--- Regex for file:line:column links
--- Rust, C, C++, Header
-table.insert(config.hyperlink_rules, {
-    regex = [[[^ ]+\.(rs|c|cpp|h|p|asm|lox):\d+:\d+]],
-    format = "$0",
-})
-
--- Url onclick handler
-wezterm.on("open-uri", function(window, pane, uri)
-    -- Check if the link is an HTTPS link
-    if uri:sub(1, 8) == "https://" then
-        window:perform_action(act.SpawnCommandInNewWindow({ args = { "firefox", uri } }), pane)
-        -- Custom action for file:line:col links
-    elseif uri:match("[^ ]+%.[^ ]+:%d+:%d+") then
-        hx.open(window, pane, uri)
-        -- Otherwise can't resolve
-    else
-        return false
-    end
-end)
-
-wezterm.on("update-right-status", function(window, pane)
-    local stat = window:active_workspace()
-    if window:leader_is_active() then
-        stat = "LEADER "
-    end
-    if window:active_key_table() then
-        stat = window:active_key_table()
-    end
-
-    local cmd = pane:get_foreground_process_name()
-    local time = wezterm.strftime("%H:%M %A %d.%m.%Y")
-    -- window:set_right_status(stat)
-
-    local fg0 = "d5c4a1"
-    local fg1 = "665c54"
-
-    window:set_right_status(wezterm.format({
-        { Foreground = { Color = fg0 } },
-        { Text = stat },
-        "ResetAttributes",
-        { Foreground = { Color = fg1 } },
-        { Text = " | " },
-        "ResetAttributes",
-        { Foreground = { Color = fg0 } },
-        { Text = cmd },
-        "ResetAttributes",
-        { Foreground = { Color = fg1 } },
-        "ResetAttributes",
-        { Text = " " },
-    }))
-end)
 
 -- Must return
 return config

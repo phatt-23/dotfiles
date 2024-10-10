@@ -43,6 +43,12 @@ vim.cmd([["idk
     set foldmethod=manual
     set timeout
     set timeoutlen=300
+    set undofile
+    set updatetime=100
+    set guicursor+=n:hor20-Cursor/lCursor
+    set guicursor+=i:ver25
+    set guicursor+=v:block
+    "set clipboard=unnamedplus
     "set clipboard=unnamedplus
     "set notimeout
 ]])
@@ -52,8 +58,14 @@ vim.cmd([["custom keybinds
     nnoremap <expr> k (v:count == 0 ? 'gk' : 'k')
     nnoremap <expr> j (v:count == 0 ? 'gj' : 'j')
 
-    "copy to system clipboard
+    "copy and paste from system clipboard
     vnoremap <C-c> "+y
+    nnoremap <C-c> "+yy
+
+    nnoremap <C-S-v> "+P
+    inoremap <C-S-v> <Esc>"+Pa
+    vnoremap <C-S-v> "+P
+    vnoremap <C-S-v> "+P
 
     "move lines or blocks up and down
     nnoremap <A-j> :m .+1<CR>
@@ -62,13 +74,25 @@ vim.cmd([["custom keybinds
     inoremap <A-k> <Esc>:m .-2<CR>gi
     vnoremap <A-j> :m '>+1<CR>gvgv
     vnoremap <A-k> :m '<-2<CR>gvgv
+    
+    "open diagnostics in a floating window
+    nnoremap <leader>dd :lua vim.diagnostic.open_float()<CR>
 ]])
 
 -- overrides the default background highlight
 -- of matching words in some themes to be underlined
 vim.cmd([[
-    hi IlluminatedWordText  guibg=NONE gui=underline
-    hi IlluminatedWordRead  guibg=NONE gui=underline
+    hi IlluminatedWordText guibg=NONE gui=underline
+    hi IlluminatedWordRead guibg=NONE gui=underline
     hi IlluminatedWordWrite guibg=NONE gui=underline
+
+    "Different colors in visual mode
+    hi Visual guifg=Black guibg=Gray gui=bold
+
+    set pumblend=15
+    hi Pmenu blend=15 
+    hi PmenuSel blend=15
 ]])
+
+
 

@@ -1,26 +1,26 @@
 # globals
 set $mod Mod4
-set $scripts_path /home/phatt/.config/i3/scripts/
+set $scripts_path ~/.config/i3/modules/scripts/
 
 # i3 shit
-include ./modules/i3/bar.conf
-include ./modules/i3/keybinds.conf
-include ./modules/i3/resize.conf
-include ./modules/i3/workspace.conf
-include ./modules/i3/window.conf
+include ./modules/bar.conf
+include ./modules/keybinds.conf
+include ./modules/resize.conf
+include ./modules/workspace.conf
+include ./modules/window.conf
 
 # custom shit
-include ./modules/custom/terminal.conf
-include ./modules/custom/font.conf
-include ./modules/custom/menus.conf
-include ./modules/custom/theme.conf
-include ./modules/custom/keymaps.conf
-include ./modules/custom/modifiers.conf
+include ./modules/terminal.conf
+include ./modules/font.conf
+include ./modules/menus.conf
+include ./modules/theme.conf
+include ./modules/keymaps.conf
+include ./modules/redshift.conf
 
 # system shit
-include ./modules/system/autostart.conf
-include ./modules/system/audio.conf
-include ./modules/system/brightness.conf
-include ./modules/system/keyboard.conf
-include ./modules/system/touchpad.conf
+include ./modules/autostart.conf
+include ./modules/audio.conf
+include ./modules/brightness.conf
+include ./modules/keyboard.conf
+include ./modules/touchpad.conf
 

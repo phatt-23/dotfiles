@@ -23,7 +23,10 @@ return {
 					end,
 				},
 				window = {
-					completion = cmp.config.window.bordered(),
+					completion = {
+                        cmp.config.window.bordered(),
+                        scrollbar = false,
+                    },
 					documentation = cmp.config.window.bordered(),
 				},
 				mapping = cmp.mapping.preset.insert({
@@ -65,7 +68,7 @@ return {
 
 						-- The function below will be called before any actual modifications from lspkind
 						-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-						before = function(entry, vim_item)
+						before = function(_, vim_item)
 							return vim_item
 						end,
 					}),

@@ -1,6 +1,6 @@
 -- lua/plugins/treesitter.lua
 return {
-	{
+    {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         config = function()
@@ -10,5 +10,8 @@ return {
                 indent = { enable = true },
             })
         end
+    },
+    {
+        "windwp/nvim-ts-autotag"
     },
 }

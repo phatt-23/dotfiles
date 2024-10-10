@@ -12,7 +12,7 @@
 (setq visible-bell nil)
 
 ;;font
-(set-face-attribute 'default nil :font "Fira Code Retina" :height 110)
+(set-face-attribute 'default nil :font "MesloLGM Nerd Font 14" :height 140)
 
 ;;keybinds
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -205,13 +205,13 @@
 (use-package breadcrumb)
 
 ;;theme
-(use-package modus-themes
-  :config
-  (load-theme 'modus-vivendi))
+;(use-package modus-themes
+;  :config
+;  (load-theme 'modus-vivendi))
 
-(use-package naysayer-theme
+(use-package gruvbox-theme
   :config
-  (load-theme 'kanagawa t))
+  (load-theme 'gruvbox-dark-medium t))
 
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)

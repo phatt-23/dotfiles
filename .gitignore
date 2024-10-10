@@ -2,4 +2,4 @@ helix/.config/helix/runtime
 alacritty/.config/alacritty/themes
 emacs/.emacs.d/*
 !/emacs/.emacs.d/init.el
-./i3/.config/i3/modules/i3/bar/logs/**
+i3/.config/i3/modules/i3/bar/logs/**
