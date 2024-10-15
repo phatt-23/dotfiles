@@ -1,5 +1,7 @@
 require("config.lazy") -- lazy config
 
+vim.loader.enable() -- for faster loading
+
 vim.cmd([["numberline
     set number
     set relativenumber
@@ -46,6 +48,7 @@ vim.cmd([["idk
     set undofile
     set updatetime=100
     set guicursor+=n:hor20-Cursor/lCursor
+    " set guicursor+=n:block
     set guicursor+=i:ver25
     set guicursor+=v:block
     "set clipboard=unnamedplus
@@ -89,10 +92,32 @@ vim.cmd([[
     "Different colors in visual mode
     hi Visual guifg=Black guibg=Gray gui=bold
 
+    "Make the current highlighted search bold
+    hi Search gui=bold
+    hi CurSearch gui=bold
+
     set pumblend=15
     hi Pmenu blend=15 
     hi PmenuSel blend=15
 ]])
 
 
+vim.cmd([=[
+function! KittyBufferHistoryClean()
+  set modifiable
+  set noconfirm
+  " clean ascii/ansi code  (starts with ^[)
+  silent! %s/\e\[[0-9:;]*m//g
+  silent! %s/[^[:alnum:][:punct:][:space:]]//g
+  silent! %s/\e\[[^\s]*\s//g
+  " remove empty spaces from end
+  silent! %s/\s*$//
+  let @/ = ""
+  set rnu
+  " map q to force quit
+  cnoremap q q!
+endfunction
+]=])
 
+-- Create a Neovim command that calls the Vimscript function
+vim.api.nvim_create_user_command('KittyBufferHistoryClean', 'call KittyBufferHistoryClean()', {})

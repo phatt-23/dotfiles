@@ -18,11 +18,13 @@ while [[ 1 ]]; do
     echo $backlight > $HOME/.config/i3/modules/logs/backlight.log
 
     #keyboard
-    log_path=$HOME/.config/i3/modules/logs/keyboard_layout.log
     layout=$(keyboard_layout.sh)
-    echo $layout > $log_path
-    $HOME/.config/i3/modules/scripts/get_keyboard_layout.sh
+    echo $layout > $HOME/.config/i3/modules/scripts/get_keyboard_layout.sh
     
+    #spotify
+    spotify=$($HOME/.config/i3/modules/scripts/spotify_scripts/get_spotify_status.sh)
+    echo $spotify > $HOME/.config/i3/modules/logs/spotify.log
+
     #get the process id if not already
     if [ "$PID" == "" ]; then
         PID=$(pgrep i3status)

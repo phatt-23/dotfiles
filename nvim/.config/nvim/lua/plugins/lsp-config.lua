@@ -22,6 +22,9 @@ local lsp_names = {
     "jedi_language_server",
     "ltex",
     "texlab",
+    "templ",
+    -- "golangci_lint_ls",
+    "gopls",
 }
 
 return {
