@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>alacritty</icon>
+	<name>Open dropdown Alacritty terminal</name>
+	<submenu></submenu>
+	<unique-id>1720117125025385-1</unique-id>
+	<command>/usr/local/bin/tdrop -ma -x 192 -w 1536 -s dropdown alacritty  --working-directory %f</command>
+	<description>uses &apos;tdrop&apos; on &apos;alacritty&apos;</description>
+	<range></range>
+	<patterns>*</patterns>
+	<startup-notify/>
+	<directories/>
+</action>
+</actions>

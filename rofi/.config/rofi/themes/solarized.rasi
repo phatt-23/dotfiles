@@ -1,0 +1,49 @@
+* {
+    /* Theme settings */
+    highlight: bold italic;
+    scrollbar: false;
+
+    /* Solarized colors */
+    bg0:          #002B36;
+    bg1:          #1b4651;
+    bg2:          #40646d;
+    fg0:          #EEE8D5;
+    fg1:          #EEE8D5;
+    red-dark:     #DC322F;
+    red-light:    #CB4B16;
+    yellow-dark:  #859900;
+    yellow-light: #859900;
+    gray:         #657B83;
+
+    /* Theme colors */
+    background:                  @bg1;
+    background-color:            @background;
+    foreground:                  @fg1;
+    border-color:                @gray;
+    separatorcolor:              @border-color;
+    scrollbar-handle:            @border-color;
+
+    normal-background:           @background;
+    normal-foreground:           @foreground;
+    alternate-normal-background: @background;
+    alternate-normal-foreground: @foreground;
+    selected-normal-background:  @yellow-dark;
+    selected-normal-foreground:  @bg0;
+
+    active-background:           @yellow-dark;
+    active-foreground:           @background;
+    alternate-active-background: @active-background;
+    alternate-active-foreground: @active-foreground;
+    selected-active-background:  @yellow-light;
+    selected-active-foreground:  @active-foreground;
+
+    urgent-background:           @red-dark;
+    urgent-foreground:           @background;
+    alternate-urgent-background: @urgent-background;
+    alternate-urgent-foreground: @urgent-foreground;
+    selected-urgent-background:  @red-light;
+    selected-urgent-foreground:  @urgent-foreground;
+}
+
+@import "common.rasi"
+
