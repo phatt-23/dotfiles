@@ -40,8 +40,8 @@ return {
 			-- vim.cmd.colorscheme("vesper")
 
 			-- vim.cmd.colorscheme("lackluster-mint")
-			vim.cmd.colorscheme("lackluster-night")
-			-- vim.cmd.colorscheme("lackluster-hack")
+			-- vim.cmd.colorscheme("lackluster-night")
+			vim.cmd.colorscheme("lackluster-hack")
 			-- vim.cmd.colorscheme("lackluster-dark")
             -- vim.cmd.colorscheme("zenbones")
 			-- vim.cmd.colorscheme("base16-black-metal-burzum")

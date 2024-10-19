@@ -23,12 +23,10 @@ local lsp_names = {
     "ltex",
     "texlab",
     "templ",
-    -- "golangci_lint_ls",
     "gopls",
 }
 
 return {
-    lsp_names = lsp_names,
     {
         "williamboman/mason.nvim",
         config = function()
@@ -42,7 +40,7 @@ return {
         end,
     },
     {
-        "onsails/lspkind.nvim",
+        "onsails/lspkind.nvim", -- stuff that shows up in the completion window
         config = function()
             -- setup() is also available as an alias
             require("which-key").add({
@@ -57,7 +55,7 @@ return {
                 -- defines how annotations are shown
                 -- default: symbol
                 -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-                mode = "text_symbol", -- dont know what it does
+                mode = "symbol_text",
 
                 -- default symbol map
                 -- can be either 'default' (requires nerd-fonts font) or
@@ -69,33 +67,33 @@ return {
                 -- override preset symbols
                 --
                 -- default: {}
-                symbol_map = {
-                    Text = "t",
-                    Method = "m",
-                    Function = "f",
-                    Constructor = "c",
-                    Field = "f",
-                    Variable = "v",
-                    Class = "C",
-                    Interface = "I",
-                    Module = "M",
-                    Property = "p",
-                    Unit = "u",
-                    Value = "val",
-                    Enum = "E",
-                    Keyword = "k",
-                    Snippet = "s",
-                    Color = "color",
-                    File = "file",
-                    Reference = "r",
-                    Folder = "dir",
-                    EnumMember = "Em",
-                    Constant = "const",
-                    Struct = "S",
-                    Event = "e",
-                    Operator = "o",
-                    TypeParameter = "",
-                },
+                -- symbol_map = {
+                --     Text = "t",
+                --     Method = "m",
+                --     Function = "f",
+                --     Constructor = "c",
+                --     Field = "f",
+                --     Variable = "v",
+                --     Class = "C",
+                --     Interface = "I",
+                --     Module = "M",
+                --     Property = "p",
+                --     Unit = "u",
+                --     Value = "val",
+                --     Enum = "E",
+                --     Keyword = "k",
+                --     Snippet = "s",
+                --     Color = "color",
+                --     File = "file",
+                --     Reference = "r",
+                --     Folder = "dir",
+                --     EnumMember = "Em",
+                --     Constant = "const",
+                --     Struct = "S",
+                --     Event = "e",
+                --     Operator = "o",
+                --     TypeParameter = "",
+                -- },
             })
         end,
     },
@@ -104,20 +102,42 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             local navic = require("nvim-navic")
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            for _, lsp_name in ipairs(lsp_names) do
-                lspconfig[lsp_name].setup {
+            local lspconfig_setup_init_options = {
+                clangd = {
+                    fallbackFlags = { "--std=c++20" }
+                },
+                ruby_lsp = {
+                    formatter = "standard",
+                    linters = { "standard" },
+                },
+            }
+
+            -- setup every lsp with nvim completions 
+            -- and custom init_options
+			for _, lsp_name in ipairs(lsp_names) do
+                local init_opts = {}
+
+                if lspconfig_setup_init_options[lsp_name] then
+                    init_opts = lspconfig_setup_init_options[lsp_name]
+                end
+
+				lspconfig[lsp_name].setup({
+                    init_options = init_opts,
                     on_attach = function(client, bufnr)
                         navic.attach(client, bufnr)
-                    end
-                }
-            end
+                    end,
+					capabilities = capabilities,
+				})
+			end
 
             vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
-            -- Got it from here: https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+            -- Got it from here: 
+            --  [https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization]
             -- Specify how the border looks like
             local border = {
                 { "╭", "FloatBorder" },
@@ -157,13 +177,6 @@ return {
                 pattern = "*",
                 desc = "Avoid overwritten by loading color schemes later",
                 callback = set_hl_for_floating_window,
-            })
-
-            lspconfig.ruby_lsp.setup({
-                init_options = {
-                    formatter = "standard",
-                    linters = { "standard" },
-                },
             })
         end,
     },

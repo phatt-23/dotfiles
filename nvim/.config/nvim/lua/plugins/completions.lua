@@ -49,11 +49,11 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
-			for _, lsp in ipairs(lsp_names) do
-				lspconfig[lsp].setup({
-					capabilities = capabilities,
-				})
-			end
+			-- for _, lsp in ipairs(lsp_names) do
+			-- 	lspconfig[lsp].setup({
+			-- 		capabilities = capabilities,
+			-- 	})
+			-- end
 
 			local lspkind = require("lspkind")
 			cmp.setup({
@@ -81,6 +81,7 @@ return {
 					{ name = "buffer" },
 				},
 			})
+
 		end,
 	},
 }
