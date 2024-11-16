@@ -2,12 +2,10 @@
 # Font
 # font_family DejaVuSansM Nerd Font
 # font_family MesloLGM Nerd Font 
-# font_family      Iosevka NF Medium
-# bold_font        Iosevka NF Heavy
-# italic_font      Iosevka NF Obl
-# bold_italic_font Iosevka NF Heavy Obl
-font_family Liga SFMono Nerd Font
-# font_family JetBrainsMono Nerd Font
+font_family      Iosevka NF Medium
+bold_font        Iosevka NF Heavy
+italic_font      Iosevka NF Obl
+bold_italic_font Iosevka NF Heavy Obl
 
 font_size 12
 
@@ -111,7 +109,7 @@ map ctrl+shift+r load_config_file
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Frappe
+# Catppuccin-Mocha
 include current-theme.conf
 # END_KITTY_THEME
 

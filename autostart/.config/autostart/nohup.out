@@ -1,0 +1,68 @@
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:89	Could not find the plugin: http://calf.sourceforge.net/plugins/StereoTools
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: balance_in
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: balance_out
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: sbal
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: mpan
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: stereo_base
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: delay
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: sc_level
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: stereo_phase
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: slev
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: mlev
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: softclip
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: mutel
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: muter
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: phasel
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: phaser
+
+(easyeffects:10736): easyeffects-WARNING **: 02:12:19.317: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: mode
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:89	Could not find the plugin: http://calf.sourceforge.net/plugins/StereoTools
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: balance_in
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: balance_out
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: sbal
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: mpan
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: stereo_base
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: delay
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: sc_level
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: stereo_phase
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: slev
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: mlev
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: softclip
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: mutel
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: muter
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: phasel
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: phaser
+
+(easyeffects:11263): easyeffects-WARNING **: 02:12:38.699: 	lv2_wrapper.cpp:408	http://calf.sourceforge.net/plugins/StereoTools port symbol not found: mode

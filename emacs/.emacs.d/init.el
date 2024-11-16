@@ -55,7 +55,7 @@
 
 (use-package all-the-icons)
 
-(use-package ivy
+(use-package ivy 
   :diminish
   :bind (("C-s" . swiper)
 	 :map ivy-switch-buffer-map
@@ -106,7 +106,7 @@
   :config
   (general-create-definer phatt/leader-keys
     :keymaps 'override
-    :prefix "C-SPC")
+    :prefix "C-,")
   (phatt/leader-keys
      "tt" '(counsel-load-theme :which-key "choose theme")))
 
@@ -128,8 +128,8 @@
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
 
-(use-package magit
-  :custom (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+;; (use-package magit
+;;   :custom (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
 
 (use-package org)
 
@@ -209,10 +209,15 @@
 ;  :config
 ;  (load-theme 'modus-vivendi))
 
-(use-package gruvbox-theme
-  :config
-  (load-theme 'gruvbox-dark-medium t))
+;; (use-package gruvbox-theme
+;;   :config
+;;   (load-theme 'gruvbox-dark-medium t))
 
+;; (use-package gruber-darker-theme
+;;   :config
+;;   (load-theme 'gruber-darker t))
+
+(load-theme 'leuven t)
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 (setq highlight-indent-guides-method 'character)
@@ -221,7 +226,32 @@
 (use-package rustic)
 (use-package lua-mode)
 
+;;; LaTeX mode
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
 
+(use-package auctex
+  :ensure t
+  :hook
+  (LaTex-mode . turn-on-prettify-symbols-mode)
+  (LaTex-mode . turn-on-flyspell))
+
+(load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
 
 ;;; init.el ends here
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(math-preview latex-preview-pane latex-math-preview latex-pretty-symbols prettify-math imenu-list lua-mode rustic gruvbox-theme breadcrumb multiple-cursors minions vterm eterm-256color drag-stuff company-box company lsp-treemacs lsp-ui lsp-mode magit counsel-projectile projectile general evil helpful which-key rainbow-delimiters doom-modeline counsel ivy-rich ivy all-the-icons)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

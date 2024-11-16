@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 log_path=$HOME/.config/i3/modules/logs/cpu_temperature.log
-temerature=$(cpu_temperature.sh)
+temerature=$(sensors | grep "Tctl" | tr -d '+' | awk '{print $2}')
 temerature_previous=$(cat $log_path)
 
 if [ "$temerature_previous" == "$temerature" ]; then

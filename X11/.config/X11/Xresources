@@ -1,0 +1,7 @@
+! X11 configuration
+
+! To update, run:
+!     xrdb -load -I/home/phatt/.config/X11 ./Xresources 
+
+#include "./Xresources.d/fonts"
+#include "./Xresources.d/xterm"

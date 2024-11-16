@@ -5,10 +5,12 @@ echo $$ > /tmp/i3status_launch_script_process_id
 
 while [[ 1 ]]; do
     #uptime
-    echo $(session_uptime.sh) > $HOME/.config/i3/modules/logs/uptime.log
+    echo $(/home/phatt/.config/i3/modules/scripts/session_uptime.sh) \
+        > $HOME/.config/i3/modules/logs/uptime.log
 
     #temperature
-    echo $(cpu_temperature.sh) > $HOME/.config/i3/modules/logs/cpu_temperature.log
+    echo $(sensors | grep "Tctl" | tr -d '+' | awk '{print $2}') \
+        > $HOME/.config/i3/modules/logs/cpu_temperature.log
 
     #brightness
     brightness=$(cat /sys/class/backlight/amdgpu_bl1/brightness)
@@ -18,8 +20,7 @@ while [[ 1 ]]; do
     echo $backlight > $HOME/.config/i3/modules/logs/backlight.log
 
     #keyboard
-    layout=$(keyboard_layout.sh)
-    echo $layout > $HOME/.config/i3/modules/scripts/get_keyboard_layout.sh
+    echo $(keyboard_layout.sh) > $HOME/.config/i3/modules/logs/keyboard_layout.log 
     
     #spotify
     spotify=$($HOME/.config/i3/modules/scripts/spotify_scripts/get_spotify_status.sh)

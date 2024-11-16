@@ -20,10 +20,12 @@ local lsp_names = {
     "svelte",
     -- "pyright",
     "jedi_language_server",
-    "ltex",
+    -- "ltex",
     "texlab",
     "templ",
     "gopls",
+    -- "typst_lsp",
+    -- "tinymist",
 }
 
 return {
@@ -45,11 +47,11 @@ return {
             -- setup() is also available as an alias
             require("which-key").add({
                 mode = { "n" },
-                { "<leader>l", group = "lsp" },
+                { "<leader>l",  group = "lsp" },
                 { "<leader>lr", "<cmd>LspRestart<CR>", desc = "restart" },
-                { "<leader>li", "<cmd>LspInfo<CR>", desc = "info" },
-                { "<leader>ls", "<cmd>LspStart<CR>", desc = "start" },
-                { "<leader>lx", "<cmd>LspStop<CR>", desc = "stop" },
+                { "<leader>li", "<cmd>LspInfo<CR>",    desc = "info" },
+                { "<leader>ls", "<cmd>LspStart<CR>",   desc = "start" },
+                { "<leader>lx", "<cmd>LspStop<CR>",    desc = "stop" },
             })
             require("lspkind").init({
                 -- defines how annotations are shown
@@ -102,7 +104,7 @@ return {
         config = function()
             local lspconfig = require("lspconfig")
             local navic = require("nvim-navic")
-			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+            local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             local lspconfig_setup_init_options = {
                 clangd = {
@@ -114,29 +116,40 @@ return {
                 },
             }
 
-            -- setup every lsp with nvim completions 
+            -- setup every lsp with nvim completions
             -- and custom init_options
-			for _, lsp_name in ipairs(lsp_names) do
+            for _, lsp_name in ipairs(lsp_names) do
                 local init_opts = {}
 
                 if lspconfig_setup_init_options[lsp_name] then
                     init_opts = lspconfig_setup_init_options[lsp_name]
                 end
 
-				lspconfig[lsp_name].setup({
+                lspconfig[lsp_name].setup({
                     init_options = init_opts,
                     on_attach = function(client, bufnr)
                         navic.attach(client, bufnr)
                     end,
-					capabilities = capabilities,
-				})
-			end
+                    capabilities = capabilities,
+                })
+            end
+
+            require('lspconfig').typst_lsp.setup({
+                settings = {
+                    exportPdf = "onType", -- Choose onType, onSave or never.
+                    serverPath = "", -- Normally, there is no need to uncomment it.
+                },
+                on_attach = function(client, bufnr)
+                    navic.attach(client, bufnr)
+                end,
+                capabilities = capabilities,
+            })
 
             vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
 
-            -- Got it from here: 
+            -- Got it from here:
             --  [https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization]
             -- Specify how the border looks like
             local border = {

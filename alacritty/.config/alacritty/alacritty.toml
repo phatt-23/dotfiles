@@ -1,41 +1,22 @@
-# import = [
-    # "themes/themes/snazzy.toml"
-    # "themes/themes/wombat.toml"
-    # "themes/themes/xterm.toml"
-    # "themes/themes/iterm.toml"
-    # "themes/themes/monokai_charcoal.toml"
-    # "themes/themes/hyper.toml"
-    # "themes/themes/midnight-haze.toml"
-    # "themes/themes/ayu_dark.toml"
-    # "themes/themes/catppuccin_mocha.toml"
-    # "themes/themes/challenger_deep.toml"
-    # "themes/themes/dracula.toml"
-    # "themes/themes/github_dark_default.toml"
-    # "themes/themes/github_dark_high_contrast.toml"
-    # "themes/themes/hardhacker.toml"
-    # "themes/themes/tokyo-night.toml"
-    # "my_themes/gruber.toml"
-    # "my_themes/lackluster.toml"
-# ]
 
-# LACKLUSTER COLORS
-[colors.primary]
-background = '#101010'
+# # LACKLUSTER COLORS
+# [colors.primary]
+# background = '#101010'
+#
+# [colors.normal]
+# # black is gray0
+# black = '#080808'
+# red = '#D70000'
+# green = '#789978'
+# yellow = '#ffAA88'
+# blue = '#7788AA'
+# magenta = '#D7007D'
+# # cyan is set to lack
+# cyan = '#708090' 
+# # white is set to luster
+# white = '#DEEEED'
 
-[colors.normal]
-# black is gray0
-black = '#080808'
-red = '#D70000'
-green = '#789978'
-yellow = '#ffAA88'
-blue = '#7788AA'
-magenta = '#D7007D'
-# cyan is set to lack
-cyan = '#708090' 
-# white is set to luster
-white = '#DEEEED'
-
-[shell]
+[terminal.shell]
 program = "fish"
 
 [window]
@@ -54,6 +35,7 @@ program = "fish"
 # normal = { family = "CommitMono Nerd Font", style = "Regular" }
 # normal = { family = "UbuntuSansMono Nerd Font" }
 normal = { family = "MesloLGS Nerd Font" }
+# normal = { family = "Iosevka Nerd Font" }
 size = 11
 
 [bell]
@@ -83,3 +65,24 @@ bindings = [
 regex = "[^ ]+\\.*:\\d+:\\d+"
 command = { program = "alacritty", args = [ "-e", "hx" ] }
 mouse = { enabled = true }
+
+[general]
+import = [
+    # "themes/themes/snazzy.toml"
+    # "themes/themes/wombat.toml"
+    # "themes/themes/xterm.toml"
+    # "themes/themes/iterm.toml"
+    # "themes/themes/monokai_charcoal.toml"
+    # "themes/themes/hyper.toml"
+    # "themes/themes/midnight-haze.toml"
+    # "themes/themes/ayu_dark.toml"
+    # "themes/themes/catppuccin_mocha.toml"
+    # "themes/themes/challenger_deep.toml"
+    # "themes/themes/dracula.toml"
+    # "themes/themes/github_dark_default.toml"
+    # "themes/themes/github_dark_high_contrast.toml"
+    # "themes/themes/hardhacker.toml"
+    # "themes/themes/tokyo-night.toml"
+    # "my_themes/gruber.toml"
+    "my_themes/lackluster.toml"
+]

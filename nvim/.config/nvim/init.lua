@@ -47,8 +47,8 @@ vim.cmd([["idk
     set timeoutlen=300
     set undofile
     set updatetime=100
-    set guicursor+=n:hor20-Cursor/lCursor
-    " set guicursor+=n:block
+    " set guicursor+=n:hor20-Cursor/lCursor
+    set guicursor+=n:block
     set guicursor+=i:ver25
     set guicursor+=v:block
     "set clipboard=unnamedplus
@@ -103,20 +103,20 @@ vim.cmd([[
 
 
 vim.cmd([=[
-function! KittyBufferHistoryClean()
-  set modifiable
-  set noconfirm
-  " clean ascii/ansi code  (starts with ^[)
-  silent! %s/\e\[[0-9:;]*m//g
-  silent! %s/[^[:alnum:][:punct:][:space:]]//g
-  silent! %s/\e\[[^\s]*\s//g
-  " remove empty spaces from end
-  silent! %s/\s*$//
-  let @/ = ""
-  set rnu
-  " map q to force quit
-  cnoremap q q!
-endfunction
+    function! KittyBufferHistoryClean()
+        set modifiable
+        set noconfirm
+        " clean ascii/ansi code  (starts with ^[)
+        silent! %s/\e\[[0-9:;]*m//g
+        silent! %s/[^[:alnum:][:punct:][:space:]]//g
+        silent! %s/\e\[[^\s]*\s//g
+        " remove empty spaces from end
+        silent! %s/\s*$//
+        let @/ = ""
+        set rnu
+        " map q to force quit
+        cnoremap q q!
+    endfunction
 ]=])
 
 -- Create a Neovim command that calls the Vimscript function

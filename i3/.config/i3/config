@@ -24,3 +24,5 @@ include ./modules/brightness.conf
 include ./modules/keyboard.conf
 include ./modules/touchpad.conf
 
+# arch shit
+exec --no-startup-id /usr/bin/easyeffects --gapplication-service
