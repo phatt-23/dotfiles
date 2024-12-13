@@ -8,9 +8,9 @@ return {
                 mode = { "n", "v" },
                 { "<leader>f",  group = "telescope" },
                 { "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files()<cr>", desc = "files", },
-                { "<leader>fg", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", desc = "grep" },
-                { "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers()<cr>", desc = "buffers" },
-                { "<leader>fh", "<cmd>lua require'telescope.builtin'.help_tags()<cr>", desc = "help" },
+                { "<leader>fg", "<cmd>lua require'telescope.builtin'.live_grep()<cr>",  desc = "grep" },
+                { "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers()<cr>",    desc = "buffers" },
+                { "<leader>fh", "<cmd>lua require'telescope.builtin'.help_tags()<cr>",  desc = "help" },
             })
         end
     },
@@ -30,5 +30,5 @@ return {
             -- load_extension, somewhere after setup function:
             require("telescope").load_extension("ui-select")
         end
-    }
+    },
 }

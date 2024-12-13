@@ -1,3 +1,5 @@
+return {}
+--[[
 return {
     {
         "vhyrro/luarocks.nvim",
@@ -47,3 +49,4 @@ return {
         end
     }
 }
+--]]

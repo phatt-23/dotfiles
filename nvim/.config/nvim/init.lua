@@ -5,7 +5,7 @@ vim.loader.enable() -- for faster loading
 vim.cmd([["numberline
     set number
     set relativenumber
-    set signcolumn=yes:2 "the margin between the numberline and the border
+    set signcolumn=yes "the margin between the numberline and the border
     set numberwidth=6 "number width, the gap between numberline and current numberline
 ]])
 
@@ -121,3 +121,17 @@ vim.cmd([=[
 
 -- Create a Neovim command that calls the Vimscript function
 vim.api.nvim_create_user_command('KittyBufferHistoryClean', 'call KittyBufferHistoryClean()', {})
+
+
+vim.cmd([[
+    "set notermguicolors  " Ensure true color support is disabled
+    "set background=dark  " Adjust to 'light' if needed
+]])
+
+
+
+
+
+
+
+

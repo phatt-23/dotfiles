@@ -1,7 +1,7 @@
 local lsp_names = {
     "lua_ls",
     "rust_analyzer",
-    "csharp_ls",
+    -- "csharp_ls",
     "eslint",
     -- "tsserver",
     "html",
@@ -9,13 +9,13 @@ local lsp_names = {
     "clangd",
     "sqls",
     "sqlls",
-    "ruby_lsp",
+    -- "ruby_lsp",
     -- "solargraph",
     -- "steep",
     -- "sorbet",
     -- "deno",
     "stimulus_ls",
-    "rubocop",
+    -- "rubocop",
     "taplo",
     "svelte",
     -- "pyright",
@@ -25,7 +25,9 @@ local lsp_names = {
     "templ",
     "gopls",
     -- "typst_lsp",
-    -- "tinymist",
+    "tinymist",
+    -- "hls",
+    "bashls",
 }
 
 return {
@@ -134,16 +136,17 @@ return {
                 })
             end
 
-            require('lspconfig').typst_lsp.setup({
-                settings = {
-                    exportPdf = "onType", -- Choose onType, onSave or never.
-                    serverPath = "", -- Normally, there is no need to uncomment it.
-                },
-                on_attach = function(client, bufnr)
-                    navic.attach(client, bufnr)
-                end,
-                capabilities = capabilities,
-            })
+            -- deprecated
+            -- require('lspconfig').typst_lsp.setup({
+            --     settings = {
+            --         exportPdf = "onType", -- Choose onType, onSave or never.
+            --         serverPath = "",      -- Normally, there is no need to uncomment it.
+            --     },
+            --     on_attach = function(client, bufnr)
+            --         navic.attach(client, bufnr)
+            --     end,
+            --     capabilities = capabilities,
+            -- })
 
             vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
@@ -192,5 +195,10 @@ return {
                 callback = set_hl_for_floating_window,
             })
         end,
+    },
+    {
+        'mrcjkb/haskell-tools.nvim',
+        version = '^4', -- Recommended
+        lazy = false,   -- This plugin is already lazy
     },
 }

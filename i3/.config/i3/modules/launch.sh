@@ -4,8 +4,9 @@ kill $(< /tmp/i3status_launch_script_process_id)
 echo $$ > /tmp/i3status_launch_script_process_id
 
 while [[ 1 ]]; do
+
     #uptime
-    echo $(/home/phatt/.config/i3/modules/scripts/session_uptime.sh) \
+    echo $($HOME/.config/i3/modules/scripts/session_uptime.sh) \
         > $HOME/.config/i3/modules/logs/uptime.log
 
     #temperature
@@ -20,7 +21,8 @@ while [[ 1 ]]; do
     echo $backlight > $HOME/.config/i3/modules/logs/backlight.log
 
     #keyboard
-    echo $(keyboard_layout.sh) > $HOME/.config/i3/modules/logs/keyboard_layout.log 
+    keyboard=$($HOME/.config/i3/modules/scripts/get_keyboard_layout.sh) 
+    echo $keyboard > $HOME/.config/i3/modules/logs/keyboard_layout.log 
     
     #spotify
     spotify=$($HOME/.config/i3/modules/scripts/spotify_scripts/get_spotify_status.sh)

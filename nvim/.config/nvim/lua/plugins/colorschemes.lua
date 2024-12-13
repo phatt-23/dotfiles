@@ -18,6 +18,8 @@ return {
             "bluz71/vim-moonfly-colors",
             "nyoom-engineering/oxocarbon.nvim",
             "gantoreno/nvim-gabriel",
+            "rose-pine/neovim",
+            "metalelf0/base16-black-metal-scheme",
         },
         lazy = false,
         opts = {},
@@ -35,6 +37,7 @@ return {
             -- vim.cmd.colorscheme("yui_dark") -- shit
             -- vim.cmd.colorscheme("nordbones")
             -- vim.cmd.colorscheme("darkburn")
+            -- vim.cmd.colorscheme("kanagawabones")
             -- vim.cmd([[
             --     colo zenburn
             --     hi LineNr      guibg=#3f3f3f guifg=#f0deae
@@ -43,7 +46,9 @@ return {
             --     hi Cursor      cterm=bold
             -- ]])
             -- vim.cmd.colorscheme("tokyonight-night")
-            vim.cmd.colorscheme("catppuccin")
+            -- vim.cmd.colorscheme("catppuccin-frappe")
+            -- vim.cmd.colorscheme("rose-pine-moon")
+            vim.cmd.colorscheme("base16-black-metal-mayhem")
         end,
     },
     {
@@ -137,7 +142,7 @@ return {
         priority = 2000,
 		opts = {
 			term_colors = true,
-			transparent_background = false,
+			transparent_background = true,
 			styles = {
 				comments = {},
 				conditionals = {},

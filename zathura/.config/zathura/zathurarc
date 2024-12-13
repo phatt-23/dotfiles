@@ -13,10 +13,12 @@
 # include ./themes/senior-mars-theme.config
 # include ./themes/base16-zenburn.config
 # include ./themes/base16-nord.config
+# include ./themes/rose-pine-moon.config
+include ./themes/base16-black-metal.config
 
 # set font 'MesloLGM Nerd Font 12'
-# set font 'Iosevka Nerd Font 12'
-set font 'Liga SFMono Nerd Font 12'
+set font 'Iosevka Nerd Font 12'
+# set font 'Liga SFMono Nerd Font 12'
 
 set window-title-basename "true"
 set selection-clipboard "clipboard"

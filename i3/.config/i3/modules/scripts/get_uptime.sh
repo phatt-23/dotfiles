@@ -1,7 +1,7 @@
 #!/bin/env bash
 
 log_path=$HOME/.config/i3/modules/logs/uptime.log
-uptime=$(session_uptime.sh)
+uptime=$(uptime)
 uptime_previous=$(cat $log_path)
 
 if [ "$uptime" == "$uptime_previous" ]; then

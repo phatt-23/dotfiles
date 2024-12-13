@@ -58,3 +58,5 @@ configuration {
 //@theme "/home/phatt/.config/rofi/themes/zenburn.rasi"
 //@theme "/home/phatt/.config/rofi/themes/zenburn.rasi"
 @theme "/home/phatt/.config/rofi/themes/lackluster.rasi"
+
+//@theme "/home/phatt/.config/rofi/themes/rose-pine.rasi"

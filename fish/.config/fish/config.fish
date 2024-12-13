@@ -45,5 +45,8 @@ if status is-interactive
     fish_add_path ~/.local/bin
     fish_add_path /opt/mssql-tools18/bin
     fish_add_path /home/phatt/.spicetify
+
+    fish_config theme choose "Rosé Pine Moon"
+
 end
 
