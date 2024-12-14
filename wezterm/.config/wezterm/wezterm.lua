@@ -27,8 +27,8 @@ local fonts = {
     "RecMonoLinear Nerd Font",
 }
 
-config.font = wezterm.font(fonts[3])
-config.font_size = 12.0
+config.font = wezterm.font(fonts[6])
+config.font_size = 14.0
 
 local color_schemes = {
     "nord",
@@ -53,11 +53,11 @@ local color_schemes = {
     "Black Metal (Mayhem) (base16)", -- yellow
 }
 
-config.color_scheme = color_schemes[17]
+config.color_scheme = color_schemes[20]
 
 config.colors = {
     -- background = "#0C0C0C"
-    background = "#101010"
+    -- background = "#101010"
 }
 
 -- No edges
@@ -82,7 +82,7 @@ config.keys = {
     {
         key = "s",
         mods = "LEADER",
-        action = act.PaneSelect,
+        action = act.PaneSelect
     },
     -- Show the pane selection mode, but have it swap the active and selected panes
     {
@@ -164,3 +164,4 @@ config.key_tables = {
 
 -- Must return
 return config
+
