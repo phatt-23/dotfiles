@@ -1,0 +1,65 @@
+﻿$ORIGIN cs.vsb.cz. 
+; Hodnota ORIGIN se bude dale implicitne pridavat za jmena v tomto souboru,
+; ktera nekonci teckou (tj. relativni jmena)
+
+$TTL 604800
+; Time to Live - implicitni doba (pocet sekund) udrzovani zaznamu z tohoto souboru 
+;                v cache
+
+; Zaznamy v tomto souboru maji spolecny format.
+; [domena][ttl][trida]typ rdata
+; [domena] Nazev domeny, ke ktere se zaznam vztahuje. Neni-li uvedena plati predchozi.
+;          @ odpovida hodnote definovane direktivou $ORIGIN.
+; [ttl] time to live - doba udrzovani v cache v sekundach. Neni-li uvedeno, plati hodnota $TTL
+; [trida] - IN - pro IP (Internet)
+; [typ] - SOA, A, CNAME, NS, PTR, HINFO, TXT, ...
+;
+; Zaznam typu SOA popisujici zonu musi byt uveden vzdy prave jednou na zacatku
+; zonoveho souboru pro kazdou zonu, pro kterou je DNS server autoritou (zde testA).
+
+testA        	IN SOA	ns.testA adminTestA.yahoo.com. (
+				2003092414  ; Verze zonoveho souboru (nekdy se pouziva format rok, mesic, den, poradi)
+					        ; Podle cisla verze poznava sekundarni DNS, zda doslo v databazi ke zmenam
+				604800      ; Frekvence overovani platnosti a aktualizace dat ze strany sekundarniho DNS serveru 
+					        ; (v sekundach)
+				86400       ; Mezera mezi opakovanymi pokusy sekundarniho DNS serveru o kontakt s primarnim DNS
+					        ; serverem, pokud se kontakt nedari (v sekundach)
+				2419200     ; Doba drzeni dat sekundarnim DNS serverem od posledniho uspesneho kontaktu primarniho
+					        ; DNS serveru, pokud se dalsi kontakty nedari. 
+				604800      ; povolena doba drzeni zaznamu ze zony v cache jinych jmennych serveru
+					        ; (neni-li u zaznamu specifikovano jinak)
+
+; ns.testA(.cs.vsb.cz) - jmeno primarniho DNS serveru domeny.
+; adminTestA.yahoo.com. - email spravce domeny (misto @ se pouziva ".")
+
+
+			
+; Dale budeme pouzivat relativni jmena vztazena k domene testA.cs.vsb.cz.
+$ORIGIN	testA.cs.vsb.cz.
+
+; Podle konvenci by mel zaznam NS urcujici DNS server pro danou domenu nasledovat hned za SOA zaznamem. 
+; Pokud name server lezi uvnitr domeny, mel by pro nej nasledovat i A zaznam.
+; Pro domenu testA.cs.vsb.cz bude jmenny server ns.testA.cs.vsb.cz
+			NS	ns
+ns			A	158.196.246.66
+			TXT	"primarni dns server"
+
+; mail server(y) pro domenu definovany zaznamem MX (MailExchage)
+; Cislo u zaznamu MX udava prioritu, preferuje se ciselne nizsi priorita
+			MX	70 pc1
+			MX	71 pc2
+			
+; Prirazeni IP adresy k pc1.testA.cs.vsb.cz
+pc1			A	158.196.246.70
+			TXT	"pocitac c.1"
+
+; Prirazeni IP adresy k pc2.testA.cs.vsb.cz s explicitnim stanovenim doby udrzovani zaznamu v cache na 1h
+pc2	3600		A	158.196.246.71
+			TXT	"pocitac c.2"
+
+; Zaznam typu CNAME (Canonical Name)
+; Funguje jako alias. Adresa www.testA.cs.vsb.cz odkazuje na stejnou IP adresu jako pc1.testA.cs.vsb.cz,
+; obdobne ftp.testA.cs.vsb.cz pro pc2.testA.cs.vsb.cz.
+www			CNAME	pc1
+ftp			CNAME	pc2
+

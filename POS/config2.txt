@@ -1,0 +1,158 @@
+DHCP+ACL konfigurace
+
+
+                        telnet (40.0.0.11)
+                        |
+    (30.0.0.10) www ----|---- dns (50.0.0.12)
+                        |
+                        ISP
+                        | <- (Se0/0/0 10.0.0.1 255.255.255.252)
+                        |
+                        |
+                        | <- Se0/0/0 (ACL 10.0.0.2 255.255.252)
+                        R1 ---------- seg. N (205.239.192.0 255.255.255.0 0.0.0.255)
+              Fa 0/0 -> |  ^- Fa0/1
+                        |
+                        seg. T (205.239.193.0 255.255.255.192 0.0.0.63)
+
+
+Subnetting with public IP prefix 205.239.192.0/22:
+
+Segment         Subnet/mask         Lowest          Highest             Broadcast
+Seg.T           205.239.192.0/24    205.239.192.1   205.239.192.254     205.239.192.255
+Seg.N/DHCP/DNS  205.239.193.0/26    205.239.193.1   205.239.193.62      205.239.193.63
+
+Company name: nineer.cz
+
+mask /    24  25  26  27  28  29  30  31  32
+mask num  0   128 192 224 240 248 252 254 256
+wild num  255 127 63  31  15  7   3   1   0
+
+The R1-ISP segment and the Internet services have been pre-configured (including routing).
+Services presented in the topology in provider's network are running and responding to
+the requests (WWW, Telnet, DNS) and corresponding DNS records exist on provider's DNS server.
+(e.g. www.isp.cz).
+
+The company's DNS server will be statically configured on PC1 in the DNS segment.
+
+1. Computers
+-   Configure IPv4 addresses for all computers that are statically configured.
+    (last usable addresses)
+
+PC1 will set as company's DNS server:
+ip address: 205.239.192.254
+mask:       255.255.255.0
+default:    205.239.192.1
+
+-   Configure IPv4 addresses on interfaces of the router R1 and add descriptions.
+    (first usable addresses)
+
+interface Fa0/0
+no shutdown
+ip address 205.239.192.1 255.255.255.0
+description "Segment T"
+
+interface Fa0/1
+no shutdown
+ip address 205.239.193.1 255.255.255.192
+description "Segment N"
+
+
+2. Router R1 (DHCP)
+-   Configure the DHCP server, which will dynamically assign parameters required 
+    by the stations (including the provider's DNS server address).
+-   Don't use IP addresses whch are already statically assigned on the segment.
+
+ip dhcp excluded-address 205.239.192.1
+ip dhcp excluded-address 205.239.193.1
+ip dhcp excluded-address 205.239.192.254
+
+ip dhcp pool Pool_Segment_T
+network 205.239.192.0 255.255.255.0
+default-router 205.239.192.1
+dns-server 50.0.0.12
+
+ip dhcp pool Pool_Segment_N
+network 205.239.193.0 255.255.255.192
+default-router 205.239.193.1
+dns-server 50.0.0.12
+
+3. Router R1 (ACL)
+-   Implement ACLs on R1's interface leading to the router ISP for both directions.
+
+ip access-list extended "R1_Out"
+ip access-list extended "R1_In"
+
+int Se0/0/0
+no shutdown
+description "ISP"
+ip address 10.0.0.2 255.255.255.252
+ip access-group "R1_Out" out
+ip access-group "R2_In" in
+
+-   Stations on segment T can Telnet to a router marked Telnet (IP address 40.0.0.11).
+
+ip access-list extended "R1_Out"
+permit tcp  205.239.192.0 0.0.0.255  host 40.0.0.11 eq telnet
+
+ip access-list extended "R1_In"
+permit tcp  host 40.0.0.11 eq telnet  205.239.192.0 0.0.0.255  established 
+
+-   Stations on segment N must not access WWW server 30.0.0.10, 
+    the rest of the company's network may connect to any WWW server on the Internet.
+
+ip access-list extended "R1_Out"
+deny tcp  205.239.192.0 0.0.0.63  host 30.0.0.10 eq www
+
+-   DNS queries to the Internet and their responses are freely sent.
+
+ip access-list extended "R1_Out"
+permit tcp  205.239.192.0 0.0.0.255  any eq domain
+permit udp  205.239.192.0 0.0.0.255  any eq domain
+
+ip access-list extended "R1_In"
+permit tcp  any eq domain  205.239.192.0 0.0.0.255  established 
+permit udp  any eq domain  205.239.192.0 0.0.0.255  
+
+-   DNS queries from the outside are permitted only to the company's DNS server
+    which sends back replies.
+
+ip access-group extended "R1_Out"
+permit tcp  host 205.239.192.254 eq domain  any  established
+permit udp  host 205.239.192.254 eq domain  any
+
+ip access-group extended "R1_In"
+permit tcp  any  host 205.239.192.254 eq domain
+permit udp  any  host 205.239.192.254 eq domain
+
+-   The stations and routers of the company's network may ping (ICMP echo request)
+    the hosts on the Internet, but you don't want to endanger your corporate network 
+    by potential ping floods from the Internet. 
+
+ip access-group extended "R1_Out"
+permit icmp  205.239.192.0 0.0.0.255  any  echo
+
+ip access-group extended "R1_In"
+permit icmp  any  205.239.192.0 0.0.0.255  echo-reply
+
+-   The exception being the company's DNS server that has to respond to the pings 
+    from the Internet. 
+
+ip access-group extended "R1_Out"
+permit icmp  host 205.239.192.254  any  echo-reply
+
+ip access-group extended "R1_In"
+permit icmp  any  host 205.239.192.254  echo
+
+-   The hosts on the Internet may also ping the external interface of R1 router.
+
+ip access-group extended "R1_Out"
+permit icmp  host 10.0.0.2  any  echo
+
+ip access-group extended "R1_In"
+permit icmp  any  host 10.0.0.2  echo-reply
+
+
+
+
+
