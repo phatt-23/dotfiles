@@ -1,4 +1,4 @@
-local mode_map = {
+local compact_mode_map = {
     ["NORMAL"] = "N",
     ["O-PENDING"] = "N?",
     ["INSERT"] = "I",
@@ -15,6 +15,26 @@ local mode_map = {
     ["CONFIRM"] = "Y?",
     ["MORE"] = "M",
 }
+
+local lowercase_mode_map = {
+    ["NORMAL"] = "normal",
+    ["O-PENDING"] = "o pending",
+    ["INSERT"] = "insert",
+    ["VISUAL"] = "visual",
+    ["V-BLOCK"] = "visual block",
+    ["V-LINE"] = "visual line",
+    ["V-REPLACE"] = "visual replace",
+    ["REPLACE"] = "replace",
+    ["COMMAND"] = "command",
+    ["EX"] = "execute",
+    ["S-BLOCK"] = "select block",
+    ["S-LINE"] = "select line",
+    ["SELECT"] = "select",
+    ["CONFIRM"] = "confirm",
+    ["MORE"] = "more",
+}
+
+local mode_map = lowercase_mode_map
 
 -- gruber colors
 local gruber = {

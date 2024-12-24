@@ -1,19 +1,27 @@
 ### KITTY CONFIG ###
+
+# Theme
+# include ./black_metal_mayhem_theme.conf
+
 # Font
 # font_family DejaVuSansM Nerd Font
 # font_family DejaVu Sans Mono
 # font_family MesloLGM Nerd Font 
-font_family      Iosevka NF
-bold_font        Iosevka NF SemiBold 
-italic_font      Iosevka NF Obl
-bold_italic_font Iosevka NF SemiBold Obl
+
+font_family      Iosevka Comfy Fixed
+bold_font        Iosevka Comfy SemiBold 
+
+# font_family      Iosevka NF
+# bold_font        Iosevka NF SemiBold 
+# italic_font      Iosevka NF Obl
+# bold_italic_font Iosevka NF SemiBold Obl
 # font_family Liga SFMono Nerd Font
 # font_family JetBrainsMono Nerd Font
 # font_family FiraCode Nerd Font
 
 font_size 14
 
-# makes the font not thick (normal)
+# makes the font not thick (makes it normal)
 text_composition_strategy legacy
 
 # Splits when creating windows
@@ -40,8 +48,8 @@ draw_minimal_borders yes
 window_margin_width 0
 ### }
 
-dynamic_background_opacity yes
-background_opacity 0.96
+# dynamic_background_opacity yes
+# background_opacity 0.96
 
 allow_remote_control socket
 listen_on unix:/tmp/kitty
@@ -118,9 +126,11 @@ map ctrl+s>ctrl+shift+l layout_action move_to_screen_edge right
 map ctrl+shift+r load_config_file
 
 
+
+
+
+
 # BEGIN_KITTY_THEME
-# Black Metal
+# Monokai Soda
 include current-theme.conf
 # END_KITTY_THEME
-
-

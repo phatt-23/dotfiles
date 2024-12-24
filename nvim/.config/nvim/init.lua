@@ -99,6 +99,9 @@ vim.cmd([[
     set pumblend=15
     hi Pmenu blend=15 
     hi PmenuSel blend=15
+
+    "the vertical slit line
+    hi WinSeparator guifg=#4c566a
 ]])
 
 

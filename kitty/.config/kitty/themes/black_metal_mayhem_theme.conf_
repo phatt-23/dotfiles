@@ -1,0 +1,86 @@
+## name: Black Metal (Mayhem)
+## author: metalelf0 (https://github.com/metalelf0)
+## license: Unspecified
+## blurb: A dark theme inspired by black metal aesthetics with muted tones.
+
+#: The basic colors
+
+foreground                      #c1c1c1
+background                      #000000
+selection_foreground            #000000
+selection_background            #5f8787
+
+#: Cursor colors
+
+cursor                          #c1c1c1
+cursor_text_color               #000000
+
+#: URL underline color when hovering with mouse
+
+url_color                       #0087bd
+
+#: kitty window border colors and terminal bell colors
+
+active_border_color             #f3ecd4
+inactive_border_color           #222222
+bell_border_color               #5f8787
+visual_bell_color               none
+
+#: OS Window titlebar colors
+
+wayland_titlebar_color          system
+macos_titlebar_color            system
+
+#: Tab bar colors
+
+active_tab_foreground           #c1c1c1
+active_tab_background           #333333
+inactive_tab_foreground         #999999
+inactive_tab_background         #222222
+tab_bar_background              #121212
+tab_bar_margin_color            none
+
+#: Colors for marks (marked text in the terminal)
+
+mark1_foreground                #000000
+mark1_background                #5f8787
+mark2_foreground                #000000
+mark2_background                #eecc6c
+mark3_foreground                #000000
+mark3_background                #f3ecd4
+
+#: The basic 16 colors
+
+#: black
+color0                          #000000
+color8                          #424242
+
+#: red
+color1                          #5f8787
+color9                          #5f8787
+
+#: green
+color2                          #f3ecd4
+color10                         #f3ecd4
+
+#: yellow
+color3                          #eecc6c
+color11                         #eecc6c
+
+#: blue
+color4                          #888888
+color12                         #888888
+
+#: magenta
+color5                          #999999
+color13                         #999999
+
+#: cyan
+color6                          #aaaaaa
+color14                         #aaaaaa
+
+#: white
+color7                          #c1c1c1
+color15                         #c1c1c1
+
+#: You can set the remaining 240 colors as color16 to color255.
