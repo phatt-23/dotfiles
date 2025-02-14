@@ -32,29 +32,31 @@ return {
                 },
                 window = {
                     mappings = {
-                        ["<leader>p"] = "image_wezterm", -- " or another map
+                        -- ["<leader>p"] = "image_wezterm", -- " or another map
                         ["P"] = { "toggle_preview", config = { use_float = false, use_image_nvim = true } },
-                        ["l"] = "focus_preview",
-                        ["<C-b>"] = { "scroll_preview", config = { direction = 10 } },
-                        ["<C-f>"] = { "scroll_preview", config = { direction = -10 } },
+                        -- ["l"] = "focus_preview",
+                        -- ["<C-b>"] = { "scroll_preview", config = { direction = 10 } },
+                        -- ["<C-f>"] = { "scroll_preview", config = { direction = -10 } },
                     },
                 },
-                commands = {
-                    image_wezterm = function(state)
-                        local node = state.tree:get_node()
-                        if node.type == "file" then
-                            require("image_preview").PreviewImage(node.path)
-                        end
-                    end,
-                },
+                -- commands = {
+                --     image_wezterm = function(state)
+                --         local node = state.tree:get_node()
+                --         if node.type == "file" then
+                --             require("image_preview").PreviewImage(node.path)
+                --         end
+                --     end,
+                -- },
             },
             default_component_configs = {
                 container = {
                     enable_character_fade = true,
                 },
                 indent = {
-                    indent_size = 4,
-                    padding = 2, -- extra padding on left hand side
+                    -- indent_size = 4,
+                    -- padding = 2, -- extra padding on left hand side
+                    indent_size = 2,
+                    padding = 0, -- extra padding on left hand side
                     with_markers = true,
                     indent_marker = "│", -- "│",
                     last_indent_marker = "└", -- "└",
@@ -65,9 +67,12 @@ return {
                     expander_highlight = "NeoTreeExpander",
                 },
                 icon = {
-                    folder_closed = "", -- "",
-                    folder_open = "", -- "",
-                    folder_empty = "" -- "",
+                    -- folder_closed = "", 
+                    -- folder_open = "", 
+                    -- folder_empty = "" 
+                    folder_closed = "",
+                    folder_open = "",
+                    folder_empty = "",
                 },
                 modified = {
                     symbol = "[+]",
@@ -97,11 +102,11 @@ return {
             event_handlers = {
                 {
                     event = "neo_tree_buffer_enter",
-                    handler = function(arg)
+                    handler = function(event)
                         vim.cmd([[
-                            setlocal relativenumber
+                            " setlocal relativenumber
                             setlocal number
-                            setlocal numberwidth=6
+                            " setlocal numberwidth=6
                         ]])
                     end,
                 },

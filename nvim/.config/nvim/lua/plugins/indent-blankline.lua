@@ -5,7 +5,7 @@ return {
         opts = {},
         config = {
             indent = {
-                char = "┊",
+                char = "│" -- "┊",
             },
             scope = {
                 show_start = false,

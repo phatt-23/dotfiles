@@ -2,9 +2,9 @@ return {
     {
         -- basic themes
         "blazkowolf/gruber-darker.nvim",
-        priority = 1000,
+        priority = 500,
         dependencies = {
-            "sho-87/kanagawa-paper.nvim",
+            -- "sho-87/kanagawa-paper.nvim",
             "ellisonleao/gruvbox.nvim",
             "zenbones-theme/zenbones.nvim",
             "rktjmp/lush.nvim",
@@ -22,6 +22,15 @@ return {
             "metalelf0/base16-black-metal-scheme",
             "arcticicestudio/nord-vim", -- this nord is better than the other one
             "GustavoPrietoP/doom-themes.nvim",
+            "Mofiqul/vscode.nvim",
+            "caglartoklu/borlandp.vim",
+            "jamescherti/vim-tomorrow-night-deepblue",
+            "ramojus/mellifluous.nvim",
+            "google/vim-colorscheme-primary",
+            "RRethy/base16-nvim",
+            "loctvl842/monokai-pro.nvim",
+            "tanvirtin/monokai.nvim",
+            "polirritmico/monokai-nightasty.nvim",
         },
         lazy = false,
         opts = {},
@@ -29,7 +38,8 @@ return {
             -- vim.cmd.colorscheme("moonfly")
             -- vim.cmd.colorscheme("nord")
             -- vim.cmd.colorscheme("darkvoid")
-            vim.cmd.colorscheme("gruber-darker")
+            -- vim.cmd.colorscheme("gruber-darker")
+            -- vim.cmd.colorscheme("gruvbox")
             -- vim.cmd.colorscheme("lackluster-mint")
             -- vim.cmd.colorscheme("lackluster-night")
             -- vim.cmd.colorscheme("lackluster-hack")
@@ -56,7 +66,68 @@ return {
             -- vim.cmd.colorscheme("doom-gruvbox")
             -- vim.cmd.colorscheme("doom-monokai-flatland")
             -- vim.cmd.colorscheme("doom-oceanic-next")
+            -- vim.cmd.colorscheme("vscode")
+            -- vim.cmd.colorscheme("ukraine")
+            -- vim.cmd.colorscheme("borlandp")
+            -- vim.cmd.colorscheme("tomorrow-night-deepblue")
+            -- vim.cmd.colorscheme("mellifluous")
+            -- vim.cmd.colorscheme("primary") -- google
+            -- vim.cmd.colorscheme("darkburn")
+            -- vim.cmd.colorscheme("base16-3024");
+            -- vim.cmd.colorscheme("base16-monokai");
+            -- vim.cmd.colorscheme("base16-gigavolt");
+            -- vim.cmd.colorscheme("base16-github");
+            -- vim.cmd.colorscheme("base16-gruber")
+            -- vim.cmd.colorscheme("base16-harmonic-dark")
+            -- vim.cmd.colorscheme("monokai-pro-classic")
+            -- vim.cmd.colorscheme("monokai-nightasty")
+            vim.cmd.colorscheme("onedark")
         end,
+    },
+    {
+        "navarasu/onedark.nvim",
+        priority = 1000,
+        config = function ()
+            require('onedark').setup({
+                -- Main options --
+                style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+                transparent = true,  -- Show/hide background
+                term_colors = true, -- Change terminal color as per the selected theme style
+                ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
+                cmp_itemkind_reverse = false, -- reverse item kind highlights in cmp menu
+
+                -- toggle theme style ---
+                toggle_style_key = "<leader>ts", -- keybind to toggle theme style. Leave it nil to disable it, or set it to a string, for example "<leader>ts"
+                toggle_style_list = {'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'}, -- List of styles to toggle between
+
+                -- Change code style ---
+                -- Options are italic, bold, underline, none
+                -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+                code_style = {
+                    comments = 'italic',
+                    keywords = 'none',
+                    functions = 'none',
+                    strings = 'none',
+                    variables = 'none'
+                },
+
+                -- Lualine options --
+                lualine = {
+                    transparent = true, -- lualine center bar transparency
+                },
+
+                -- Custom Highlights --
+                colors = {}, -- Override default colors
+                highlights = {}, -- Override highlight groups
+
+                -- Plugins Config --
+                diagnostics = {
+                    darker = true, -- darker colors for diagnostic
+                    undercurl = true,   -- use undercurl instead of underline for diagnostics
+                    background = true,    -- use background color for virtual text
+                },
+            })
+        end
     },
     {
         -- https://github.com/SeniorMars/dotfiles
@@ -148,37 +219,39 @@ return {
         name = "catppuccin",
         priority = 2000,
         opts = {
-            term_colors = true,
-            transparent_background = true,
-            styles = {
-                comments = {},
-                conditionals = {},
-                loops = {},
-                functions = {},
-                keywords = {},
-                strings = {},
-                variables = {},
-                numbers = {},
-                booleans = {},
-                properties = {},
-                types = {},
-            },
-            color_overrides = {
-                mocha = {
-                    base = "#000000",
-                    mantle = "#000000",
-                    crust = "#000000",
-                },
-            },
-            integrations = {
-                telescope = {
-                    enabled = true,
-                },
-                dropbar = {
-                    enabled = true,
-                    color_mode = true,
-                },
-            },
+            -- term_colors = true,
+            -- transparent_background = true,
+            -- styles = {
+            --     comments = {},
+            --     conditionals = {},
+            --     loops = {},
+            --     functions = {},
+            --     keywords = {},
+            --     strings = {},
+            --     variables = {},
+            --     numbers = {},
+            --     booleans = {},
+            --     properties = {},
+            --     types = {},
+            -- },
+            -- color_overrides = {
+            --     mocha = {
+            --         base = "#000000",
+            --         mantle = "#000000",
+            --         crust = "#000000",
+            --     },
+            -- },
+            -- integrations = {
+            --     telescope = {
+            --         enabled = true,
+            --     },
+            --     dropbar = {
+            --         enabled = true,
+            --         color_mode = true,
+            --     },
+            -- },
         },
     }
 }
+
+

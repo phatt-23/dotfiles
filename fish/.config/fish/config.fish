@@ -22,13 +22,13 @@ if status is-interactive
     # set --universal pure_show_jobs true
     # set --universal pure_show_prefix_root_prompt true
 
-
-    abbr -a em emacs -l ~/.emacs.d/init.el
-
     alias ls eza
+    alias rm trash
+
     abbr -a la eza -la
     abbr -a ll eza -l
-    alias rm trash
+
+    abbr -a em emacs -l ~/.emacs.d/init.el
 
     abbr -a down cd ~/Downloads
     abbr -a prog cd ~/Programming
@@ -36,7 +36,9 @@ if status is-interactive
     abbr -a temp cd ~/Templates
     abbr -a pics cd ~/Pictures
     abbr -a sch cd ~/School
-    abbr -a sem cd ~/School/3_semester
+    abbr -a sem2 cd ~/School/2_semester
+    abbr -a sem3 cd ~/School/3_semester
+    abbr -a sem4 cd ~/School/4_semester
 
     set -gx EDITOR nvim 
     set -gx VISUAL nvim 
@@ -46,7 +48,7 @@ if status is-interactive
     fish_add_path /opt/mssql-tools18/bin
     fish_add_path /home/phatt/.spicetify
 
-    fish_config theme choose "Rosé Pine Moon"
-
+    # fish_config theme choose "Rosé Pine Moon"
+    # theme_gruvbox dark medium
 end
 

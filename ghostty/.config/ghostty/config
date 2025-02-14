@@ -1,0 +1,37 @@
+font-family = "Iosevka Nerd Font"
+font-size = 14
+
+mouse-scroll-multiplier = 4
+window-decoration = "false"
+adw-toolbar-style = "raised"
+gtk-tabs-location = "top"
+window-theme = "ghostty"
+theme = "gruber-darker"
+
+keybind = ctrl+s>c=new_tab
+keybind = ctrl+s>p=previous_tab
+keybind = ctrl+s>n=next_tab
+
+keybind = ctrl+s>shift+comma=move_tab:-1
+keybind = ctrl+s>shift+.=move_tab:1
+
+keybind = ctrl+s>o=toggle_tab_overview
+
+keybind = ctrl+s>shift+5=new_split:right
+keybind = ctrl+s>shift+'=new_split:down
+
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+keybind = ctrl+s>e>f=toggle_split_zoom
+keybind = ctrl+s>e>t=toggle_window_decorations
+
+keybind = ctrl+shift+e=equalize_splits
+keybind = ctrl+shift+h=resize_split:left,10
+keybind = ctrl+shift+j=resize_split:down,10
+keybind = ctrl+shift+k=resize_split:up,10
+keybind = ctrl+shift+l=resize_split:right,10
+
+
+

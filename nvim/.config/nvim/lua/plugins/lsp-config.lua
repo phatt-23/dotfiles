@@ -28,6 +28,8 @@ local lsp_names = {
     "tinymist",
     -- "hls",
     "bashls",
+    "asm_lsp",
+    "denols",
 }
 
 return {
@@ -108,9 +110,18 @@ return {
             local navic = require("nvim-navic")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+
+            require'lspconfig'.clangd.setup {
+                cmd = { "clangd", "--background-index", "--all-scopes-completion", "--completion-style=detailed", "--header-insertion=never", "--pch-storage=memory" },
+                filetypes = { "c", "cpp", "cc", "objc", "objcpp" },
+                root_dir = require('lspconfig.util').root_pattern("compile_commands.json", ".git"),
+                single_file_support = true,
+            }
+
+
             local lspconfig_setup_init_options = {
                 clangd = {
-                    fallbackFlags = { "--std=c++20" }
+                    fallbackFlags = { "-std=c++23" },
                 },
                 ruby_lsp = {
                     formatter = "standard",

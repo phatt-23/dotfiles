@@ -34,7 +34,6 @@ local lowercase_mode_map = {
     ["MORE"] = "more",
 }
 
-local mode_map = lowercase_mode_map
 
 -- gruber colors
 local gruber = {
@@ -101,10 +100,11 @@ return {
         "nvim-lualine/lualine.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
+            local mode_map = lowercase_mode_map
             require("lualine").setup({
                 options = {
-                    -- theme = "zenburn",
                     globalstatus = true,
+                    -- theme = "zenburn",
                     -- component_separators = { left = "", right = "" },
                     -- section_separators = { left = "", right = "" },
                 },

@@ -2,6 +2,7 @@
 
 # Theme
 # include ./black_metal_mayhem_theme.conf
+include ./themes/gruber.conf
 
 # Font
 # font_family DejaVuSansM Nerd Font
@@ -9,17 +10,18 @@
 # font_family MesloLGM Nerd Font 
 
 font_family      Iosevka Comfy Fixed
-bold_font        Iosevka Comfy SemiBold 
+bold_font        Iosevka Comfy Fixed SemiBold 
 
 # font_family      Iosevka NF
 # bold_font        Iosevka NF SemiBold 
 # italic_font      Iosevka NF Obl
 # bold_italic_font Iosevka NF SemiBold Obl
+
 # font_family Liga SFMono Nerd Font
 # font_family JetBrainsMono Nerd Font
 # font_family FiraCode Nerd Font
 
-font_size 14
+font_size 12
 
 # makes the font not thick (makes it normal)
 text_composition_strategy legacy
@@ -130,7 +132,8 @@ map ctrl+shift+r load_config_file
 
 
 
+
 # BEGIN_KITTY_THEME
-# Monokai Soda
+# Material Dark
 include current-theme.conf
 # END_KITTY_THEME

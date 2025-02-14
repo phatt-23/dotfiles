@@ -6,7 +6,7 @@ vim.cmd([["numberline
     set number
     set relativenumber
     set signcolumn=yes "the margin between the numberline and the border
-    set numberwidth=6 "number width, the gap between numberline and current numberline
+    set numberwidth=5 "6 "number width, the gap between numberline and current numberline
 ]])
 
 vim.cmd([["tabbing and indenting
@@ -29,7 +29,7 @@ vim.cmd([["terminal
     set encoding=UTF-8
     set mouse=a "allow mouse
     set termguicolors
-    set scrolloff=10
+    set scrolloff=4
 ]])
 
 vim.cmd([["search
@@ -48,9 +48,11 @@ vim.cmd([["idk
     set undofile
     set updatetime=100
     " set guicursor+=n:hor20-Cursor/lCursor
+
     set guicursor+=n:block
     set guicursor+=i:ver25
     set guicursor+=v:block
+
     "set clipboard=unnamedplus
     "set clipboard=unnamedplus
     "set notimeout
@@ -104,7 +106,6 @@ vim.cmd([[
     hi WinSeparator guifg=#4c566a
 ]])
 
-
 vim.cmd([=[
     function! KittyBufferHistoryClean()
         set modifiable
@@ -125,16 +126,14 @@ vim.cmd([=[
 -- Create a Neovim command that calls the Vimscript function
 vim.api.nvim_create_user_command('KittyBufferHistoryClean', 'call KittyBufferHistoryClean()', {})
 
-
 vim.cmd([[
-    "set notermguicolors  " Ensure true color support is disabled
-    "set background=dark  " Adjust to 'light' if needed
+    " set notermguicolors  " Ensure true color support is disabled
+    " set background=dark  " Adjust to 'light' if needed
+    "To set Primary as your default color scheme, add these lines to your .vimrc:
+    " syntax enable
+    " set t_Co=256
+    " set background=dark
+    " colorscheme primary
 ]])
-
-
-
-
-
-
 
 

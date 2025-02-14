@@ -1,43 +1,62 @@
-// ____   _________________________   ____________________________________
-// 7  7   7  _  77     77  7  77  7   7  7  77     77      77     77  _  7
-// |  |   |  _  ||  ___!|   __!|  |   |  |  ||  ___!!__  __!|  ___!|    _|
-// |  !___|  7  ||  7___|     ||  !___|  |  |!__   7  7  7  |  __|_|  _ \
-// |     7|  |  ||     7|  7  ||     7|  !  |7     |  |  |  |     7|  7  |
-// !_____!!__!__!!_____!!__!__!!_____!!_____!!_____!  !__!  !_____!!__!__!
-//
-//  Name: lackluster.nvim
-//  License: MIT
-//  Maintainer: Duncan Marsh (slugbyte@slugbyte.com)
-//  Repository: https://github.com/slugbyte/lackluster.nvim
+/* OneDark (from Lackluster) */
 
-// NOTE: for rofi theme documentaion see the man-page for `rofi-theme`
+
+/* OneDark Colors
+		black = "#181a1f",
+		bg0 = "#282c34",
+		bg1 = "#31353f",
+		bg2 = "#393f4a",
+		bg3 = "#3b3f4c",
+		bg_d = "#21252b",
+		bg_blue = "#73b8f1",
+		bg_yellow = "#ebd09c",
+		fg = "#abb2bf",
+		purple = "#c678dd",
+		green = "#98c379",
+		orange = "#d19a66",
+		blue = "#61afef",
+		yellow = "#e5c07b",
+		cyan = "#56b6c2",
+		red = "#e86671",
+		grey = "#5c6370",
+		light_grey = "#848b98",
+		dark_cyan = "#2b6f77",
+		dark_red = "#993939",
+		dark_yellow = "#93691d",
+		dark_purple = "#8a3fa0",
+		diff_add = "#31392b",
+		diff_delete = "#382b2c",
+		diff_change = "#1c3448",
+		diff_text = "#2c5372",
+
+*/
 
 * {
     y-offset: 0; // (negitive goes up positive goes down)
     width: 800;
     items: 10;
 
-    lack:   #708090;
-    luster: #deeeed;
-    orange: #ffaa88;
-    green:  #789978;
-    blue:   #7788AA;
-    red:    #D70000;
-    black:  #000000;
-    gray1:  #080808;
-    gray2:  #191919;
-    gray3:  #2a2a2a;
-    gray4:  #444444;
-    gray5:  #555555;
+    lack:   #2c5372;
+    luster: #abb2bf;
+    orange: #d19a66;
+    green:  #98c379;
+    blue:   #c678dd;
+    red:    #e86671;
+    black:  #181a1f; // black
+    gray1:  #282c34; // bg0
+    gray2:  #31353f; // bg1
+    gray3:  #393f4a; // bg2
+    gray4:  #3b3f4c;
+    gray5:  #5c6370;
     gray6:  #7a7a7a;
-    gray7:  #aaaaaa;
-    gray8:  #cccccc;
-    gray9:  #DDDDDD;
+    gray7:  #848b98;
+    gray8:  #8a3fa0;
+    gray9:  #c678dd;
 }
 
 * {
     // font name <space> font style <space> font size
-    font: "Iosevka Nerd Font Propo 12";
+    font: "Inconsolate Nerd Font 12";
     background-color: transparent;
     text-color: @gray9;
     margin: 0px;

@@ -1,0 +1,1 @@
+source "/home/phatt/.deno/env.fish"
