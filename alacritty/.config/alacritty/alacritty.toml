@@ -13,23 +13,24 @@ import = [
 osc52 = "CopyPaste"
 
 [window]
-opacity = 0.92
+opacity = 1.0
 decorations = "full"
 dynamic_title = true
 
 [font]
-size = 12
+size = 14
 
   [font.normal]
     # family = "JetBrains Mono"
     # family = "Latin Modern Mono"
     # family = "Lilex Nerd Font"
     # family = "SauceCodePro Nerd Font"
-    family = "Inconsolata Nerd Font"
+    # family = "Inconsolata Nerd Font"
     # family = "NotoSansM Nerd Font"
     # family = "CaskaydiaMono NFM Light"
     # family = "MonaspiceKr Nerd Font Mono"
     # family = "SauceCodePro Nerd Font"
+    family = "CodeNewRoman Nerd Font"
 
 [bell]
 animation = "EaseOutCubic"

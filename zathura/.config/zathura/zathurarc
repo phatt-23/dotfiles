@@ -1,5 +1,5 @@
 # include ./themes/zathura-gruvbox-light
-include ./themes/zathura-gruvbox-dark
+# include ./themes/zathura-gruvbox-dark
 # include ./themes/catppuccin-mocha
 # include ./themes/catppuccin-macchiato
 # include ./themes/dracula
@@ -15,10 +15,12 @@ include ./themes/zathura-gruvbox-dark
 # include ./themes/base16-nord.config
 # include ./themes/rose-pine-moon.config
 # include ./themes/base16-black-metal.config
+include ./themes/base16-onedark.config
 
 # set font 'MesloLGM Nerd Font 12'
-set font 'Iosevka Nerd Font 14'
+# set font 'Iosevka Nerd Font 14'
 # set font 'Liga SFMono Nerd Font 12'
+set font 'CodeNewRoman Nerd Font 12'
 
 set window-title-basename "true"
 set selection-clipboard "clipboard"

@@ -1,7 +1,5 @@
 /* OneDark (from Lackluster) */
-
-
-/* OneDark Colors
+/* OneDark Colors (nvim plugin)
 		black = "#181a1f",
 		bg0 = "#282c34",
 		bg1 = "#31353f",
@@ -34,7 +32,7 @@
 * {
     y-offset: 0; // (negitive goes up positive goes down)
     width: 800;
-    items: 10;
+    items: 8;
 
     lack:   #2c5372;
     luster: #abb2bf;
@@ -56,7 +54,7 @@
 
 * {
     // font name <space> font style <space> font size
-    font: "Inconsolate Nerd Font 12";
+    font: "CodeNewRoman Nerd Font 12";
     background-color: transparent;
     text-color: @gray9;
     margin: 0px;
@@ -65,7 +63,7 @@
 }
 
 window {
-    background-color: @gray2;
+    background-color: @gray1;
     y-offset: @y-offset;
     width: @width;
     border: 1;
@@ -78,14 +76,15 @@ mainbox {
 }
 
 inputbar {
-    // background-color: @gray3;
+    background-color: @gray3;
     padding: 8px 16px;
     spacing: 16px;
     children: [ prompt, entry ];
+    border-radius: 4;
 }
 
 prompt {
-    text-color: @gray6;
+    text-color: @gray7;
 }
 
 entry {
@@ -115,9 +114,10 @@ listview {
 
 scrollbar {
     background-color: @gray3;
-    handle-width: 10px;
+    handle-width: 4px;
     handle-color: @gray5;
     margin: 0px 0px 0px 10px;
+    border-radius: 4;
 }
 
 element {
@@ -132,16 +132,16 @@ element-icon {
 }
 
 element-text {
-    text-color: @gray6;
+    text-color: @gray7;
 }
 
 element selected normal, element selected active {
     background-color: @gray9;
     border: 2;
     border-color: @gray8;
-    text-color: @gray1;
+    text-color: @black;
 }
 
 element-text selected {
-    text-color: @gray1;
+    text-color: @black;
 }

@@ -30,6 +30,7 @@ local lsp_names = {
     "bashls",
     "asm_lsp",
     "denols",
+    "neocmake",
 }
 
 return {
@@ -111,7 +112,7 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 
-            require'lspconfig'.clangd.setup {
+            require("lspconfig").clangd.setup {
                 cmd = { "clangd", "--background-index", "--all-scopes-completion", "--completion-style=detailed", "--header-insertion=never", "--pch-storage=memory" },
                 filetypes = { "c", "cpp", "cc", "objc", "objcpp" },
                 root_dir = require('lspconfig.util').root_pattern("compile_commands.json", ".git"),
@@ -146,6 +147,17 @@ return {
                     capabilities = capabilities,
                 })
             end
+
+            require'lspconfig'.rust_analyzer.setup{
+                settings = {
+                    ['rust-analyzer'] = {
+                        diagnostics = {
+                            enable = true;
+                        }
+                    }
+                }
+            }
+
 
             -- deprecated
             -- require('lspconfig').typst_lsp.setup({
