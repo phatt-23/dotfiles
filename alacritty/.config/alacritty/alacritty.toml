@@ -1,36 +1,42 @@
 [general]
 import = [
-    # "/usr/local/lib/node_modules/alacritty-themes/themes/Gruvbox-Dark.toml"
-    # "/usr/local/lib/node_modules/alacritty-themes/themes/Google.light.toml"
-    # "/usr/local/lib/node_modules/alacritty-themes/themes/Google.dark.toml"
-    # "/usr/local/lib/node_modules/alacritty-themes/themes/Zenburn.toml"
-    # "/usr/local/lib/node_modules/alacritty-themes/themes/Monokai.dark.toml"
-    # "/usr/local/lib/node_modules/alacritty-themes/themes/3024.dark.toml"
-    "/usr/local/lib/node_modules/alacritty-themes/themes/One-Dark.toml"
+    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Gruvbox-Dark.toml"
+    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Google.light.toml"
+    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Google.dark.toml"
+    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Zenburn.toml"
+    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Monokai.dark.toml"
+    	# "/usr/local/lib/node_modules/alacritty-themes/themes/3024.dark.toml"
+    	"/usr/local/lib/node_modules/alacritty-themes/themes/One-Dark.toml"
+    	# "/usr/local/lib/node_modules/alacritty-themes/themes/vscode.dark.toml"
 ]
 
 [terminal]
 osc52 = "CopyPaste"
 
 [window]
-opacity = 1.0
+opacity = 0.9
 decorations = "full"
 dynamic_title = true
 
 [font]
-size = 14
+size = 12
 
-  [font.normal]
-    # family = "JetBrains Mono"
-    # family = "Latin Modern Mono"
-    # family = "Lilex Nerd Font"
-    # family = "SauceCodePro Nerd Font"
-    # family = "Inconsolata Nerd Font"
-    # family = "NotoSansM Nerd Font"
-    # family = "CaskaydiaMono NFM Light"
-    # family = "MonaspiceKr Nerd Font Mono"
-    # family = "SauceCodePro Nerd Font"
-    family = "CodeNewRoman Nerd Font"
+	[font.normal]
+    	# family = "JetBrains Mono Nerd Font"
+    	# family = "M+1Code Nerd Font"
+    	# family = "GohuFont 11 Nerd Font"
+    	# family = "LiterationMono Nerd Font"
+    	# family = "FiraCode Nerd Font"
+    	# family = "Latin Modern Mono"
+    	# family = "Lilex Nerd Font"
+    	# family = "SauceCodePro Nerd Font"
+    	# family = "Inconsolata Nerd Font"
+    	# family = "NotoSansM Nerd Font"
+    	# family = "CaskaydiaMono NFM Light"
+    	# family = "MonaspiceKr Nerd Font Mono"
+    	# family = "SauceCodePro Nerd Font"
+    	# family = "CodeNewRoman Nerd Font"
+	family = "Iosevka Nerd Font"
 
 [bell]
 animation = "EaseOutCubic"
@@ -41,13 +47,13 @@ color = "#d18191"
 unfocused_hollow = true
 thickness = 0.2
 
-  [cursor.style]
-  shape = "Block"
-  blinking = "On"
-
-  [cursor.vi_mode_style]
-  shape = "Block"
-  blinking = "On"
+	[cursor.style]
+	shape = "Block"
+	blinking = "On"
+	
+	[cursor.vi_mode_style]
+	shape = "Block"
+	blinking = "On"
 
 [scrolling]
 history = 10_000

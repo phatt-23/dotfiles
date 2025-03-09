@@ -47,7 +47,7 @@
 }
 
 /* * { font: "Iosevka Nerd Font 12"; } */
-* { font: "MesloLGM Nerd Font 12"; }
+* { font: "M+1Code Nerd Font 12"; }
 
 window {
     width: 840;
@@ -63,7 +63,8 @@ listview {
 
 
 window {
-    background-color: @background;
+    /* background-color: @background; */
+    background-color: #000000;
     border:           1;
     padding:          2;
 }
@@ -100,17 +101,20 @@ element {
 }
 
 element.normal.normal {
-    background-color: @normal-background;
+    /* background-color: @normal-background; */
+    background-color: #000000;
     text-color:       @normal-foreground;
 }
 
 element.normal.urgent {
-    background-color: @urgent-background;
+    /* background-color: @urgent-background; */
+    background-color: #000000;
     text-color:       @urgent-foreground;
 }
 
 element.normal.active {
-    background-color: @active-background;
+    /* background-color: @active-background; */
+    background-color: #000000;
     text-color:       @active-foreground;
 }
 
@@ -121,32 +125,38 @@ element.selected {
 }
 
 element.selected.normal {
-    background-color: @selected-normal-background;
+    /* background-color: @selected-normal-background; */
+    background-color: #000000;
     text-color:       @selected-normal-foreground;
 }
 
 element.selected.urgent {
-    background-color: @selected-urgent-background;
+    /* background-color: @selected-urgent-background; */
+    background-color: #000000;
     text-color:       @selected-urgent-foreground;
 }
 
 element.selected.active {
-    background-color: @selected-active-background;
+    /* background-color: @selected-active-background; */
+    background-color: #000000;
     text-color:       @selected-active-foreground;
 }
 
 element.alternate.normal {
-    background-color: @alternate-normal-background;
+    /* background-color: @alternate-normal-background; */
+    background-color: #000000;
     text-color:       @alternate-normal-foreground;
 }
 
 element.alternate.urgent {
-    background-color: @alternate-urgent-background;
+    /* background-color: @alternate-urgent-background; */
+    background-color: #000000;
     text-color:       @alternate-urgent-foreground;
 }
 
 element.alternate.active {
-    background-color: @alternate-active-background;
+    /* background-color: @alternate-active-background; */
+    background-color: #000000;
     text-color:       @alternate-active-foreground;
 }
 
@@ -179,7 +189,8 @@ button {
 }
 
 button.selected {
-    background-color: @selected-normal-background;
+    /* background-color: @selected-normal-background; */
+    background-color: #000000;
     text-color:       @selected-normal-foreground;
 }
 

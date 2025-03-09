@@ -1,0 +1,26 @@
+backend = "glx";
+
+# vsync = true;
+
+shadow = true;
+shadow-opacity = 0.50;
+
+frame-opacity = 1.0;
+
+# corner-radius = 25
+
+wintypes:
+{
+    menu          = { shadow = false; };
+    dropdown_menu = { shadow = false; };
+    popup_menu    = { shadow = false; };
+    utility       = { shadow = false; };
+};
+
+blur:
+{
+  method = "gaussian";
+  size = 10;
+  deviation = 4.0;
+};
+

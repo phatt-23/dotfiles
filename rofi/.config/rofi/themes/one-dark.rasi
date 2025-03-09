@@ -54,7 +54,9 @@
 
 * {
     // font name <space> font style <space> font size
-    font: "CodeNewRoman Nerd Font 12";
+    // font: "CodeNewRoman Nerd Font 12";
+    // font: "LiterationMono Nerd Font 12";
+    font: "Iosevka Nerd Font 12";
     background-color: transparent;
     text-color: @gray9;
     margin: 0px;

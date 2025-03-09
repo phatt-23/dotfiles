@@ -9,14 +9,35 @@ vim.cmd([["numberline
     set numberwidth=5 "6 "number width, the gap between numberline and current numberline
 ]])
 
-vim.cmd([["tabbing and indenting
-    set expandtab
-    set autoindent
-    set tabstop=4
-    set shiftwidth=4
-    set smarttab
-    set softtabstop=4
-]])
+-- dynamic tab sizes based on file type
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "html", "css", "javascript", "typescript", "svelte", "json", "yaml", "typescriptreact" },
+    callback = function()
+        vim.bo.shiftwidth = 2
+        vim.bo.tabstop = 2
+        vim.bo.softtabstop = 2
+        vim.bo.expandtab = true
+    end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "c", "cpp", "java", "cs", "go" },
+    callback = function()
+        vim.bo.shiftwidth = 4
+        vim.bo.tabstop = 4
+        vim.bo.softtabstop = 4
+        vim.bo.expandtab = true
+    end,
+})
+
+-- vim.cmd([["tabbing and indenting
+--     set expandtab
+--     set autoindent
+--     set tabstop=4
+--     set shiftwidth=4
+--     set smarttab
+--     set softtabstop=4
+-- ]])
 
 vim.cmd([["wrapping settings
     set textwidth=0

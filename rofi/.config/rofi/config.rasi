@@ -61,4 +61,8 @@ configuration {
 
 //@theme "/home/phatt/.config/rofi/themes/rose-pine.rasi"
 
+//@theme "/home/phatt/.config/rofi/themes/one-dark.rasi"
+
+//@theme "/home/phatt/.config/rofi/themes/i3.rasi"
+
 @theme "/home/phatt/.config/rofi/themes/one-dark.rasi"
