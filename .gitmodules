@@ -1,3 +1,6 @@
 [submodule "tmux/.config/tmux/plugins/tmux-better-mouse-mode"]
 	path = tmux/.config/tmux/plugins/tmux-better-mouse-mode
 	url = ./tmux-better-mouse-mod
+[submodule "tmux/.config/tmux/plugins/tmux-resurrect"]
+	path = tmux/.config/tmux/plugins/tmux-resurrect
+	url = https://github.com/tmux-plugins/tmux-resurrect

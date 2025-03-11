@@ -1,44 +1,38 @@
 local lsp_names = {
-    "lua_ls",
-    "rust_analyzer",
-    -- "csharp_ls",
-    "eslint",
-    -- "tsserver",
-    "html",
-    "cssls",
-    "clangd",
-    -- "sqls",
-    -- "sqlls",
-    -- "ruby_lsp",
-    -- "solargraph",
-    -- "steep",
-    -- "sorbet",
-    -- "deno",
-    "stimulus_ls",
-    -- "rubocop",
-    "taplo",
-    "svelte",
-    "pyright",
-    -- "jedi_language_server",
-    -- "ltex",
-    "texlab",
-    "templ",
-    -- "gopls",
-    -- "typst_lsp",
-    "tinymist",
-    -- "hls",
-    "bashls",
-    -- "asm_lsp",
-    -- "denols",
-    "neocmake",
-    "ts_ls",
+    -- Real Programming Languages
+    "lua_ls",        -- Lua
+    "clangd",        -- C, C++
+    "csharp_ls",     -- C#
+    "rust_analyzer", -- Rust
+    "ruff",          -- Python
+    "pyright",       -- Python 
+    "bashls",        -- Bash
+    "ts_ls",         -- Typescript
+    "hls",           -- Haskell
+    "asm_lsp",       -- Assembly
+    "gopls",         -- Go (official)
+    -- Database Languages
+    "sqlls",         -- SQL
+    "sqls",          -- SQL (written in Go)
+    -- Web Development Languages
+    "html",          -- HTML
+    "eslint",        -- Javascript, Typescript
+    "cssls",         -- CSS
+    "svelte",        -- Svelte
+    -- Typesetting Languages
+    "texlab",        -- LaTeX
+    "ltex",          -- LTeX
+    "tinymist",      -- Typst
+    -- Configuration Languauges
+    "taplo",         -- TOML
+    "neocmake",      -- CMake
 }
 
 return {
     {
         "williamboman/mason.nvim",
         config = function()
-            require("mason").setup()
+            require("mason").setup({})
         end,
     },
     {
@@ -48,9 +42,15 @@ return {
         end,
     },
     {
+        "mortepau/codicons.nvim",
+        config = function()
+            local codicons = require('codicons')
+            codicons.setup({})
+        end,
+    },
+    {
         "onsails/lspkind.nvim", -- stuff that shows up in the completion window
         config = function()
-            -- setup() is also available as an alias
             require("which-key").add({
                 mode = { "n" },
                 { "<leader>l",  group = "lsp" },
@@ -59,50 +59,9 @@ return {
                 { "<leader>ls", "<cmd>LspStart<CR>",   desc = "start" },
                 { "<leader>lx", "<cmd>LspStop<CR>",    desc = "stop" },
             })
-            require("lspkind").init({
-                -- defines how annotations are shown
-                -- default: symbol
-                -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-                mode = "symbol_text",
 
-                -- default symbol map
-                -- can be either 'default' (requires nerd-fonts font) or
-                -- 'codicons' for codicon preset (requires vscode-codicons font)
-                --
-                -- default: 'default'
-                preset = "default",
-
-                -- override preset symbols
-                --
-                -- default: {}
-                -- symbol_map = {
-                --     Text = "t",
-                --     Method = "m",
-                --     Function = "f",
-                --     Constructor = "c",
-                --     Field = "f",
-                --     Variable = "v",
-                --     Class = "C",
-                --     Interface = "I",
-                --     Module = "M",
-                --     Property = "p",
-                --     Unit = "u",
-                --     Value = "val",
-                --     Enum = "E",
-                --     Keyword = "k",
-                --     Snippet = "s",
-                --     Color = "color",
-                --     File = "file",
-                --     Reference = "r",
-                --     Folder = "dir",
-                --     EnumMember = "Em",
-                --     Constant = "const",
-                --     Struct = "S",
-                --     Event = "e",
-                --     Operator = "o",
-                --     TypeParameter = "",
-                -- },
-            })
+            -- configured in completions.lua
+            require("lspkind").init()
         end,
     },
     {
@@ -111,14 +70,6 @@ return {
             local lspconfig = require("lspconfig")
             local navic = require("nvim-navic")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-
-            require("lspconfig").clangd.setup {
-                cmd = { "clangd", "--background-index", "--all-scopes-completion", "--completion-style=detailed", "--header-insertion=never", "--pch-storage=memory" },
-                filetypes = { "c", "cpp", "cc", "objc", "objcpp" },
-                root_dir = require('lspconfig.util').root_pattern("compile_commands.json", ".git"),
-                single_file_support = true,
-            }
 
 
             local lspconfig_setup_init_options = {
@@ -141,40 +92,47 @@ return {
                 end
 
                 lspconfig[lsp_name].setup({
-                    init_options = init_opts,
                     on_attach = function(client, bufnr)
                         navic.attach(client, bufnr)
                     end,
+                    init_options = init_opts,
                     capabilities = capabilities,
                 })
             end
 
-            require'lspconfig'.rust_analyzer.setup{
+
+            lspconfig.ruff.setup({
+                init_options = {
+                    settings = {
+                        -- Ruff language server settings go here
+                    }
+                }
+            })
+
+
+            lspconfig.clangd.setup({
+                cmd = { "clangd", "--background-index", "--all-scopes-completion", "--completion-style=detailed", "--header-insertion=never", "--pch-storage=memory" },
+                filetypes = { "c", "cpp", "cc", "objc", "objcpp" },
+                root_dir = require('lspconfig.util').root_pattern("compile_commands.json", ".git"),
+                single_file_support = true,
+            })
+
+
+            require('lspconfig').rust_analyzer.setup({
                 settings = {
                     ['rust-analyzer'] = {
                         diagnostics = {
-                            enable = true;
+                            enable = true,
                         }
                     }
                 }
-            }
+            })
 
-
-            -- deprecated
-            -- require('lspconfig').typst_lsp.setup({
-            --     settings = {
-            --         exportPdf = "onType", -- Choose onType, onSave or never.
-            --         serverPath = "",      -- Normally, there is no need to uncomment it.
-            --     },
-            --     on_attach = function(client, bufnr)
-            --         navic.attach(client, bufnr)
-            --     end,
-            --     capabilities = capabilities,
-            -- })
-
-            vim.keymap.set("n", "<leader>k", vim.lsp.buf.hover, {})
-            vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
+            vim.keymap.set({ "n" }, "<leader>oo", vim.lsp.buf.format, {})
+            vim.keymap.set({ "n" }, "<leader>k", vim.lsp.buf.hover, {})
+            vim.keymap.set({ "n" }, "gd", vim.lsp.buf.definition, {})
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, {})
+
 
             -- Got it from here:
             --  [https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization]
@@ -194,7 +152,7 @@ return {
             local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
             function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
                 opts = opts or {}
-                opts.border = opts.border or border
+                opts.border = border or opts.border 
                 return orig_util_open_floating_preview(contents, syntax, opts, ...)
             end
 

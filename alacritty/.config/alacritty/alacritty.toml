@@ -17,6 +17,9 @@ osc52 = "CopyPaste"
 opacity = 0.9
 decorations = "full"
 dynamic_title = true
+dynamic_padding = true
+padding.x = 10
+padding.y = 20
 
 [font]
 size = 12
@@ -36,7 +39,15 @@ size = 12
     	# family = "MonaspiceKr Nerd Font Mono"
     	# family = "SauceCodePro Nerd Font"
     	# family = "CodeNewRoman Nerd Font"
-	family = "Iosevka Nerd Font"
+	    # family = "Iosevka Nerd Font"
+        # family = "ProggyClean CE Nerd Font"
+        # family = "BigBlueTermPlus Nerd Font"
+        # family = "Hurmit Nerd Font"
+        # family = "DejaVuSansM Nerd Font"
+        # family = "ComicShannsMono Nerd Font"
+        family = "Hack Nerd Font"
+
+
 
 [bell]
 animation = "EaseOutCubic"
