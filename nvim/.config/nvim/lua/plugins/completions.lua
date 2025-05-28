@@ -27,10 +27,10 @@ local cmp_kinds = {
 }
 
 local menu_sources = {
-    buffer = "[Buffer]",
-    nvim_lsp = "[LSP]",
-    luasnip = "[LuaSnip]",
-    nvim_lua = "[Lua]",
+    buffer        = "[Buffer]",
+    nvim_lsp      = "[LSP]",
+    luasnip       = "[LuaSnip]",
+    nvim_lua      = "[Lua]",
     latex_symbols = "[LaTeX]",
 }
 
@@ -63,7 +63,6 @@ local before_functions = {
     end,
 }
 
-
 return {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -84,7 +83,6 @@ return {
 
         local cmp = require("cmp")
         local lspkind = require("lspkind")
-
 
         cmp.setup({
             snippet = {
@@ -118,36 +116,15 @@ return {
                     cmp.ItemField.Menu, -- provider
                 },
                 format = lspkind.cmp_format({
-                    -- mode = "symbol_text", -- options: 'text', 'text_symbol', 'symbol_text', 'symbol'
-                    -- preset = "default",   -- or 'codicons' for codicon preset (requires vscode-codicons font), default: 'default'
-                    -- menu = ({
-                    --     buffer = "[Buffer]",
-                    --     nvim_lsp = "[LSP]",
-                    --     luasnip = "[LuaSnip]",
-                    --     nvim_lua = "[Lua]",
-                    --     latex_symbols = "[Latex]",
-                    -- }),
                     maxwidth = {
                         menu = 50, -- leading text (labelDetails)
                         abbr = 50, -- actual suggestion item
                     },
-                    -- can also be a function to dynamically calculate max width such as
-                    -- maxwidth = function() return math.floor(0.45 * vim.o.columns) end,
-                    ellipsis_char = "...",    -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-                    show_labelDetails = true, -- show labelDetails in menu. Disabled by default
-                    -- The function below will be called before any actual modifications from lspkind
-                    -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+                    ellipsis_char = "...",
+                    show_labelDetails = true,
                     before = before_functions["long"],
                 }),
             },
         })
-
-        -- local color = require('onedark.colors')
-
-        -- Colors
-        -- vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = color.bg0, bg = "NONE", strikethrough = true })
-        -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = color.blue, bg = "NONE", bold = true })
-        -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = color.blue, bg = "NONE", bold = true })
-        -- vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = color.purple, bg = "NONE", italic = true })
     end,
 }

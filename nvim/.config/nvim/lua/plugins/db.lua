@@ -11,7 +11,7 @@ return {
     end,
     config = function()
         vim.g.db_ui_use_nerd_fonts = 1
-        require("dbee").setup( --[[optional config]])
+        require("dbee").setup()
 
         -- database connections
         require("lspconfig").sqls.setup({
