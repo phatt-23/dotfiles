@@ -1,33 +1,33 @@
 local lsp_names = {
     -- Real Programming Languages
-    "lua_ls",                       -- Lua
-    "clangd",                       -- C, C++
-    "csharp_ls",                    -- C#
-    "rust_analyzer",                -- Rust
-    "ruff",                         -- Python
-    "pyright",                      -- Python
-    "bashls",                       -- Bash
-    "ts_ls",                        -- Typescript
-    "hls",                          -- Haskell
-    "asm_lsp",                      -- Assembly
-    "gopls",                        -- Go (official)
+    "lua_ls",        -- Lua
+    "clangd",        -- C, C++
+    "csharp_ls",     -- C#
+    "rust_analyzer", -- Rust
+    "ruff",          -- Python
+    "pyright",       -- Python
+    "bashls",        -- Bash
+    "ts_ls",         -- Typescript
+    "hls",           -- Haskell
+    "asm_lsp",       -- Assembly
+    "gopls",         -- Go (official)
     -- "java_language_server",         -- Java
     -- Database Languages
-    "sqlls",                        -- SQL
-    "sqls",                         -- SQL (written in Go)
+    "sqlls",       -- SQL
+    "sqls",        -- SQL (written in Go)
     -- Web Development Languages
-    "html",                         -- HTML
-    "eslint",                       -- Javascript, Typescript
-    "cssls",                        -- CSS
-    "tailwindcss",                  -- TailwindCSS
-    "svelte",                       -- Svelte
+    "html",        -- HTML
+    "eslint",      -- Javascript, Typescript
+    "cssls",       -- CSS
+    "tailwindcss", -- TailwindCSS
+    "svelte",      -- Svelte
     -- Typesetting Languages
     -- "texlab",        -- LaTeX
     -- "ltex",          -- LTeX
-    "tinymist",                     -- Typst
+    "tinymist", -- Typst
     -- Configuration Languauges
-    "taplo",                        -- TOML
-    "neocmake",                     -- CMake
+    "taplo",    -- TOML
+    "neocmake", -- CMake
     -- Template
     -- "djlsp",                     -- Django
     "jinja_lsp",
@@ -128,7 +128,14 @@ return {
 
 
             lspconfig.clangd.setup({
-                cmd = { "clangd", "--background-index", "--all-scopes-completion", "--completion-style=detailed", "--header-insertion=never", "--pch-storage=memory" },
+                cmd = {
+                    "clangd",
+                    "--background-index",
+                    "--all-scopes-completion",
+                    "--completion-style=detailed",
+                    "--header-insertion=never",
+                    "--pch-storage=memory"
+                },
                 filetypes = { "c", "cpp", "cc", "objc", "objcpp" },
                 root_dir = require('lspconfig.util').root_pattern("compile_commands.json", ".git"),
                 single_file_support = true,
@@ -173,10 +180,6 @@ return {
                 return orig_util_open_floating_preview(contents, syntax, opts, ...)
             end
 
-            -- for mathing window color
-            -- vim.cmd([[autocmd! ColorScheme * highlight NormalFloat guibg=black]])
-            -- vim.cmd([[autocmd! ColorScheme * highlight FloatBorder guifg=fg guibg=bg]])
-
             local set_hl_for_floating_window = function()
                 vim.api.nvim_set_hl(0, "NormalFloat", {
                     link = "Normal",
@@ -194,10 +197,5 @@ return {
                 callback = set_hl_for_floating_window,
             })
         end,
-    },
-    {
-        'mrcjkb/haskell-tools.nvim',
-        version = '^4', -- Recommended
-        lazy = false,   -- This plugin is already lazy
     },
 }

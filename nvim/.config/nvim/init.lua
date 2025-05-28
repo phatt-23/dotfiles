@@ -118,10 +118,6 @@ vim.cmd([["custom keybinds
 -- overrides the default background highlight
 -- of matching words in some themes to be underlined
 vim.cmd([[
-    " hi IlluminatedWordText guibg=NONE gui=underline
-    " hi IlluminatedWordRead guibg=NONE gui=underline
-    " hi IlluminatedWordWrite guibg=NONE gui=underline
-
     "Different colors in visual mode
     hi Visual guifg=Black guibg=Gray gui=bold
 
@@ -157,15 +153,6 @@ vim.cmd([=[
 -- Create a Neovim command that calls the Vimscript function
 vim.api.nvim_create_user_command('KittyBufferHistoryClean', 'call KittyBufferHistoryClean()', {})
 
-vim.cmd([[
-    " set notermguicolors  " Ensure true color support is disabled
-    " set background=dark  " Adjust to 'light' if needed
-    "To set Primary as your default color scheme, add these lines to your .vimrc:
-    " syntax enable
-    " set t_Co=256
-    " set background=dark
-    " colorscheme primary
-]])
 
 -- file extension
 vim.cmd([[

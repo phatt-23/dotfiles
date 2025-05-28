@@ -4,12 +4,12 @@ return {
         ft = 'typst',
         version = '1.12.*',
         build = function()
-            require 'typst-preview'.update()
+            require('typst-preview').update()
         end,
     },
     {
-      'kaarmu/typst.vim',
-      ft = 'typst',
-      lazy = false,
+        'kaarmu/typst.vim',
+        ft = 'typst',
+        lazy = false,
     },
 }

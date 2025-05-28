@@ -11,24 +11,20 @@ return {
                 { "<leader>fg", "<CMD>lua require'telescope.builtin'.live_grep()<CR>",  desc = "grep" },
                 { "<leader>fb", "<CMD>lua require'telescope.builtin'.buffers()<CR>",    desc = "buffers" },
                 { "<leader>fh", "<CMD>lua require'telescope.builtin'.help_tags()<CR>",  desc = "help" },
-                { "<leader>fx", "<CMD>lua require'telescope.builtin'.resume()<CR>", desc = "Resume" },
+                { "<leader>fx", "<CMD>lua require'telescope.builtin'.resume()<CR>",     desc = "Resume" },
             })
         end
     },
     {
         "nvim-telescope/telescope-ui-select.nvim",
         config = function()
-            -- This is your opts table
             require("telescope").setup {
                 extensions = {
                     ["ui-select"] = {
-                        require("telescope.themes").get_dropdown {
-                        }
+                        require("telescope.themes").get_dropdown()
                     }
                 }
             }
-            -- To get ui-select loaded and working with telescope, you need to call
-            -- load_extension, somewhere after setup function:
             require("telescope").load_extension("ui-select")
         end
     },

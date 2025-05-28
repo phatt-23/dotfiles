@@ -2,7 +2,9 @@ return {
     "tpope/vim-surround",
     "tpope/vim-repeat",
     --[[
-           Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more. The plugin provides mappings to easily delete, change and add such surroundings in pairs.
+        Surround.vim is all about "surroundings": parentheses, brackets, quotes, 
+        XML tags, and more. The plugin provides mappings to easily delete, change 
+        and add such surroundings in pairs.
 
         It's easiest to explain with examples. Press cs"' inside
 
@@ -49,6 +51,5 @@ return {
         <p class="important">
           <em>Hello</em> world!
         </p>
-
     --]]
 }
