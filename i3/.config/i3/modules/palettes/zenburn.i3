@@ -36,7 +36,7 @@ client.background       $background_dark
 bar {
 
 	# The command for the status line
-    status_command i3status -c ~/.config/i3/modules/i3status.conf
+    status_command i3status -c ~/.config/i3/modules/i3status.i3
 
 	# The position of the bar (top/bottom)
 	position bottom
@@ -52,12 +52,12 @@ bar {
         statusline $foreground
         separator  $background
 
-        #selector          #border #bg     #text
-        focused_workspace  $foregound $background $foreground
-        active_workspace   $color0 $background_dark $foreground
-        inactive_workspace $color0 $background_dark $foreground
-        urgent_workspace   $color1 $color9 $background
-        binding_mode       $color0 $background_dark $foreground
+        #selector          #border      #bg                 #text
+        focused_workspace  $color2   $background         $foreground
+        active_workspace   $color0      $background_dark    $foreground
+        inactive_workspace $color0      $background_dark    $foreground
+        urgent_workspace   $color1      $color9             $background
+        binding_mode       $color0      $background_dark    $foreground
 	}
 
 }

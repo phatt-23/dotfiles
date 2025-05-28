@@ -65,4 +65,14 @@ configuration {
 
 //@theme "/home/phatt/.config/rofi/themes/i3.rasi"
 
-@theme "/home/phatt/.config/rofi/themes/one-dark.rasi"
+//@theme "/home/phatt/.config/rofi/themes/one-dark.rasi"
+
+//@theme "/home/phatt/.config/rofi/themes/lackluster.rasi"
+
+//@theme "/home/phatt/.config/rofi/themes/one-dark.rasi"
+
+//@theme "/usr/share/rofi/themes/material.rasi"
+
+//@theme "/home/phatt/.config/rofi/themes/common.rasi"
+
+@theme "/home/phatt/.config/rofi/themes/i3.rasi"

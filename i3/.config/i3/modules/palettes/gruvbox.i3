@@ -20,3 +20,22 @@ client.urgent           $bg1    $red0   $bg1 $bg1      $bg1
 client.placeholder      $ignore $bg1    $fg1 $ignore   $bg2 
 client.background       $bg1 
 
+
+bar {
+	position bottom
+	height 30
+	status_command i3status -c ~/.config/i3/modules/i3status.i3
+
+	colors {
+		background $bg0
+		statusline $fg1
+		separator  $bg1
+
+		#selector          #border  #bg     #text
+		focused_workspace  $bg4     $bg2    $fg1
+		active_workspace   $bg2     $bg1    $fg1
+		inactive_workspace $bg2     $bg0    $fg
+		urgent_workspace   $red0    $bg0    $fg1
+		binding_mode       $bg2     $bg0    $fg1
+    }
+}

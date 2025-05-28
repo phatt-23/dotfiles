@@ -11,9 +11,9 @@ general {
         # color_bad = "#eb6f92"
 
         # OneDark
-        color_good = "#60b48a"
-        color_degraded = "#c678dd"
-        color_bad = "#e86671"
+        # color_good = "#60b48a"
+        # color_degraded = "#c678dd"
+        # color_bad = "#e86671"
         
         # LACKLUSTER
         # color_good = "#60b48a"
@@ -25,9 +25,15 @@ general {
         # color_bad = "#D70000" # lackluster - red
    
         # DEFAULT 
-        # color_good = "#00FF00"
-        # color_degraded = "#6666FF"
-        # color_bad = "#FF0000"
+        color_good = "#00FF00"
+        color_degraded = "#6666FF"
+        color_bad = "#FF0000"
+
+        # TOKYO
+        # color_good = "#9ece6a"
+        # color_degraded = "#e0af68"
+        # color_bad = "#f7768e"
+
 }
 
 # order += "read_file spotify"

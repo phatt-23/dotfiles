@@ -7,10 +7,11 @@ return {
             require("which-key").add({
                 mode = { "n", "v" },
                 { "<leader>f",  group = "telescope" },
-                { "<leader>ff", "<cmd>lua require'telescope.builtin'.find_files()<cr>", desc = "files", },
-                { "<leader>fg", "<cmd>lua require'telescope.builtin'.live_grep()<cr>",  desc = "grep" },
-                { "<leader>fb", "<cmd>lua require'telescope.builtin'.buffers()<cr>",    desc = "buffers" },
-                { "<leader>fh", "<cmd>lua require'telescope.builtin'.help_tags()<cr>",  desc = "help" },
+                { "<leader>ff", "<CMD>lua require'telescope.builtin'.find_files()<CR>", desc = "files", },
+                { "<leader>fg", "<CMD>lua require'telescope.builtin'.live_grep()<CR>",  desc = "grep" },
+                { "<leader>fb", "<CMD>lua require'telescope.builtin'.buffers()<CR>",    desc = "buffers" },
+                { "<leader>fh", "<CMD>lua require'telescope.builtin'.help_tags()<CR>",  desc = "help" },
+                { "<leader>fx", "<CMD>lua require'telescope.builtin'.resume()<CR>", desc = "Resume" },
             })
         end
     },

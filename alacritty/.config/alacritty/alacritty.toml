@@ -1,13 +1,26 @@
 [general]
 import = [
-    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Gruvbox-Dark.toml"
-    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Google.light.toml"
-    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Google.dark.toml"
-    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Zenburn.toml"
-    	# "/usr/local/lib/node_modules/alacritty-themes/themes/Monokai.dark.toml"
-    	# "/usr/local/lib/node_modules/alacritty-themes/themes/3024.dark.toml"
-    	"/usr/local/lib/node_modules/alacritty-themes/themes/One-Dark.toml"
-    	# "/usr/local/lib/node_modules/alacritty-themes/themes/vscode.dark.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Gruvbox-Dark.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Gruvbox-Light.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Google.light.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Google.dark.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Zenburn.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Monokai.dark.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/3024.dark.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/One-Dark.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/vscode.dark.toml"
+    # "./themes/themes/zenburn.toml"
+    # "./themes/themes/github_dark.toml"
+    # "./themes/themes/gruvbox_material.toml"
+    # "./themes/themes/hyper.toml"
+    # "./themes/themes/oxocarbon.toml"
+    # "./my_themes/gruber.toml"
+    # "./themes/themes/bluish.toml",
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Hyper.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Ayu-Mirage.toml"
+    # "./themes/themes/hyper.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Base16-Default-Dark.toml"
+    "/usr/local/lib/node_modules/alacritty-themes/themes/Tokyonight_Night.toml"
 ]
 
 [terminal]
@@ -25,33 +38,39 @@ padding.y = 20
 size = 12
 
 	[font.normal]
-    	# family = "JetBrains Mono Nerd Font"
+    	# family = "JetBrainsMono Nerd Font"
+        # family = "D2CodingLigature Nerd Font"
+        # family = "VictorMono Nerd Font"
+        # family = "IntoneMono Nerd Font"
     	# family = "M+1Code Nerd Font"
     	# family = "GohuFont 11 Nerd Font"
     	# family = "LiterationMono Nerd Font"
-    	# family = "FiraCode Nerd Font"
+	# family = "FiraCode Nerd Font"
     	# family = "Latin Modern Mono"
     	# family = "Lilex Nerd Font"
     	# family = "SauceCodePro Nerd Font"
     	# family = "Inconsolata Nerd Font"
     	# family = "NotoSansM Nerd Font"
-    	# family = "CaskaydiaMono NFM Light"
+    	# family = "CaskaydiaCove Nerd Font"
     	# family = "MonaspiceKr Nerd Font Mono"
     	# family = "SauceCodePro Nerd Font"
     	# family = "CodeNewRoman Nerd Font"
-	    # family = "Iosevka Nerd Font"
+	family = "Iosevka Nerd Font Mono"
         # family = "ProggyClean CE Nerd Font"
         # family = "BigBlueTermPlus Nerd Font"
         # family = "Hurmit Nerd Font"
         # family = "DejaVuSansM Nerd Font"
         # family = "ComicShannsMono Nerd Font"
-        family = "Hack Nerd Font"
-
-
+        # family = "Hack Nerd Font"
+        # family = "ZedMono NFM"
+        # family = "ComicShannsMono Nerd Font"
+        # family = "Aporetic Sans Mono"
+        # family = "MesloLGM Nerd Font"
+        # family = "NewComputerModernMono10"
 
 [bell]
 animation = "EaseOutCubic"
-duration = 250
+duration = 100
 color = "#d18191"
 
 [cursor]

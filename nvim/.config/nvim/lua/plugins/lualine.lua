@@ -63,56 +63,71 @@ local gruber = {
 -- for lualine
 local color_scheme = {
     normal = {
-        a = { bg = gruber.yellow, fg = gruber.black, gui = "bold" },
-        b = { bg = gruber.bg2, fg = gruber.white },
-        c = { bg = gruber.bg1, fg = gruber.white },
+        a = { fg = gruber.yellow, bg = nil, gui = "bold" },
+        b = { fg = gruber.white, bg = nil },
+        c = { fg = gruber.white, bg = nil },
     },
     insert = {
-        a = { bg = gruber.niagara, fg = gruber.black, gui = "bold" },
-        b = { bg = gruber.bg2, fg = gruber.white },
-        c = { bg = gruber.bg1, fg = gruber.white },
+        a = { fg = gruber.niagara, bg = nil, gui = "bold" },
+        b = { fg = gruber.white, bg = nil },
+        c = { fg = gruber.white, bg = nil },
     },
     visual = {
-        a = { bg = gruber.green, fg = gruber.black, gui = "bold" },
-        b = { bg = gruber.bg2, fg = gruber.white },
-        c = { bg = gruber.bg1, fg = gruber.white },
+        a = { fg = gruber.green, bg = nil, gui = "bold" },
+        b = { fg = gruber.white, bg = nil },
+        c = { fg = gruber.white, bg = nil },
     },
     replace = {
-        a = { bg = gruber.wisteria, fg = gruber.black, gui = "bold" },
-        b = { bg = gruber.bg2, fg = gruber.white },
-        c = { bg = gruber.bg1, fg = gruber.white },
+        a = { fg = gruber.wisteria, bg = nil, gui = "bold" },
+        b = { fg = gruber.white, bg = nil },
+        c = { fg = gruber.white, bg = nil },
     },
     command = {
-        a = { bg = gruber.orange, fg = gruber.black, gui = "bold" },
-        b = { bg = gruber.bg2, fg = gruber.white },
-        c = { bg = gruber.bg1, fg = gruber.white },
+        a = { fg = gruber.orange, bg = nil, gui = "bold" },
+        b = { fg = gruber.white, bg = nil },
+        c = { fg = gruber.white, bg = nil },
     },
     inactive = {
-        a = { bg = gruber.yellow, fg = gruber.black, gui = "bold" },
-        b = { bg = gruber.bg2, fg = gruber.white },
-        c = { bg = gruber.bg1, fg = gruber.white },
+        a = { fg = gruber.yellow, bg = nil, gui = "bold" },
+        b = { fg = gruber.white, bg = nil },
+        c = { fg = gruber.white, bg = nil },
     },
 }
+
 
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-        local mode_map = lowercase_mode_map
-
         require("lualine").setup({
             options = {
                 globalstatus = true,
-                component_separators = { left = "│", right = "│" },
-                section_separators = { left = "", right = "" },
-                -- theme = "zenburn",
+                section_separators = { left = "", right = "" },
+                component_separators = { left = "", right = "" },
+                -- component_separators = { left = "│", right = "│" },
+                -- section_separators = { left = "", right = "" },
+                -- theme = color_scheme,
             },
             sections = {
                 lualine_a = {
-                    { "mode", fmt = function(s) return " " .. mode_map[s] .. " " or s end, },
+                    {
+                        "mode",
+                        fmt = function(mode)
+                            -- return " " .. mode_map[mode] .. " " or mode
+                            return mode
+                        end,
+                        color = { gui = "bold" },
+                        padding = { left = 1, right = 1 },
+                    },
                 },
                 lualine_b = { 'branch', 'diff', 'diagnostics' },
-                lualine_c = { 'filename' },
+                lualine_c = {
+                    {
+                        'filename',
+                        path = 1,
+                        color = { gui = 'bold' }
+                    }
+                },
                 lualine_x = {
                     {
                         cond = require("noice").api.statusline.mode.has,
@@ -124,7 +139,13 @@ return {
                 },
                 lualine_y = { 'progress' },
                 lualine_z = {
-                    { 'location', fmt = function(loc) return loc .. " " end, }
+                    {
+                        'location',
+                        fmt = function(loc)
+                            return loc
+                        end,
+                        color = { gui = 'bold' }
+                    }
                 }
             },
         })

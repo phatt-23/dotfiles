@@ -22,7 +22,7 @@ set		$dark_cyan     "#2b6f77"
 set		$dark_red      "#993939"
 set		$dark_yellow   "#93691d"
 set		$dark_purple   "#8a3fa0"
-set 		$dark_dark_purple "#6a1f80"
+set 	$dark_dark_purple "#6a1f80"
 set		$diff_add      "#31392b"
 set		$diff_delete   "#382b2c"
 set		$diff_change   "#1c3448"
@@ -42,7 +42,7 @@ for_window [all] title_format "%title [%class]"
 bar {
 	position bottom
 	height 30
-	status_command i3status -c ~/.config/i3/modules/i3status.conf 
+	status_command i3status -c ~/.config/i3/modules/i3status.i3
 
 	colors {
 		background $black
@@ -56,5 +56,5 @@ bar {
 		inactive_workspace $bg3     $bg0        $fg
 		urgent_workspace   $red     $dark_red   $red
 		binding_mode       $bg3     $bg_d       $fg
-    	}
+    }
 }

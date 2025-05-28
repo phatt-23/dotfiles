@@ -8,12 +8,10 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 # for_window [all] title_format "%title <span foreground='#888888'><i>%class</i></span>"
-for_window [all] title_format "%title │ <i>%class</i>"
-
-set $wallpaper_path /home/phatt/Pictures/Wallpapers/black.jpg
-exec_always feh [--no-startup-id] --no-fehbg --bg-max $wallpaper_path
+for_window [all] title_format "%title [<i>%class</i>]"
 
 bar {
     position bottom
-    status_command i3status -c ~/.config/i3/modules/i3status.conf
+    height 24
+    status_command i3status -c ~/.config/i3/modules/i3status.i3
 }

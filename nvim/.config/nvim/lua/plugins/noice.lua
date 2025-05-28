@@ -3,15 +3,12 @@ return {
         "smjonas/inc-rename.nvim",
         config = function()
             require("inc_rename").setup({})
-            vim.keymap.set("n", "<leader>rn", ":IncRename ")
+            vim.keymap.set("n", "<leader>rn", ":IncRename ", { desc = "Rename identifier." })
         end,
     },
     {
         "folke/noice.nvim",
         event = "VeryLazy",
-        opts = {
-            -- add any options here
-        },
         dependencies = {
             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
             "MunifTanjim/nui.nvim",
@@ -20,7 +17,11 @@ return {
             --   If not available, we use `mini` as the fallback
             "rcarriga/nvim-notify",
         },
-        config = function ()
+        config = function()
+            vim.keymap.set("n", "<Esc>", function()
+                require("notify").dismiss()
+            end, { desc = "Dismiss notify popup" })
+
             require("noice").setup({
                 lsp = {
                     -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -32,11 +33,11 @@ return {
                 },
                 -- you can enable a preset for easier configuration
                 presets = {
-                    bottom_search = true, -- use a classic bottom cmdline for search
-                    command_palette = true, -- position the cmdline and popupmenu together
+                    bottom_search = true,         -- use a classic bottom cmdline for search
+                    command_palette = true,       -- position the cmdline and popupmenu together
                     long_message_to_split = true, -- long messages will be sent to a split
-                    inc_rename = true, -- enables an input dialog for inc-rename.nvim
-                    lsp_doc_border = true, -- add a border to hover docs and signature help
+                    inc_rename = true,            -- enables an input dialog for inc-rename.nvim
+                    lsp_doc_border = true,        -- add a border to hover docs and signature help
                 },
                 views = {
                     split = {
@@ -46,15 +47,25 @@ return {
             })
 
             require("notify").setup({
-                background_colour = "NotifyBackground",
-                fps = 60,
+                background_colour = "#ffffff",
+                fps = 75,
+                -- render = "wrapped-compact",
                 render = "wrapped-compact",
-                stages = "slide",
-                timeout = 2000,
+                stages = "fade_in_slide_out",
+                timeout = 1000,
                 top_down = true,
+                max_height = function()
+                    return math.floor(vim.o.lines * 0.30)
+                end,
+                max_width = function()
+                    return math.floor(vim.o.columns * 0.30)
+                end,
+                on_open = function(win)
+                    vim.api.nvim_win_set_config(win, {
+                        focusable = true,
+                    })
+                end,
             })
-
         end
     }
 }
-

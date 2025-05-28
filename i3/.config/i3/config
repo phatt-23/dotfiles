@@ -3,26 +3,26 @@ set $mod Mod4
 set $scripts_path ~/.config/i3/modules/scripts/
 
 # i3 shit
-include ./modules/bar.conf
-include ./modules/keybinds.conf
-include ./modules/resize.conf
-include ./modules/workspace.conf
-include ./modules/window.conf
+include ./modules/bar.i3
+include ./modules/keybinds.i3
+include ./modules/resize.i3
+include ./modules/workspace.i3
+include ./modules/window.i3
 
 # custom shit
-include ./modules/terminal.conf
-include ./modules/font.conf
-include ./modules/menus.conf
-include ./modules/theme.conf
-include ./modules/keymaps.conf
-include ./modules/redshift.conf
+include ./modules/terminal.i3
+include ./modules/font.i3
+include ./modules/menus.i3
+include ./modules/theme.i3
+include ./modules/keymaps.i3
+include ./modules/redshift.i3
 
 # system shit
-include ./modules/autostart.conf
-include ./modules/audio.conf
-include ./modules/brightness.conf
-include ./modules/keyboard.conf
-include ./modules/touchpad.conf
+include ./modules/autostart.i3
+include ./modules/audio.i3
+include ./modules/brightness.i3
+include ./modules/keyboard.i3
+include ./modules/touchpad.i3
 
 # arch shit
 exec --no-startup-id /usr/bin/easyeffects --gapplication-service

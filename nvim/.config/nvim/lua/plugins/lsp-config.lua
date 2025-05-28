@@ -1,45 +1,62 @@
 local lsp_names = {
     -- Real Programming Languages
-    "lua_ls",        -- Lua
-    "clangd",        -- C, C++
-    "csharp_ls",     -- C#
-    "rust_analyzer", -- Rust
-    "ruff",          -- Python
-    "pyright",       -- Python 
-    "bashls",        -- Bash
-    "ts_ls",         -- Typescript
-    "hls",           -- Haskell
-    "asm_lsp",       -- Assembly
-    "gopls",         -- Go (official)
+    "lua_ls",                       -- Lua
+    "clangd",                       -- C, C++
+    "csharp_ls",                    -- C#
+    "rust_analyzer",                -- Rust
+    "ruff",                         -- Python
+    "pyright",                      -- Python
+    "bashls",                       -- Bash
+    "ts_ls",                        -- Typescript
+    "hls",                          -- Haskell
+    "asm_lsp",                      -- Assembly
+    "gopls",                        -- Go (official)
+    -- "java_language_server",         -- Java
     -- Database Languages
-    "sqlls",         -- SQL
-    "sqls",          -- SQL (written in Go)
+    "sqlls",                        -- SQL
+    "sqls",                         -- SQL (written in Go)
     -- Web Development Languages
-    "html",          -- HTML
-    "eslint",        -- Javascript, Typescript
-    "cssls",         -- CSS
-    "svelte",        -- Svelte
+    "html",                         -- HTML
+    "eslint",                       -- Javascript, Typescript
+    "cssls",                        -- CSS
+    "tailwindcss",                  -- TailwindCSS
+    "svelte",                       -- Svelte
     -- Typesetting Languages
-    "texlab",        -- LaTeX
-    "ltex",          -- LTeX
-    "tinymist",      -- Typst
+    -- "texlab",        -- LaTeX
+    -- "ltex",          -- LTeX
+    "tinymist",                     -- Typst
     -- Configuration Languauges
-    "taplo",         -- TOML
-    "neocmake",      -- CMake
+    "taplo",                        -- TOML
+    "neocmake",                     -- CMake
+    -- Template
+    -- "djlsp",                     -- Django
+    "jinja_lsp",
 }
 
 return {
     {
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup({})
-        end,
+        "mason-org/mason.nvim",
+        build = ":MasonUpdate",
+        cmd = {
+            "Mason",
+            "MasonInstall",
+            "MasonUninstall",
+            "MasonUninstallAll",
+            "MasonLog",
+        },
+        opts = {},
     },
     {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-            require("mason-lspconfig").setup({ ensure_installed = lsp_names })
-        end,
+        "mason-org/mason-lspconfig.nvim",
+        event = "BufReadPost",
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "mason-org/mason.nvim",
+        },
+        opts = {
+            ensure_installed = lsp_names,
+            automatic_installation = true,
+        },
     },
     {
         "mortepau/codicons.nvim",
@@ -122,7 +139,7 @@ return {
                 settings = {
                     ['rust-analyzer'] = {
                         diagnostics = {
-                            enable = true,
+                            -- enable = true,
                         }
                     }
                 }
@@ -152,7 +169,7 @@ return {
             local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
             function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
                 opts = opts or {}
-                opts.border = border or opts.border 
+                opts.border = border or opts.border
                 return orig_util_open_floating_preview(contents, syntax, opts, ...)
             end
 

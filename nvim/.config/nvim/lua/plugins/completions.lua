@@ -142,12 +142,12 @@ return {
             },
         })
 
-        local color = require('onedark.colors')
+        -- local color = require('onedark.colors')
 
         -- Colors
-        vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = color.bg0, bg = "NONE", strikethrough = true })
-        vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = color.blue, bg = "NONE", bold = true })
-        vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = color.blue, bg = "NONE", bold = true })
-        vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = color.purple, bg = "NONE", italic = true })
+        -- vim.api.nvim_set_hl(0, "CmpItemAbbrDeprecated", { fg = color.bg0, bg = "NONE", strikethrough = true })
+        -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatch", { fg = color.blue, bg = "NONE", bold = true })
+        -- vim.api.nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { fg = color.blue, bg = "NONE", bold = true })
+        -- vim.api.nvim_set_hl(0, "CmpItemMenu", { fg = color.purple, bg = "NONE", italic = true })
     end,
 }

@@ -12,7 +12,7 @@
 (setq visible-bell nil)
 
 ;;font
-(set-face-attribute 'default nil :font "MesloLGM Nerd Font 14" :height 140)
+(set-face-attribute 'default nil :font "FiraCode Nerd Font 12" :height 140)
 
 ;;keybinds
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
@@ -238,7 +238,7 @@
   (LaTex-mode . turn-on-flyspell))
 
 (load "auctex.el" nil t t)
-(load "preview-latex.el" nil t t)
+; (load "preview-latex.el" nil t t)
 
 ;;; init.el ends here
 

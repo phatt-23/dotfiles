@@ -1,56 +1,57 @@
 /* OneDark */
 
 * {
-    items: 		10;
+    items: 		    10;
 
     y-offset: 		100px;
-    width: 		600px;
+    width: 		    800px;
     radius: 		0px;
 
     purple-dark-dark: 	#6a1f80;
     purple-dark-dark-t: #6a1f80aa;
-    purple-dark: 	#8a3fa0;
-    purple-dark-t: 	#8a3fa0aa;
-    purple:      	#c678dd;
-    purple-t:      	#c678ddaa;
-    black:       	#181a1f; 
-    white:       	#eeeeee;
-    gray1:       	#282c34; 
-    gray1-t:  		#282c34aa; 
-    gray2:       	#31353f; 
-    gray2-t:       	#31353faa; 
-    gray3:       	#393f4a; 
-    gray3-t:       	#393f4aaa; 
-    gray4:       	#3b3f4c;
-    gray4-t:       	#3b3f4caa;
-    gray5:       	#5c6370;
-    gray5-t:       	#5c6370aa;
-    gray6:       	#7a7a7a;
-    gray6-t:       	#7a7a7aaa;
-    gray7:       	#848b98;
+    purple-dark: 	    #8a3fa0;
+    purple-dark-t: 	    #8a3fa0aa;
+    purple:      	    #c678dd;
+    purple-t:      	    #c678ddaa;
+    black:       	    #181a1f; 
+    white:       	    #eeeeee;
+    gray1:       	    #282c34; 
+    gray1-t:  		    #282c34aa; 
+    gray2:       	    #31353f; 
+    gray2-t:       	    #31353faa; 
+    gray3:       	    #393f4a; 
+    gray3-t:       	    #393f4aaa; 
+    gray4:       	    #3b3f4c;
+    gray4-t:       	    #3b3f4caa;
+    gray5:       	    #5c6370;
+    gray5-t:       	    #5c6370aa;
+    gray6:       	    #7a7a7a;
+    gray6-t:       	    #7a7a7aaa;
+    gray7:       	    #848b98;
 }
 
 
 * {
-    // font: 		font-name <space> font-style <space> font-size
-    // font: 		"Iosevka Nerd Font 11";
-    font: 		    "Hurmit Nerd Font 11";
-    margin: 		2 px;
-    padding: 		2 px;
-    spacing: 		0 px;
+    // font: 		    font-name <space> font-style <space> font-size
+    // font: 		    "Iosevka Nerd Font 11";
+    // font: 		       "Hurmit Nerd Font 11";
+    font: 		        "ZedMono NFM 11";
+    margin: 		    2 px;
+    padding: 		    2 px;
+    spacing: 		    0 px;
     background-color: 	transparent;
-    text-color: 	@white;
+    text-color: 	    @white;
 }
 
 
 window {
     y-offset: 		@y-offset;
-    width: 		@width;
+    width: 		    @width;
     border-radius: 	@radius;
     border: 		2;
 
     background-color: 	@gray1-t;
-    border-color: 	@gray3-t;
+    border-color: 	    @gray3-t;
 }
 
 

@@ -6,7 +6,7 @@ vim.cmd([["numberline
     set number
     set relativenumber
     set signcolumn=yes "the margin between the numberline and the border
-    set numberwidth=5 "6 "number width, the gap between numberline and current numberline
+    " set numberwidth=6 "6 "number width, the gap between numberline and current numberline
 ]])
 
 
@@ -21,9 +21,18 @@ vim.cmd([["tabbing and indenting
 
 -- dynamic tab sizes based on file type
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "html", "css", "javascript", "typescript", "svelte", "json", "yaml", "typescriptreact" },
+    pattern = {
+        "html",
+        "htmldjango",
+        "css",
+        "javascript", "typescript",
+        "typescriptreact",
+        "svelte",
+        "json",
+        "yaml",
+    },
     callback = function()
-        vim.bo.shiftwidth = 2
+        vim.bo.shiftwidth =  2
         vim.bo.tabstop = 2
         vim.bo.softtabstop = 2
         vim.bo.expandtab = true
@@ -109,9 +118,9 @@ vim.cmd([["custom keybinds
 -- overrides the default background highlight
 -- of matching words in some themes to be underlined
 vim.cmd([[
-    hi IlluminatedWordText guibg=NONE gui=underline
-    hi IlluminatedWordRead guibg=NONE gui=underline
-    hi IlluminatedWordWrite guibg=NONE gui=underline
+    " hi IlluminatedWordText guibg=NONE gui=underline
+    " hi IlluminatedWordRead guibg=NONE gui=underline
+    " hi IlluminatedWordWrite guibg=NONE gui=underline
 
     "Different colors in visual mode
     hi Visual guifg=Black guibg=Gray gui=bold
@@ -157,5 +166,12 @@ vim.cmd([[
     " set background=dark
     " colorscheme primary
 ]])
+
+-- file extension
+vim.cmd([[
+    autocmd BufRead,BufNewFile *.i3 set filetype=i3config
+    autocmd BufRead,BufNewFile *.rasi set filetype=css
+]])
+
 
 

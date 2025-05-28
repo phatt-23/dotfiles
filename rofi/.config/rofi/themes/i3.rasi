@@ -1,208 +1,72 @@
 * {
-    /* Theme settings */
-    highlight: bold italic;
-    scrollbar: false;
-
     /* i3wm colors */
-    bg0:           #222222;
-    bg1:           #282828;
-    bg2:           #52494e;
-    fg0:           #e4e4ef;
-    fg1:           #f4f4f4;
-    red-dark:      #e67e80;
-    red-light:     #e69875;
-    primary-dark:  #285577;
-    primary-light: #4C7899;
-    gray:          #424242;
+    bg0:            #000000;
+    bg1:            #282828;
+    bg0-t:          #000000aa;
+    bg1-t:          #282828aa;
+    fg0:            #e4e4ef;
+    fg1:            #f4f4f4;
+    primary-dark:   #285577;
+    primary-light:  #4C7899;
 
-    /* Theme colors */
-    background:                  @bg1;
-    background-color:            @background;
-    foreground:                  @fg1;
-    border-color:                @gray;
-    separatorcolor:              @border-color;
-    scrollbar-handle:            @border-color;
-
-    normal-background:           @background;
-    normal-foreground:           @foreground;
-    alternate-normal-background: @background;
-    alternate-normal-foreground: @foreground;
-    selected-normal-border:      @primary-light;
-    selected-normal-background:  @primary-dark;
-    selected-normal-foreground:  @fg1;
-
-    active-background:           @primary-dark;
-    active-foreground:           @background;
-    alternate-active-background: @active-background;
-    alternate-active-foreground: @active-foreground;
-    selected-active-background:  @primary-light;
-    selected-active-foreground:  @active-foreground;
-
-    urgent-background:           @red-dark;
-    urgent-foreground:           @background;
-    alternate-urgent-background: @urgent-background;
-    alternate-urgent-foreground: @urgent-foreground;
-    selected-urgent-background:  @red-light;
-    selected-urgent-foreground:  @urgent-foreground;
+    radius: 0px;
+    items: 10;
 }
 
-/* * { font: "Iosevka Nerd Font 12"; } */
-* { font: "M+1Code Nerd Font 12"; }
+* {
+    font:             "Iosevka Nerd Font 14";
+    text-color: 	    @fg1;
+    background-color: transparent;
+}
 
 window {
-    width: 840;
-	border: none;
-	border-radius: 4;
-	border-color: @border-color;
-}
-
-listview {
-    columns: 3;
-    fixed-height: false;
-}
-
-
-window {
-    /* background-color: @background; */
-    background-color: #000000;
-    border:           1;
-    padding:          2;
+    x-offset:           0px;
+    y-offset: 		      0px;
+    width: 		          600px;
+    background-color: 	@bg0-t;
+    border-color: 	    @bg0-t;
 }
 
 mainbox {
-    border:  0;
-    padding: 0;
-}
-
-message {
-    border:       1px 0 0;
-    border-color: @separatorcolor;
-    padding:      1px;
-}
-
-textbox {
-    highlight:  @highlight;
-    text-color: @foreground;
-}
-
-listview {
-    border:       1px solid 0 0;
-    padding:      2px 0 0;
-    border-color: @border-color;
-    spacing:      1px;
-    scrollbar:    @scrollbar;
-}
-
-element {
-    border: 0;
-	border-radius: 4;
-    border-color: @border-color;
-    padding: 2px;
-}
-
-element.normal.normal {
-    /* background-color: @normal-background; */
-    background-color: #000000;
-    text-color:       @normal-foreground;
-}
-
-element.normal.urgent {
-    /* background-color: @urgent-background; */
-    background-color: #000000;
-    text-color:       @urgent-foreground;
-}
-
-element.normal.active {
-    /* background-color: @active-background; */
-    background-color: #000000;
-    text-color:       @active-foreground;
-}
-
-element.selected {
-    border: 1;
-    text-weight: bold;
-    border-color: @selected-normal-border;
-}
-
-element.selected.normal {
-    /* background-color: @selected-normal-background; */
-    background-color: #000000;
-    text-color:       @selected-normal-foreground;
-}
-
-element.selected.urgent {
-    /* background-color: @selected-urgent-background; */
-    background-color: #000000;
-    text-color:       @selected-urgent-foreground;
-}
-
-element.selected.active {
-    /* background-color: @selected-active-background; */
-    background-color: #000000;
-    text-color:       @selected-active-foreground;
-}
-
-element.alternate.normal {
-    /* background-color: @alternate-normal-background; */
-    background-color: #000000;
-    text-color:       @alternate-normal-foreground;
-}
-
-element.alternate.urgent {
-    /* background-color: @alternate-urgent-background; */
-    background-color: #000000;
-    text-color:       @alternate-urgent-foreground;
-}
-
-element.alternate.active {
-    /* background-color: @alternate-active-background; */
-    background-color: #000000;
-    text-color:       @alternate-active-foreground;
-}
-
-scrollbar {
-    width:        4px;
-    border:       0;
-    handle-color: @scrollbar-handle;
-    handle-width: 8px;
-    padding:      0;
-}
-
-mode-switcher {
-    border:       2px 0 0;
-    border-color: @separatorcolor;
+    padding: 8px;
 }
 
 inputbar {
-    spacing:    0;
-    text-color: @normal-foreground;
-    padding:    2px;
-    children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+    children: [ prompt, entry ];
+    padding: 8px 8px;
+    spacing: 16px;
+    background-color: transparent;
 }
 
-case-indicator,
-entry,
-prompt,
-button {
-    spacing:    0;
-    text-color: @normal-foreground;
+listview {
+    lines: 10;
+    columns: 1;
+    scrollbar: true;
+    margin: 10 0 0 0;
+    dynamic: false;
+    fixed-height: false;
 }
 
-button.selected {
-    /* background-color: @selected-normal-background; */
-    background-color: #000000;
-    text-color:       @selected-normal-foreground;
+scrollbar {
+    handle-width: 4px;
+    handle-color: @bg1;
+    margin: 0 0 0 10;
 }
 
-textbox-prompt-sep {
-    expand:     false;
-    str:        ":";
-    text-color: @normal-foreground;
-    margin:     0 0.3em 0 0;
+element {
+    padding: 8px 8px;
+    spacing: 0px;
+    margin: 2px;
 }
 
-element-text, element-icon {
-    background-color: inherit;
-    text-color:       inherit;
+element-icon {
+    size: 1.2em;
+    margin: 0 10 0 0;
+}
+
+element selected {
+    border: 2;
+    background-color: @primary-dark;
+    border-color: @primary-light;
 }
 
