@@ -1,0 +1,14 @@
+use_nerdfont=true
+flip_status_indicators=true
+library_tabs=["tracks", "playlists"]
+
+[theme]
+highlight_bg = "red"
+highlight = "black"
+
+[keybindings]
+"Ctrl+d" = "move down 10"
+"Ctrl+u" = "move up 10"
+"Shift+g" = "move bottom"
+"g" = "move top"
+"q" = "noop"
