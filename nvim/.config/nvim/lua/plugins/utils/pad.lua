@@ -1,4 +1,7 @@
-local srep = string.rep
+
+
+
+
 
 -- all of these functions return their result and a boolean
 -- to notify the caller if the string was even changed
@@ -6,14 +9,14 @@ local srep = string.rep
 -- pad the left side
 local lpad =
 	function (s, l, c)
-		local res = srep(c or ' ', l - #s) .. s
+		local res = string.rep(c or ' ', l - #s) .. s
 		return res, res ~= s
 	end
 
 -- pad the right side
 local rpad =
 	function (s, l, c)
-		local res = s .. srep(c or ' ', l - #s)
+		local res = s .. string.rep(c or ' ', l - #s)
 		return res, res ~= s
 	end
 
@@ -28,8 +31,4 @@ local pad =
 		return res2, stat1 or stat2
 	end
 
-return {
-    lpad,
-    rpad,
-    pad
-}
+return { lpad, rpad, pad }

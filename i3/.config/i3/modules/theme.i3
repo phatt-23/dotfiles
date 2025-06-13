@@ -1,7 +1,8 @@
 # i3 client look
 # include palettes/nordic.i3
 # include palettes/gruber.i3
-include palettes/i3_default.i3
+# include palettes/i3_default.i3
+include palettes/smaragd.i3
 # include palettes/lackluster.conf
 # include palettes/zenburn.i3
 # include palettes/rose-pine.conf
@@ -18,9 +19,10 @@ smart_gaps inverse_outer
 
 
 # i3 borders
-hide_edge_borders smart_no_gaps
-for_window [class=".*"] border pixel 2
-for_window [floating] border full
+# hide_edge_borders smart_no_gaps
+# for_window [class=".*"] border pixel 2
+# for_window [floating] border full
+for_window [class=".*"] border full
 
 
 # Activate smart borders (always)
@@ -30,7 +32,8 @@ smart_borders no_gaps
 
 
 # window title icons
-for_window [all] title_window_icon padding 0px
+for_window [all] title_window_icon no
+# for_window [all] title_window_icon padding 0px
 # for_window [all] floating enable
 
 
@@ -41,7 +44,8 @@ for_window [all] title_window_icon padding 0px
 # set $wallpaper_path $HOME/Pictures/black_wallpaper.jpg
 # set $wallpaper_path $HOME/Pictures/od_tux.png
 # set $wallpaper_path $HOME/Pictures/film_forest.jpg
-set $wallpaper_path $HOME/Pictures/serbia_forest.jpg
+# set $wallpaper_path $HOME/Pictures/serbia_forest.jpg
+set $wallpaper_path $HOME/Pictures/dark_gray_wallpaper.png
 exec_always feh --no-fehbg --bg-fill $wallpaper_path
 # exec_always feh --no-fehbg --bg-max $wallpaper_path
 
@@ -68,14 +72,16 @@ popup_during_fullscreen leave_fullscreen
 
 
 # font
-set $font_size 10
+set $font_size 8
 
 # set $font_family Noto Sans
 # set $font_family CommitMono Nerd Font Propo
-set $font_family Iosevka Nerd Font
+# set $font_family Courier Prime
+# set $font_family Iosevka Nerd Font
 # set $font_family Aporetic Sans Mono 
 # set $font_family Source Code Pro
 # set $font_family Terminus
+# set $font_family Terminess Nerd Font
 # set $font_family MesloLGL Nerd Font
 # set $font_family MesloLGS Nerd Font
 # set $font_family DejaVuSansM Nerd Font
@@ -93,6 +99,7 @@ set $font_family Iosevka Nerd Font
 # set $font_family ComicShannsMono Nerd Font
 # set $font_family ZedMono NFM Extd
 # set $font_family IntoneMono Nerd Font
+set $font_family GohuFont 11 Nerd Font
 
 font pango:$font_family $font_size
 

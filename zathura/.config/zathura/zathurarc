@@ -1,27 +1,7 @@
 # include ./themes/zathura-gruvbox-light
-# include ./themes/zathura-gruvbox-dark
 # include ./themes/catppuccin-mocha
-# include ./themes/catppuccin-macchiato
-# include ./themes/dracula
-# include ./themes/base16-nord.config
-# include ./themes/dark-theme.config
-# include ./themes/base16-gruvbox-light-medium.config
-# include ./themes/base16-gruvbox-light-hard.config
-# include ./themes/base16-gruvbox-dark-hard.config
-# include ./themes/base16-atelier-cave.config
-# include ./themes/lackluster-night.config
-# include ./themes/senior-mars-theme.config
-# include ./themes/base16-zenburn.config
-# include ./themes/base16-nord.config
-# include ./themes/rose-pine-moon.config
-# include ./themes/base16-black-metal.config
-# include ./themes/base16-onedark.config
 
-# set font 'MesloLGM Nerd Font 12'
-set font 'Iosevka Nerd Font 14'
-# set font 'Liga SFMono Nerd Font 12'
-# set font 'CodeNewRoman Nerd Font 12'
-# set font 'ComicShannsMono Nerd Font 12'
+set font 'Iosevka Nerd Font 12'
 
 set window-title-basename "true"
 set selection-clipboard "clipboard"
@@ -40,12 +20,6 @@ set render-loading "false"
 set scroll-full-overlap 0.01
 set scroll-step 200
 
-# unmap f
-# map f toggle_fullscreen
-# map [fullscreen] f toggle_fullscreen
-
 set adjust-open "best-fit"
 
-# map <C-i> zoom in
-# map <C-o> zoom out
 

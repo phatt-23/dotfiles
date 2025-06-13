@@ -8,7 +8,7 @@ return {
     config = function()
         vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-        vim.cmd("highlight Directory gui=bold cterm=bold")
+        -- vim.cmd("highlight Directory gui=bold")
 
         require('oil').setup({
             default_file_explorer = true,

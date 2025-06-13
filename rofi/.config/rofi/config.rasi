@@ -75,4 +75,6 @@ configuration {
 
 //@theme "/home/phatt/.config/rofi/themes/common.rasi"
 
-@theme "/home/phatt/.config/rofi/themes/i3.rasi"
+//@theme "/home/phatt/.config/rofi/themes/i3.rasi"
+
+@theme "/home/phatt/.config/rofi/themes/smaragd.rasi"

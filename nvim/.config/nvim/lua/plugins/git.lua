@@ -1,5 +1,7 @@
 return {
-    { "tpope/vim-fugitive" },
+    {
+        "tpope/vim-fugitive"
+    },
     {
         "lewis6991/gitsigns.nvim",
         config = function()
@@ -9,13 +11,13 @@ return {
     {
         "NeogitOrg/neogit",
         dependencies = {
-            "nvim-lua/plenary.nvim", -- required
-            "sindrets/diffview.nvim", -- optional - Diff integration
-            "nvim-telescope/telescope.nvim", -- optional
-            "ibhagwan/fzf-lua",     -- optional
-            "echasnovski/mini.pick", -- optional
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim",
+            "nvim-telescope/telescope.nvim",
+            "ibhagwan/fzf-lua",
+            "echasnovski/mini.pick",
         },
-        config = function ()
+        config = function()
             require("neogit").setup({})
         end,
     },

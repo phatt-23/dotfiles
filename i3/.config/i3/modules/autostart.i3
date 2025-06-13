@@ -9,9 +9,9 @@ exec --no-startup-id fc-cache -fv
 exec xset s off && xset -dpms
 
 ### custom
-# fast keypress repreating
-#         defaults are: 660 25
-exec_always xset r rate 200 30 
+# fast keypress repreating defaults are: 660 25
+# exec_always xset r rate 200 30 
+exec_always xset r rate 150 40
 # exec_always --no-startup-id xmodmap /home/phatt/.Xmodmap
 
 exec_always gsettings set org.gnome.settings-daemon.plugins.power idle-dim                       false

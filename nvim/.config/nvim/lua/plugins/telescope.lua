@@ -4,28 +4,31 @@ return {
         tag = "0.1.8",
         dependencies = { "nvim-lua/plenary.nvim" },
         config = function()
-            require("which-key").add({
-                mode = { "n", "v" },
-                { "<leader>f",  group = "telescope" },
-                { "<leader>ff", "<CMD>lua require'telescope.builtin'.find_files()<CR>", desc = "files", },
-                { "<leader>fg", "<CMD>lua require'telescope.builtin'.live_grep()<CR>",  desc = "grep" },
-                { "<leader>fb", "<CMD>lua require'telescope.builtin'.buffers()<CR>",    desc = "buffers" },
-                { "<leader>fh", "<CMD>lua require'telescope.builtin'.help_tags()<CR>",  desc = "help" },
-                { "<leader>fx", "<CMD>lua require'telescope.builtin'.resume()<CR>",     desc = "Resume" },
-            })
+            local telescope = require("telescope.builtin")
+            local mode = { "n", "v" }
+
+            vim.keymap.set(mode, "<leader>ff", telescope.find_files,    { desc = "files", })
+            vim.keymap.set(mode, "<leader>fg", telescope.live_grep,     { desc = "grep" })
+            vim.keymap.set(mode, "<leader>fb", telescope.buffers,       { desc = "buffers" })
+            vim.keymap.set(mode, "<leader>fh", telescope.help_tags,     { desc = "help" })
+            vim.keymap.set(mode, "<leader>fx", telescope.resume,        { desc = "resume" })
+            vim.keymap.set(mode, "<leader>fd", telescope.diagnostics,   { desc = "diagnostics"})
         end
     },
     {
         "nvim-telescope/telescope-ui-select.nvim",
         config = function()
-            require("telescope").setup {
+            local telescope = require("telescope")
+
+            telescope.setup({
                 extensions = {
                     ["ui-select"] = {
                         require("telescope.themes").get_dropdown()
                     }
                 }
-            }
-            require("telescope").load_extension("ui-select")
+            })
+
+            telescope.load_extension("ui-select")
         end
     },
 }

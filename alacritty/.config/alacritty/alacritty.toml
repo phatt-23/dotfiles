@@ -2,6 +2,7 @@
 import = [
     # "/usr/local/lib/node_modules/alacritty-themes/themes/Gruvbox-Dark.toml"
     # "/usr/local/lib/node_modules/alacritty-themes/themes/Gruvbox-Light.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Gruvbox-Light.toml"
     # "/usr/local/lib/node_modules/alacritty-themes/themes/Google.light.toml"
     # "/usr/local/lib/node_modules/alacritty-themes/themes/Google.dark.toml"
     # "/usr/local/lib/node_modules/alacritty-themes/themes/Zenburn.toml"
@@ -16,26 +17,28 @@ import = [
     # "./themes/themes/oxocarbon.toml"
     # "./my_themes/gruber.toml"
     # "./themes/themes/bluish.toml",
+    "./themes/themes/gruvbox_material_hard_light.toml",
+    # "./themes/themes/gruvbox_light.toml",
     # "/usr/local/lib/node_modules/alacritty-themes/themes/Hyper.toml"
     # "/usr/local/lib/node_modules/alacritty-themes/themes/Ayu-Mirage.toml"
     # "./themes/themes/hyper.toml"
     # "/usr/local/lib/node_modules/alacritty-themes/themes/Base16-Default-Dark.toml"
-    "/usr/local/lib/node_modules/alacritty-themes/themes/Tokyonight_Night.toml"
+    # "/usr/local/lib/node_modules/alacritty-themes/themes/Tokyonight_Night.toml"
 ]
 
 [terminal]
 osc52 = "CopyPaste"
 
 [window]
-opacity = 0.9
+# opacity = 0.9
 decorations = "full"
 dynamic_title = true
 dynamic_padding = true
-padding.x = 10
-padding.y = 20
+padding.x = 0
+padding.y = 0
 
 [font]
-size = 12
+size = 10.5
 
 	[font.normal]
     	# family = "JetBrainsMono Nerd Font"
@@ -43,9 +46,8 @@ size = 12
         # family = "VictorMono Nerd Font"
         # family = "IntoneMono Nerd Font"
     	# family = "M+1Code Nerd Font"
-    	# family = "GohuFont 11 Nerd Font"
     	# family = "LiterationMono Nerd Font"
-	# family = "FiraCode Nerd Font"
+	    # family = "FiraCode Nerd Font"
     	# family = "Latin Modern Mono"
     	# family = "Lilex Nerd Font"
     	# family = "SauceCodePro Nerd Font"
@@ -55,7 +57,10 @@ size = 12
     	# family = "MonaspiceKr Nerd Font Mono"
     	# family = "SauceCodePro Nerd Font"
     	# family = "CodeNewRoman Nerd Font"
-	family = "Iosevka Nerd Font Mono"
+	    # family = "Iosevka Nerd Font Mono"
+    	# family = "GohuFont 14 Nerd Font"
+	    family = "Iosevka Nerd Font"
+        # family = "BlexMono Nerd Font"
         # family = "ProggyClean CE Nerd Font"
         # family = "BigBlueTermPlus Nerd Font"
         # family = "Hurmit Nerd Font"

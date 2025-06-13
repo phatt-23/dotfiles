@@ -1,10 +1,13 @@
-use_nerdfont=true
-flip_status_indicators=true
-library_tabs=["tracks", "playlists"]
+use_nerdfont = true
+flip_status_indicators = true
+library_tabs = ["tracks", "playlists", "browse"]
 
 [theme]
-highlight_bg = "red"
+title = "yellow"
+highlight_bg = "yellow"
 highlight = "black"
+playing = "yellow"
+playing_selected = "black"
 
 [keybindings]
 "Ctrl+d" = "move down 10"
@@ -12,3 +15,7 @@ highlight = "black"
 "Shift+g" = "move bottom"
 "g" = "move top"
 "q" = "noop"
+"Ctrl+q" = "focus queue"
+"Ctrl+f" = "focus search"
+"Ctrl+l" = "focus library"
+"Ctrl+r" = "focus cover"

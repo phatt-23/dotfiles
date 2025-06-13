@@ -6,15 +6,15 @@
     bg1-t:          #282828aa;
     fg0:            #e4e4ef;
     fg1:            #f4f4f4;
-    primary-dark:   #285577;
-    primary-light:  #4C7899;
+    primary-dark:   #1F4E54;
+    primary-light:  #2A6870;
 
     radius: 0px;
     items: 10;
 }
 
 * {
-    font:             "Iosevka Nerd Font 11";
+    font:             "GohuFont 14 Nerd Font 10.5";
     text-color: 	    @fg1;
     background-color: transparent;
 }
@@ -65,7 +65,7 @@ element-icon {
 }
 
 element selected {
-    border: 2;
+    border: 1;
     background-color: @primary-dark;
     border-color: @primary-light;
 }

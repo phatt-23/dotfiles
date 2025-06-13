@@ -8,10 +8,10 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 client.background       #FFFFFF
 
 # for_window [all] title_format "%title <span foreground='#888888'><i>%class</i></span>"
-for_window [all] title_format "%title [<i>%class</i>]"
+for_window [all] title_format "%title [%class]"
 
 bar {
     position bottom
-    height 24
+    height 20
     status_command i3status -c ~/.config/i3/modules/i3status.i3
 }

@@ -1,33 +1,41 @@
 return {
-    "kristijanhusak/vim-dadbod-ui",
+    'kristijanhusak/vim-dadbod-ui',
     dependencies = {
-        "kndndrj/nvim-dbee",
-        "MunifTanjim/nui.nvim",
-        "kristijanhusak/vim-dadbod-completion",
-        "tpope/vim-dadbod",
+        {
+            'tpope/vim-dadbod',
+            lazy = true
+        },
+        {
+            'kristijanhusak/vim-dadbod-completion',
+            ft = { 'sql', 'mysql', 'plsql', 'psql' },
+            lazy = true
+        }, -- Optional
     },
-    build = function()
-        require("dbee").install()
-    end,
-    config = function()
+    cmd = {
+        'DBUI',
+        'DBUIToggle',
+        'DBUIAddConnection',
+        'DBUIFindBuffer',
+    },
+    init = function()
+        -- Your DBUI configuration
         vim.g.db_ui_use_nerd_fonts = 1
-        require("dbee").setup()
 
-        -- database connections
-        require("lspconfig").sqls.setup({
-            on_attach = function(client, bufnr)
-                require("sqls").on_attach(client, bufnr) -- require sqls.nvim
+        -- autocmd FileType sql,mysql,plsql
+        -- lua require('cmp').setup.buffer({
+        -- sources = {{ name = 'vim-dadbod-completion' }} })
+
+        local cmp = require("cmp")
+
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = { "sql", "mysql", "plsql" },
+            callback = function()
+                cmp.setup.buffer {
+                    sources = {
+                        { name = 'vim-dadbod-completion' }
+                    }
+                }
             end,
-            settings = {
-                sqls = {
-                    connections = {
-                        {
-                            driver = "mysql",
-                            dataSourceName = "mysql://airbnb-user:1234@localhost/airbnb?sslmode=disable",
-                        },
-                    },
-                },
-            },
         })
     end,
 }
